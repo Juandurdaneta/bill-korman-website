@@ -48,7 +48,7 @@ export default function ServiceComparison() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-[#ff8c1a] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Quick Comparison
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -67,7 +67,7 @@ export default function ServiceComparison() {
           >
             <thead>
               <tr className="border-b border-white/10">
-                <th className="py-4 px-6 text-left text-[#8686a0] font-medium"></th>
+                <th className="py-4 px-6 text-left text-[#888888] font-medium"></th>
                 {services.map((service, index) => (
                   <th
                     key={index}
@@ -76,7 +76,7 @@ export default function ServiceComparison() {
                     }`}
                   >
                     {service.highlighted && (
-                      <span className="text-[#ff8c1a] text-xs font-bold uppercase tracking-wider">
+                      <span className="text-[#2ecc71] text-xs font-bold uppercase tracking-wider">
                         Most Popular
                       </span>
                     )}
@@ -87,7 +87,7 @@ export default function ServiceComparison() {
             </thead>
             <tbody>
               <tr className="border-b border-white/5">
-                <td className="py-4 px-6 text-[#8686a0]">Best For</td>
+                <td className="py-4 px-6 text-[#888888]">Best For</td>
                 {services.map((service, index) => (
                   <td
                     key={index}
@@ -100,7 +100,7 @@ export default function ServiceComparison() {
                 ))}
               </tr>
               <tr className="border-b border-white/5">
-                <td className="py-4 px-6 text-[#8686a0]">Timeline</td>
+                <td className="py-4 px-6 text-[#888888]">Timeline</td>
                 {services.map((service, index) => (
                   <td
                     key={index}
@@ -113,7 +113,7 @@ export default function ServiceComparison() {
                 ))}
               </tr>
               <tr className="border-b border-white/5">
-                <td className="py-4 px-6 text-[#8686a0]">Interaction</td>
+                <td className="py-4 px-6 text-[#888888]">Interaction</td>
                 {services.map((service, index) => (
                   <td
                     key={index}
@@ -126,7 +126,7 @@ export default function ServiceComparison() {
                 ))}
               </tr>
               <tr className="border-b border-white/5">
-                <td className="py-4 px-6 text-[#8686a0]">Customization</td>
+                <td className="py-4 px-6 text-[#888888]">Customization</td>
                 {services.map((service, index) => (
                   <td
                     key={index}
@@ -139,7 +139,7 @@ export default function ServiceComparison() {
                 ))}
               </tr>
               <tr className="border-b border-white/5">
-                <td className="py-4 px-6 text-[#8686a0]">Investment</td>
+                <td className="py-4 px-6 text-[#888888]">Investment</td>
                 {services.map((service, index) => (
                   <td
                     key={index}
@@ -147,12 +147,12 @@ export default function ServiceComparison() {
                       service.highlighted ? 'bg-[#1a4d7a]/10' : ''
                     }`}
                   >
-                    <span className="text-2xl font-bold text-[#ff8c1a]">{service.investment}</span>
+                    <span className="text-2xl font-bold text-[#2ecc71]">{service.investment}</span>
                   </td>
                 ))}
               </tr>
               <tr>
-                <td className="py-4 px-6 text-[#8686a0]">Availability</td>
+                <td className="py-4 px-6 text-[#888888]">Availability</td>
                 {services.map((service, index) => (
                   <td
                     key={index}
@@ -175,8 +175,8 @@ export default function ServiceComparison() {
               key={index}
               className={`p-6 rounded-2xl border ${
                 service.highlighted
-                  ? 'bg-gradient-to-br from-[#1a4d7a]/30 to-[#121218] border-[#2a7ab8]/30'
-                  : 'bg-[#0a0a0f] border-white/5'
+                  ? 'bg-gradient-to-br from-[#1a4d7a]/30 to-[#121218] border-[#5dade2]/30'
+                  : 'bg-[#000000] border-white/5'
               }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -184,23 +184,23 @@ export default function ServiceComparison() {
               transition={{ delay: index * 0.1 }}
             >
               {service.highlighted && (
-                <span className="text-[#ff8c1a] text-xs font-bold uppercase tracking-wider">
+                <span className="text-[#2ecc71] text-xs font-bold uppercase tracking-wider">
                   Most Popular
                 </span>
               )}
               <h3 className="text-xl font-bold text-white mt-2 mb-4">{service.name}</h3>
-              <div className="text-3xl font-bold text-[#ff8c1a] mb-4">{service.investment}</div>
+              <div className="text-3xl font-bold text-[#2ecc71] mb-4">{service.investment}</div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-[#8686a0]">Best For</span>
+                  <span className="text-[#888888]">Best For</span>
                   <span className="text-[#d0d0dd] text-right max-w-[60%]">{service.bestFor}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8686a0]">Timeline</span>
+                  <span className="text-[#888888]">Timeline</span>
                   <span className="text-white font-medium">{service.timeline}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8686a0]">Availability</span>
+                  <span className="text-[#888888]">Availability</span>
                   <span className="text-[#d0d0dd]">{service.availability}</span>
                 </div>
               </div>

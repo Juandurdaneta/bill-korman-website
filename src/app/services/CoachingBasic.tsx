@@ -18,8 +18,8 @@ export default function CoachingBasic() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-gradient-to-br from-[#1e1e26] to-[#0a0a0f] rounded-3xl p-8 md:p-10 border border-white/5">
-              <span className="text-xs uppercase tracking-wider text-[#4a9ad8] font-semibold">
+            <div className="bg-gradient-to-br from-[#141414] to-[#000000] rounded-3xl p-8 md:p-10 border border-white/5">
+              <span className="text-xs uppercase tracking-wider text-[#85c1e9] font-semibold">
                 6-Month Program
               </span>
               
@@ -27,10 +27,10 @@ export default function CoachingBasic() {
               
               <div className="flex items-baseline gap-2 mb-6">
                 <span className="text-5xl font-bold text-white">$15,000</span>
-                <span className="text-[#8686a0]">/ program</span>
+                <span className="text-[#888888]">/ program</span>
               </div>
 
-              <p className="text-[#ababbe] mb-6 leading-relaxed">
+              <p className="text-[#aaaaaa] mb-6 leading-relaxed">
                 Weekly 1:1 coaching over 6 months. Same proven framework, structured implementation, 
                 with focused weekly sessions to ensure consistent progress.
               </p>
@@ -42,7 +42,7 @@ export default function CoachingBasic() {
                   { icon: FileText, text: 'Full framework & implementation tools' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3 text-[#d0d0dd]">
-                    <item.icon className="w-5 h-5 text-[#4a9ad8]" />
+                    <item.icon className="w-5 h-5 text-[#85c1e9]" />
                     {item.text}
                   </div>
                 ))}
@@ -65,7 +65,7 @@ export default function CoachingBasic() {
               Steady Progress. Consistent Results.
             </h2>
 
-            <p className="text-[#ababbe] text-lg leading-relaxed mb-8">
+            <p className="text-[#aaaaaa] text-lg leading-relaxed mb-8">
               Not everyone needs the intensive 90-day program. If you prefer a more measured pace 
               with consistent weekly guidance, the 6-month program gives you the same powerful 
               framework with structured implementation over time.
@@ -80,7 +80,7 @@ export default function CoachingBasic() {
                 'You want the full framework without the intensive pace',
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#ff8c1a] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}

@@ -35,7 +35,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 bg-[#0a0a0f] overflow-hidden">
+    <section className="relative py-24 bg-[#000000] overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -43,7 +43,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-[#ff8c1a] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Got Questions?
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -55,7 +55,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="rounded-2xl bg-[#1e1e26] border border-white/5 overflow-hidden"
+              className="rounded-2xl bg-[#141414] border border-white/5 overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -70,7 +70,7 @@ export default function FAQ() {
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ChevronDown className="w-5 h-5 text-[#8686a0] flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-[#888888] flex-shrink-0" />
                 </motion.div>
               </button>
 
@@ -82,7 +82,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-5 text-[#ababbe] leading-relaxed">
+                    <div className="px-6 pb-5 text-[#aaaaaa] leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

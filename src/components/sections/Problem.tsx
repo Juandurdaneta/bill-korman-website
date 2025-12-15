@@ -27,10 +27,10 @@ const painPoints = [
 
 export default function Problem() {
   return (
-    <section className="relative py-24 bg-[#0a0a0f] overflow-hidden">
+    <section className="relative py-24 bg-[#000000] overflow-hidden">
       {/* Background accents */}
-      <GlowingOrb color="#ff8c1a" size={400} className="left-0 top-1/4" delay={0} blur={150} />
-      <GlowingOrb color="#1f5f94" size={300} className="right-1/4 bottom-1/4" delay={1} blur={120} />
+      <GlowingOrb color="#2ecc71" size={400} className="left-0 top-1/4" delay={0} blur={150} />
+      <GlowingOrb color="#3498db" size={300} className="right-1/4 bottom-1/4" delay={1} blur={120} />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
@@ -55,8 +55,8 @@ export default function Problem() {
                 borderColor="rgba(255, 255, 255, 0.05)"
               >
                 <div className="flex items-start gap-4 p-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#ff8c1a]/10 flex items-center justify-center flex-shrink-0">
-                    <point.icon className="w-6 h-6 text-[#ff8c1a]" />
+                  <div className="w-12 h-12 rounded-xl bg-[#2ecc71]/10 flex items-center justify-center flex-shrink-0">
+                    <point.icon className="w-6 h-6 text-[#2ecc71]" />
                   </div>
                   <p className="text-[#d0d0dd] text-lg leading-relaxed">{point.text}</p>
                 </div>
@@ -67,23 +67,23 @@ export default function Problem() {
 
         {/* Call out box */}
         <motion.div
-          className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#1a4d7a]/20 to-[#1f5f94]/10 border border-[#2a7ab8]/20"
+          className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#1a4d7a]/20 to-[#3498db]/10 border border-[#5dade2]/20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#1f5f94]/20 flex items-center justify-center flex-shrink-0">
-              <AlertTriangle className="w-6 h-6 text-[#4a9ad8]" />
+            <div className="w-12 h-12 rounded-xl bg-[#3498db]/20 flex items-center justify-center flex-shrink-0">
+              <AlertTriangle className="w-6 h-6 text-[#85c1e9]" />
             </div>
             <div>
               <p className="text-xl text-white font-semibold mb-2">
                 You know you&apos;re capable of more.
               </p>
-              <p className="text-[#ababbe] leading-relaxed">
+              <p className="text-[#aaaaaa] leading-relaxed">
                 You just don&apos;t have a system. And here&apos;s what nobody tells you about scaling: 
-                <span className="text-[#ff8c1a] font-semibold"> More revenue doesn&apos;t give you more time. It gives you more chaos.</span>
+                <span className="text-[#2ecc71] font-semibold"> More revenue doesn&apos;t give you more time. It gives you more chaos.</span>
               </p>
             </div>
           </div>

@@ -50,7 +50,7 @@ export default function Myths() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <div className="grid md:grid-cols-2 gap-4 md:gap-0 p-6 md:p-0 rounded-2xl bg-[#1e1e26]/50 md:bg-transparent">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-0 p-6 md:p-0 rounded-2xl bg-[#141414]/50 md:bg-transparent">
                 {/* The Lie */}
                 <div className="md:p-6 md:border-r border-white/5">
                   <div className="flex items-start gap-3">
@@ -69,16 +69,16 @@ export default function Myths() {
                 </div>
 
                 {/* The Truth */}
-                <div className="md:p-6 md:bg-[#1e1e26]/30 md:group-hover:bg-[#1f5f94]/10 transition-colors rounded-r-2xl">
+                <div className="md:p-6 md:bg-[#141414]/30 md:group-hover:bg-[#3498db]/10 transition-colors rounded-r-2xl">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#ff8c1a]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-4 h-4 text-[#ff8c1a]" />
+                    <div className="w-8 h-8 rounded-full bg-[#2ecc71]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-4 h-4 text-[#2ecc71]" />
                     </div>
                     <div>
-                      <span className="text-xs uppercase tracking-wider text-[#ff8c1a] font-semibold mb-2 block">
+                      <span className="text-xs uppercase tracking-wider text-[#2ecc71] font-semibold mb-2 block">
                         Truth
                       </span>
-                      <p className="text-[#ababbe] leading-relaxed">
+                      <p className="text-[#aaaaaa] leading-relaxed">
                         {myth.truth}
                       </p>
                     </div>

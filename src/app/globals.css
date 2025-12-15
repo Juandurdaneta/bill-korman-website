@@ -1,44 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
 
-/* 168 Game Brand Colors */
+/* 168 Game Brand Colors - Matching Book Cover */
 :root {
-  /* Primary - Bold Blue from book cover */
-  --primary-900: #0a1628;
-  --primary-800: #0f2744;
-  --primary-700: #153a5f;
-  --primary-600: #1a4d7a;
-  --primary-500: #1f5f94;
-  --primary-400: #2a7ab8;
-  --primary-300: #4a9ad8;
-  --primary-200: #7bbae8;
-  --primary-100: #b8daf5;
-  --primary-50: #e8f4fc;
+  /* Primary - Bright Cyan Blue from "168 GAME" text */
+  --primary-900: #0a2e4a;
+  --primary-800: #0d3d63;
+  --primary-700: #115580;
+  --primary-600: #1a6fa3;
+  --primary-500: #3498db;
+  --primary-400: #5dade2;
+  --primary-300: #85c1e9;
+  --primary-200: #aed6f1;
+  --primary-100: #d6eaf8;
+  --primary-50: #ebf5fb;
 
-  /* Accent - Orange/Gold from book accents */
-  --accent-900: #7a3d00;
-  --accent-800: #a85200;
-  --accent-700: #d66800;
-  --accent-600: #f07800;
-  --accent-500: #ff8c1a;
-  --accent-400: #ffa040;
-  --accent-300: #ffb366;
-  --accent-200: #ffc999;
-  --accent-100: #ffe0cc;
-  --accent-50: #fff5eb;
+  /* Accent - Green from clock graphic */
+  --accent-900: #145a32;
+  --accent-800: #1e8449;
+  --accent-700: #27ae60;
+  --accent-600: #2ecc71;
+  --accent-500: #58d68d;
+  --accent-400: #82e0aa;
+  --accent-300: #abebc6;
+  --accent-200: #d5f5e3;
+  --accent-100: #e9f7ef;
+  --accent-50: #f4fbf7;
 
-  /* Neutrals */
-  --neutral-950: #0a0a0f;
-  --neutral-900: #121218;
-  --neutral-800: #1e1e26;
-  --neutral-700: #2d2d38;
-  --neutral-600: #44445a;
-  --neutral-500: #62627d;
-  --neutral-400: #8686a0;
-  --neutral-300: #ababbe;
-  --neutral-200: #d0d0dd;
-  --neutral-100: #ebebf0;
-  --neutral-50: #f8f8fa;
+  /* Secondary - Gold/Cream from author name */
+  --gold-900: #7d6608;
+  --gold-800: #9a7b0a;
+  --gold-700: #b7950b;
+  --gold-600: #d4ac0d;
+  --gold-500: #f1c40f;
+  --gold-400: #f4d03f;
+  --gold-300: #f7dc6f;
+  --gold-200: #fae5a0;
+  --gold-100: #fcf3cf;
+  --gold-50: #fef9e7;
+
+  /* Neutrals - Pure black base */
+  --neutral-950: #000000;
+  --neutral-900: #0a0a0a;
+  --neutral-800: #141414;
+  --neutral-700: #1f1f1f;
+  --neutral-600: #333333;
+  --neutral-500: #555555;
+  --neutral-400: #888888;
+  --neutral-300: #aaaaaa;
+  --neutral-200: #cccccc;
+  --neutral-100: #e5e5e5;
+  --neutral-50: #f5f5f5;
 
   --background: var(--neutral-950);
   --foreground: var(--neutral-50);
@@ -55,6 +67,9 @@
   --color-accent: var(--accent-500);
   --color-accent-dark: var(--accent-700);
   --color-accent-light: var(--accent-300);
+  --color-gold: var(--gold-500);
+  --color-gold-dark: var(--gold-700);
+  --color-gold-light: var(--gold-300);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
 }
@@ -110,7 +125,7 @@ h1, h2, h3, .display-font {
 
 /* Glass effect */
 .glass {
-  background: rgba(30, 30, 38, 0.7);
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -129,11 +144,15 @@ h1, h2, h3, .display-font {
 
 /* Glow effects */
 .glow-primary {
-  box-shadow: 0 0 40px rgba(42, 122, 184, 0.3);
+  box-shadow: 0 0 40px rgba(52, 152, 219, 0.4);
 }
 
 .glow-accent {
-  box-shadow: 0 0 40px rgba(255, 140, 26, 0.3);
+  box-shadow: 0 0 40px rgba(46, 204, 113, 0.4);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px rgba(241, 196, 15, 0.4);
 }
 
 /* Button styles */
@@ -163,7 +182,7 @@ h1, h2, h3, .display-font {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(42, 122, 184, 0.4);
+  box-shadow: 0 10px 40px rgba(52, 152, 219, 0.5);
 }
 
 .btn-accent {
@@ -177,7 +196,21 @@ h1, h2, h3, .display-font {
 
 .btn-accent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(255, 140, 26, 0.4);
+  box-shadow: 0 10px 40px rgba(46, 204, 113, 0.5);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-600) 100%);
+  color: var(--neutral-950);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(241, 196, 15, 0.5);
 }
 
 /* Card styles */
@@ -201,9 +234,9 @@ h1, h2, h3, .display-font {
 
 /* Animated background grid */
 .bg-grid {
-  background-image: 
-    linear-gradient(rgba(42, 122, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42, 122, 184, 0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(52, 152, 219, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 152, 219, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 

@@ -14,8 +14,8 @@ const benefits = [
 
 export default function GroupTraining() {
   return (
-    <section id="group" className="relative py-24 bg-[#0a0a0f] overflow-hidden">
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] bg-gradient-to-l from-[#ff8c1a]/5 to-transparent rounded-l-full blur-3xl" />
+    <section id="group" className="relative py-24 bg-[#000000] overflow-hidden">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] bg-gradient-to-l from-[#2ecc71]/5 to-transparent rounded-l-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -26,22 +26,22 @@ export default function GroupTraining() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1f5f94]/20 border border-[#2a7ab8]/30 mb-6">
-              <Users className="w-4 h-4 text-[#4a9ad8]" />
-              <span className="text-sm text-[#4a9ad8] font-medium">Team Transformation</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3498db]/20 border border-[#5dade2]/30 mb-6">
+              <Users className="w-4 h-4 text-[#85c1e9]" />
+              <span className="text-sm text-[#85c1e9] font-medium">Team Transformation</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Organizational Training
             </h2>
 
-            <p className="text-xl text-[#ababbe] mb-6 leading-relaxed">
+            <p className="text-xl text-[#aaaaaa] mb-6 leading-relaxed">
               Your Team Is Maxed Out. Productivity Is Tanking. Burnout Is Costing You Millions.
             </p>
 
-            <div className="p-6 rounded-2xl bg-[#1e1e26] border border-white/5 mb-8">
+            <div className="p-6 rounded-2xl bg-[#141414] border border-white/5 mb-8">
               <h3 className="text-lg font-semibold text-white mb-4">THE CRISIS YOU&apos;RE MANAGING:</h3>
-              <ul className="space-y-3 text-[#8686a0]">
+              <ul className="space-y-3 text-[#888888]">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 flex-shrink-0" />
                   Productivity is down even though everyone&apos;s &ldquo;busy&rdquo;
@@ -58,13 +58,13 @@ export default function GroupTraining() {
             </div>
 
             <h3 className="text-xl font-semibold text-white mb-4">WHAT ORGANIZATIONAL TRAINING DELIVERS:</h3>
-            <p className="text-[#ababbe] mb-6">
+            <p className="text-[#aaaaaa] mb-6">
               This isn&apos;t a one-day seminar that everyone forgets by Tuesday. This is a complete cultural transformation.
             </p>
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#ff8c1a] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
                   {benefit}
                 </li>
               ))}
@@ -79,8 +79,8 @@ export default function GroupTraining() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-gradient-to-br from-[#1e1e26] to-[#121218] rounded-3xl p-8 md:p-10 border border-white/5">
-              <span className="text-xs uppercase tracking-wider text-[#ff8c1a] font-semibold">
+            <div className="bg-gradient-to-br from-[#141414] to-[#121218] rounded-3xl p-8 md:p-10 border border-white/5">
+              <span className="text-xs uppercase tracking-wider text-[#2ecc71] font-semibold">
                 Team Program
               </span>
 
@@ -88,10 +88,10 @@ export default function GroupTraining() {
 
               <div className="flex items-baseline gap-2 mb-6">
                 <span className="text-5xl font-bold text-white">$7,500</span>
-                <span className="text-[#8686a0]">/ team</span>
+                <span className="text-[#888888]">/ team</span>
               </div>
 
-              <p className="text-[#ababbe] mb-6 leading-relaxed">
+              <p className="text-[#aaaaaa] mb-6 leading-relaxed">
                 Scale time ownership across your entire team. Custom company-wide implementation 
                 with measurable improvements in productivity, retention, and output.
               </p>
@@ -104,7 +104,7 @@ export default function GroupTraining() {
                   { icon: TrendingUp, text: 'Measurable ROI tracking' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3 text-[#d0d0dd]">
-                    <item.icon className="w-5 h-5 text-[#4a9ad8]" />
+                    <item.icon className="w-5 h-5 text-[#85c1e9]" />
                     {item.text}
                   </div>
                 ))}
@@ -114,8 +114,8 @@ export default function GroupTraining() {
                 Schedule Free Consultation
               </Button>
 
-              <p className="text-center text-[#62627d] text-sm">
-                <span className="text-[#ff8c1a] font-semibold">Limited:</span> 2 organizations per quarter
+              <p className="text-center text-[#555555] text-sm">
+                <span className="text-[#2ecc71] font-semibold">Limited:</span> 2 organizations per quarter
               </p>
             </div>
           </motion.div>

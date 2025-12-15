@@ -14,7 +14,7 @@ const pillars = [
     title: 'Complete Visibility',
     subtitle: 'Family',
     description: 'You can\'t fix what you can\'t see. We track every hour to find where time actually goes versus where you think it goes. The gap is usually shocking.',
-    color: '#4a9ad8',
+    color: '#85c1e9',
   },
   {
     icon: Heart,
@@ -22,7 +22,7 @@ const pillars = [
     title: 'Energy Mapping',
     subtitle: 'Faith',
     description: 'Not all hours are equal. We identify when you\'re at peak performance and when you\'re running on fumes, then design your week accordingly.',
-    color: '#ff8c1a',
+    color: '#2ecc71',
   },
   {
     icon: DollarSign,
@@ -30,7 +30,7 @@ const pillars = [
     title: 'Revenue Forensics',
     subtitle: 'Finance',
     description: 'We analyze which activities directly generate income and which ones just feel important. Then we eliminate the waste ruthlessly.',
-    color: '#4a9ad8',
+    color: '#85c1e9',
   },
   {
     icon: Compass,
@@ -38,18 +38,18 @@ const pillars = [
     title: 'Strategic Architecture',
     subtitle: 'Fitness',
     description: 'We rebuild your entire 168-hour week around what actually creates revenue, impact, and the freedom you started this for.',
-    color: '#ff8c1a',
+    color: '#2ecc71',
   },
 ];
 
 export default function TheSystem() {
   return (
-    <section className="relative py-24 bg-[#0a0a0f] overflow-hidden">
+    <section className="relative py-24 bg-[#000000] overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0">
         <FloatingParticles count={30} speed={0.2} />
-        <GlowingOrb color="#1f5f94" size={500} className="top-1/4 left-0" delay={0} />
-        <GlowingOrb color="#ff8c1a" size={400} className="bottom-1/4 right-0" delay={1.5} />
+        <GlowingOrb color="#3498db" size={500} className="top-1/4 left-0" delay={0} />
+        <GlowingOrb color="#2ecc71" size={400} className="bottom-1/4 right-0" delay={1.5} />
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ export default function TheSystem() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#ababbe] text-lg leading-relaxed">
+          <p className="text-[#aaaaaa] text-lg leading-relaxed">
             Bill created The 168 Game after 20 years as a Navy Chief Officer and building multiple 7-figure businesses. 
             When you&apos;re running an agency, co-founding multiple ventures, leading teams, and still trying to have a life, 
             you figure out real fast: <span className="text-white font-semibold">Time isn&apos;t the problem. Architecture is.</span>
@@ -112,7 +112,7 @@ export default function TheSystem() {
                       </div>
                     </div>
 
-                    <p className="text-[#8686a0] leading-relaxed">
+                    <p className="text-[#888888] leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
@@ -130,8 +130,8 @@ export default function TheSystem() {
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.6 }}
         >
-          <p className="text-[#ababbe] text-lg mb-6">
-            This is the system Bill uses daily. It&apos;s what he&apos;s taught to <span className="text-[#ff8c1a] font-semibold">10,000+ entrepreneurs</span> who&apos;ve 
+          <p className="text-[#aaaaaa] text-lg mb-6">
+            This is the system Bill uses daily. It&apos;s what he&apos;s taught to <span className="text-[#2ecc71] font-semibold">10,000+ entrepreneurs</span> who&apos;ve 
             reclaimed thousands of hours and scaled past ceilings they thought were permanent.
           </p>
         </motion.div>

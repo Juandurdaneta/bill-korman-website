@@ -27,9 +27,9 @@ export default function Button({
   const baseStyles = 'inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer';
   
   const variants = {
-    primary: 'bg-gradient-to-br from-[#1f5f94] to-[#1a4d7a] text-white hover:from-[#2a7ab8] hover:to-[#1f5f94] hover:shadow-[0_10px_40px_rgba(42,122,184,0.4)]',
-    accent: 'bg-gradient-to-br from-[#ff8c1a] to-[#f07800] text-[#0a0a0f] hover:from-[#ffa040] hover:to-[#ff8c1a] hover:shadow-[0_10px_40px_rgba(255,140,26,0.4)]',
-    outline: 'bg-transparent border-2 border-[#2a7ab8] text-[#4a9ad8] hover:bg-[#2a7ab8]/10 hover:border-[#4a9ad8]',
+    primary: 'bg-gradient-to-br from-[#3498db] to-[#1a6fa3] text-white hover:from-[#5dade2] hover:to-[#3498db] hover:shadow-[0_10px_40px_rgba(52,152,219,0.4)]',
+    accent: 'bg-gradient-to-br from-[#2ecc71] to-[#27ae60] text-black hover:from-[#58d68d] hover:to-[#2ecc71] hover:shadow-[0_10px_40px_rgba(46,204,113,0.4)]',
+    outline: 'bg-transparent border-2 border-[#5dade2] text-[#85c1e9] hover:bg-[#5dade2]/10 hover:border-[#85c1e9]',
   };
 
   const sizes = {

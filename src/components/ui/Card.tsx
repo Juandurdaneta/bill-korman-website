@@ -24,8 +24,8 @@ export default function Card({
   
   const variants = {
     default: 'bg-[#121218] border border-white/5 hover:border-white/10',
-    featured: 'bg-gradient-to-br from-[#1a4d7a]/20 to-[#121218] border border-[#2a7ab8]/20 hover:border-[#2a7ab8]/40',
-    numbered: 'bg-[#121218] border border-white/5 hover:border-[#ff8c1a]/30',
+    featured: 'bg-gradient-to-br from-[#1a4d7a]/20 to-[#121218] border border-[#5dade2]/20 hover:border-[#5dade2]/40',
+    numbered: 'bg-[#121218] border border-white/5 hover:border-[#2ecc71]/30',
   };
 
   return (
@@ -39,17 +39,17 @@ export default function Card({
     >
       <div className="flex flex-col gap-4">
         {variant === 'numbered' && number !== undefined && (
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff8c1a] to-[#f07800] flex items-center justify-center text-[#0a0a0f] font-bold text-xl">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2ecc71] to-[#27ae60] flex items-center justify-center text-[#000000] font-bold text-xl">
             {number}
           </div>
         )}
         {Icon && variant !== 'numbered' && (
-          <div className="w-14 h-14 rounded-xl bg-[#1f5f94]/20 flex items-center justify-center">
-            <Icon className="w-7 h-7 text-[#4a9ad8]" />
+          <div className="w-14 h-14 rounded-xl bg-[#3498db]/20 flex items-center justify-center">
+            <Icon className="w-7 h-7 text-[#85c1e9]" />
           </div>
         )}
         <h3 className="text-xl md:text-2xl font-bold text-white">{title}</h3>
-        <p className="text-[#ababbe] leading-relaxed">{description}</p>
+        <p className="text-[#aaaaaa] leading-relaxed">{description}</p>
       </div>
     </motion.div>
   );

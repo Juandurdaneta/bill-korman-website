@@ -36,7 +36,7 @@ export default function WhoIsThisFor() {
         <div className="mt-16 grid md:grid-cols-2 gap-8">
           {/* NOT For */}
           <motion.div
-            className="p-8 rounded-2xl bg-[#0a0a0f] border border-red-500/20"
+            className="p-8 rounded-2xl bg-[#000000] border border-red-500/20"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -60,7 +60,7 @@ export default function WhoIsThisFor() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-[#8686a0]">{item}</span>
+                  <span className="text-[#888888]">{item}</span>
                 </motion.li>
               ))}
             </ul>
@@ -68,15 +68,15 @@ export default function WhoIsThisFor() {
 
           {/* IS For */}
           <motion.div
-            className="p-8 rounded-2xl bg-gradient-to-br from-[#1a4d7a]/20 to-[#0a0a0f] border border-[#2a7ab8]/20"
+            className="p-8 rounded-2xl bg-gradient-to-br from-[#1a4d7a]/20 to-[#000000] border border-[#5dade2]/20"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-[#ff8c1a]/20 flex items-center justify-center">
-                <Check className="w-5 h-5 text-[#ff8c1a]" />
+              <div className="w-10 h-10 rounded-full bg-[#2ecc71]/20 flex items-center justify-center">
+                <Check className="w-5 h-5 text-[#2ecc71]" />
               </div>
               <h3 className="text-xl font-bold text-white">This IS for you if:</h3>
             </div>
@@ -91,7 +91,7 @@ export default function WhoIsThisFor() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Check className="w-5 h-5 text-[#ff8c1a] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
                   <span className="text-[#d0d0dd]">{item}</span>
                 </motion.li>
               ))}
@@ -106,7 +106,7 @@ export default function WhoIsThisFor() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-[#ababbe] text-lg mb-6">
+          <p className="text-[#aaaaaa] text-lg mb-6">
             If the right column describes you, download the playbook and let&apos;s get started.
           </p>
           <Button href="#playbook" variant="accent" size="lg" showArrow>

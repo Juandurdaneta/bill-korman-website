@@ -14,7 +14,7 @@ const costs = [
 export default function ServicesCTA() {
   return (
     <section className="relative py-24 bg-[#121218] overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1f5f94]/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#3498db]/10 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-grid opacity-20" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -24,7 +24,7 @@ export default function ServicesCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-[#ff8c1a] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Time Is Running Out
           </span>
 
@@ -32,7 +32,7 @@ export default function ServicesCTA() {
             You&apos;ve Waited Long Enough. It&apos;s Time To Take Back Your 168 Hours.
           </h2>
 
-          <p className="text-[#ababbe] text-lg leading-relaxed mb-10">
+          <p className="text-[#aaaaaa] text-lg leading-relaxed mb-10">
             Every week you operate without a system is another week of:
           </p>
 
@@ -40,14 +40,14 @@ export default function ServicesCTA() {
             {costs.map((cost, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-3 p-4 rounded-xl bg-[#0a0a0f]/50 border border-white/5 text-left"
+                className="flex items-center gap-3 p-4 rounded-xl bg-[#000000]/50 border border-white/5 text-left"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
                 <cost.icon className="w-5 h-5 text-red-400 flex-shrink-0" />
-                <span className="text-[#8686a0] text-sm">{cost.text}</span>
+                <span className="text-[#888888] text-sm">{cost.text}</span>
               </motion.div>
             ))}
           </div>
@@ -77,7 +77,7 @@ export default function ServicesCTA() {
             </Button>
           </motion.div>
 
-          <p className="mt-6 text-[#62627d] text-sm">
+          <p className="mt-6 text-[#555555] text-sm">
             Not sure which path? Book a free 30-minute consultation and I&apos;ll help you figure out 
             which option makes the most sense for where you are.
           </p>

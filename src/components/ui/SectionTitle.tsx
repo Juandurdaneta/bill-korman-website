@@ -31,7 +31,7 @@ export default function SectionTitle({
       transition={{ duration: 0.6 }}
     >
       {eyebrow && (
-        <span className="text-[#ff8c1a] font-semibold text-sm uppercase tracking-widest">
+        <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest">
           {eyebrow}
         </span>
       )}
@@ -39,7 +39,7 @@ export default function SectionTitle({
         {animateTitle ? <BlurText delay={0.2}>{title}</BlurText> : title}
       </h2>
       {subtitle && (
-        <p className="text-lg md:text-xl text-[#ababbe] max-w-3xl leading-relaxed">
+        <p className="text-lg md:text-xl text-[#aaaaaa] max-w-3xl leading-relaxed">
           {subtitle}
         </p>
       )}

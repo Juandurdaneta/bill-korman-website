@@ -37,9 +37,9 @@ const services = [
 
 export default function ServicesPreview() {
   return (
-    <section className="relative py-24 bg-[#0a0a0f] overflow-hidden">
+    <section className="relative py-24 bg-[#000000] overflow-hidden">
       {/* Background elements */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#1f5f94]/10 rounded-full blur-[150px]" />
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#3498db]/10 rounded-full blur-[150px]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
@@ -54,7 +54,7 @@ export default function ServicesPreview() {
               key={index}
               className={`relative p-8 rounded-2xl border transition-all duration-300 ${
                 service.highlight
-                  ? 'bg-gradient-to-br from-[#1a4d7a]/30 to-[#121218] border-[#2a7ab8]/30 hover:border-[#2a7ab8]/50'
+                  ? 'bg-gradient-to-br from-[#1a4d7a]/30 to-[#121218] border-[#5dade2]/30 hover:border-[#5dade2]/50'
                   : 'bg-[#121218] border-white/5 hover:border-white/10'
               }`}
               initial={{ opacity: 0, y: 30 }}
@@ -63,29 +63,29 @@ export default function ServicesPreview() {
               transition={{ delay: index * 0.15, duration: 0.6 }}
             >
               {service.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#ff8c1a] to-[#f07800] rounded-full text-xs font-bold text-[#0a0a0f]">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#2ecc71] to-[#27ae60] rounded-full text-xs font-bold text-[#000000]">
                   MOST POPULAR
                 </div>
               )}
 
-              <div className="w-14 h-14 rounded-xl bg-[#1f5f94]/20 flex items-center justify-center mb-6">
-                <service.icon className="w-7 h-7 text-[#4a9ad8]" />
+              <div className="w-14 h-14 rounded-xl bg-[#3498db]/20 flex items-center justify-center mb-6">
+                <service.icon className="w-7 h-7 text-[#85c1e9]" />
               </div>
 
               <div className="mb-4">
-                <span className="text-xs uppercase tracking-wider text-[#ff8c1a]">{service.subtitle}</span>
+                <span className="text-xs uppercase tracking-wider text-[#2ecc71]">{service.subtitle}</span>
                 <h3 className="text-xl font-bold text-white mt-1">{service.title}</h3>
               </div>
 
-              <p className="text-[#8686a0] leading-relaxed mb-4">{service.description}</p>
+              <p className="text-[#888888] leading-relaxed mb-4">{service.description}</p>
 
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-2xl font-bold text-white">{service.price}</span>
               </div>
 
               <div className="pt-4 border-t border-white/5">
-                <p className="text-sm text-[#62627d]">
-                  <span className="text-[#ababbe]">Best for:</span> {service.bestFor}
+                <p className="text-sm text-[#555555]">
+                  <span className="text-[#aaaaaa]">Best for:</span> {service.bestFor}
                 </p>
               </div>
             </motion.div>

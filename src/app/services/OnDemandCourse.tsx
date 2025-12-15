@@ -29,14 +29,14 @@ export default function OnDemandCourse() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-gradient-to-br from-[#1e1e26] to-[#0a0a0f] rounded-3xl p-8 md:p-10 border border-white/5 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#141414] to-[#000000] rounded-3xl p-8 md:p-10 border border-white/5 relative overflow-hidden">
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#4a9ad8]/10 to-transparent" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#85c1e9]/10 to-transparent" />
 
               <div className="relative">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1f5f94]/20 mb-4">
-                  <GraduationCap className="w-4 h-4 text-[#4a9ad8]" />
-                  <span className="text-xs text-[#4a9ad8] font-medium">Self-Paced Learning</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3498db]/20 mb-4">
+                  <GraduationCap className="w-4 h-4 text-[#85c1e9]" />
+                  <span className="text-xs text-[#85c1e9] font-medium">Self-Paced Learning</span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white mb-2">Time Ownership Mastery Course</h3>
@@ -45,7 +45,7 @@ export default function OnDemandCourse() {
                   <span className="text-4xl font-bold text-white">Starting at $497</span>
                 </div>
 
-                <p className="text-[#ababbe] mb-6 leading-relaxed">
+                <p className="text-[#aaaaaa] mb-6 leading-relaxed">
                   The complete 168 Game framework. Step-by-step implementation system. Monthly live coaching with Bill. 
                   Private community of high-performers doing this with you.
                 </p>
@@ -58,7 +58,7 @@ export default function OnDemandCourse() {
                     { icon: Infinity, text: 'Lifetime access' },
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3 text-[#d0d0dd]">
-                      <item.icon className="w-5 h-5 text-[#4a9ad8]" />
+                      <item.icon className="w-5 h-5 text-[#85c1e9]" />
                       {item.text}
                     </div>
                   ))}
@@ -68,7 +68,7 @@ export default function OnDemandCourse() {
                   Enroll Now
                 </Button>
 
-                <p className="text-center text-[#8686a0] text-sm">
+                <p className="text-center text-[#888888] text-sm">
                   Immediate access upon enrollment
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function OnDemandCourse() {
               What If You Could Get 20+ Hours Back Every Week Without Hiring a $25K Coach?
             </h2>
 
-            <p className="text-[#ababbe] text-lg leading-relaxed mb-6">
+            <p className="text-[#aaaaaa] text-lg leading-relaxed mb-6">
               This is the exact framework Bill used to go from bankruptcy to running multiple 7-figure businesses. 
               The same system he charges $25K to customize for 1:1 clients.
             </p>
@@ -95,15 +95,15 @@ export default function OnDemandCourse() {
             <ul className="space-y-3 mb-8">
               {courseIncludes.map((item, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#ff8c1a] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div className="p-6 rounded-2xl bg-[#1e1e26] border border-[#ff8c1a]/20">
-              <h4 className="text-lg font-semibold text-[#ff8c1a] mb-2">BONUS:</h4>
-              <p className="text-[#ababbe]">
+            <div className="p-6 rounded-2xl bg-[#141414] border border-[#2ecc71]/20">
+              <h4 className="text-lg font-semibold text-[#2ecc71] mb-2">BONUS:</h4>
+              <p className="text-[#aaaaaa]">
                 Enroll today and get The CEO Time Architecture Blueprint — the exact weekly framework 
                 Bill uses to run multiple businesses in under 40 hours per week.
               </p>

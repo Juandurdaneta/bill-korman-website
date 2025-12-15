@@ -20,7 +20,7 @@ export default function AboutStory() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             All that discipline didn&apos;t prepare me for the chaos of entrepreneurship.
           </h2>
-          <div className="space-y-4 text-[#ababbe] text-lg leading-relaxed">
+          <div className="space-y-4 text-[#aaaaaa] text-lg leading-relaxed">
             <p>
               I was working harder than I ever had in the Navy — 80-hour weeks, constantly reacting, 
               drowning in decisions — and I had nothing to show for it except exhaustion and debt.
@@ -33,16 +33,16 @@ export default function AboutStory() {
 
         {/* The Turning Point */}
         <motion.div
-          className="mb-16 p-8 rounded-2xl bg-[#1e1e26] border border-white/5"
+          className="mb-16 p-8 rounded-2xl bg-[#141414] border border-white/5"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-bold text-[#ff8c1a] mb-4">
+          <h3 className="text-2xl font-bold text-[#2ecc71] mb-4">
             I had a choice: give up or figure this out.
           </h3>
-          <p className="text-[#ababbe] text-lg leading-relaxed">
+          <p className="text-[#aaaaaa] text-lg leading-relaxed">
             I chose to figure it out. I spent the next several years studying everything I could about productivity, 
             performance, and how successful entrepreneurs actually operate. I tested frameworks. I failed. I adjusted. I tried again.
           </p>
@@ -59,7 +59,7 @@ export default function AboutStory() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             The breakthrough came when I stopped thinking about time management and started thinking about time ownership.
           </h2>
-          <div className="space-y-4 text-[#ababbe] text-lg leading-relaxed">
+          <div className="space-y-4 text-[#aaaaaa] text-lg leading-relaxed">
             <p>
               In the military, we didn&apos;t &ldquo;manage&rdquo; time — we architected operations around mission-critical objectives. 
               Every hour had a strategic purpose. Every decision was filtered through: does this move us toward the mission?
@@ -82,20 +82,20 @@ export default function AboutStory() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#ababbe] text-lg leading-relaxed mb-6">
+          <p className="text-[#aaaaaa] text-lg leading-relaxed mb-6">
             I went from bankruptcy to becoming a top performer at one of the largest insurance agencies in the country: 
             PHP Agency, eventually managing one of the company&apos;s most prominent offices with over 760 agents.
           </p>
 
           {/* Patrick Bet-David Quote */}
-          <div className="p-8 rounded-2xl bg-gradient-to-r from-[#1a4d7a]/20 to-[#1f5f94]/10 border border-[#2a7ab8]/20">
-            <Quote className="w-10 h-10 text-[#ff8c1a] mb-4" />
+          <div className="p-8 rounded-2xl bg-gradient-to-r from-[#1a4d7a]/20 to-[#3498db]/10 border border-[#5dade2]/20">
+            <Quote className="w-10 h-10 text-[#2ecc71] mb-4" />
             <blockquote className="text-xl text-white italic mb-4">
               &ldquo;Owning time, not just managing it, is a true driver of success. Resources like The 168 Game 
               add practical strategies that go far beyond traditional time management.&rdquo;
             </blockquote>
-            <cite className="text-[#8686a0]">
-              — <span className="text-[#ff8c1a] font-semibold">Patrick Bet-David</span>, Founder of PHP Agency and Valuetainment
+            <cite className="text-[#888888]">
+              — <span className="text-[#2ecc71] font-semibold">Patrick Bet-David</span>, Founder of PHP Agency and Valuetainment
             </cite>
           </div>
         </motion.div>
@@ -121,13 +121,13 @@ export default function AboutStory() {
             ].map((company, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-3 p-4 rounded-xl bg-[#1e1e26]/50 border border-white/5"
+                className="flex items-center gap-3 p-4 rounded-xl bg-[#141414]/50 border border-white/5"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="w-2 h-2 rounded-full bg-[#ff8c1a]" />
+                <div className="w-2 h-2 rounded-full bg-[#2ecc71]" />
                 <span className="text-[#d0d0dd]">{company}</span>
               </motion.div>
             ))}

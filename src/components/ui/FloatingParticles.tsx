@@ -23,7 +23,7 @@ interface FloatingParticlesProps {
 
 export default function FloatingParticles({
   count = 50,
-  colors = ['#1f5f94', '#2a7ab8', '#ff8c1a', '#4a9ad8'],
+  colors = ['#3498db', '#5dade2', '#2ecc71', '#85c1e9'],
   className = '',
   minSize = 2,
   maxSize = 6,
@@ -91,7 +91,7 @@ export default function FloatingParticles({
 
       // Draw connections
       ctx.globalAlpha = 0.15;
-      ctx.strokeStyle = '#4a9ad8';
+      ctx.strokeStyle = '#85c1e9';
       ctx.lineWidth = 0.5;
 
       particlesRef.current.forEach((p1, i) => {

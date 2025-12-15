@@ -11,7 +11,7 @@ interface GlowingOrbProps {
 }
 
 export default function GlowingOrb({
-  color = '#1f5f94',
+  color = '#3498db',
   size = 400,
   className = '',
   delay = 0,
