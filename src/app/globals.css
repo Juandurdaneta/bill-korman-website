@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
+
+/* 168 Game Brand Colors */
+:root {
+  /* Primary - Bold Blue from book cover */
+  --primary-900: #0a1628;
+  --primary-800: #0f2744;
+  --primary-700: #153a5f;
+  --primary-600: #1a4d7a;
+  --primary-500: #1f5f94;
+  --primary-400: #2a7ab8;
+  --primary-300: #4a9ad8;
+  --primary-200: #7bbae8;
+  --primary-100: #b8daf5;
+  --primary-50: #e8f4fc;
+
+  /* Accent - Orange/Gold from book accents */
+  --accent-900: #7a3d00;
+  --accent-800: #a85200;
+  --accent-700: #d66800;
+  --accent-600: #f07800;
+  --accent-500: #ff8c1a;
+  --accent-400: #ffa040;
+  --accent-300: #ffb366;
+  --accent-200: #ffc999;
+  --accent-100: #ffe0cc;
+  --accent-50: #fff5eb;
+
+  /* Neutrals */
+  --neutral-950: #0a0a0f;
+  --neutral-900: #121218;
+  --neutral-800: #1e1e26;
+  --neutral-700: #2d2d38;
+  --neutral-600: #44445a;
+  --neutral-500: #62627d;
+  --neutral-400: #8686a0;
+  --neutral-300: #ababbe;
+  --neutral-200: #d0d0dd;
+  --neutral-100: #ebebf0;
+  --neutral-50: #f8f8fa;
+
+  --background: var(--neutral-950);
+  --foreground: var(--neutral-50);
+  --surface: var(--neutral-900);
+  --surface-elevated: var(--neutral-800);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary-500);
+  --color-primary-dark: var(--primary-700);
+  --color-primary-light: var(--primary-300);
+  --color-accent: var(--accent-500);
+  --color-accent-dark: var(--accent-700);
+  --color-accent-light: var(--accent-300);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Heading font */
+h1, h2, h3, .display-font {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-600);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-500);
+}
+
+/* Selection color */
+::selection {
+  background: var(--accent-500);
+  color: var(--neutral-950);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-300) 0%, var(--accent-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(30, 30, 38, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 40px rgba(42, 122, 184, 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 40px rgba(255, 140, 26, 0.3);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-500) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(42, 122, 184, 0.4);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-600) 100%);
+  color: var(--neutral-950);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(255, 140, 26, 0.4);
+}
+
+/* Card styles */
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary-600) 50%, transparent 100%);
+}
+
+/* Animated background grid */
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(42, 122, 184, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 122, 184, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
