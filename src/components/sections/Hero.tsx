@@ -1,11 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Clock, Users, DollarSign } from 'lucide-react';
+import { Check, Clock, Users, DollarSign } from 'lucide-react';
 import Button from '../ui/Button';
 import AnimatedNumber from '../ui/AnimatedNumber';
-import FloatingParticles from '../ui/FloatingParticles';
-import GlowingOrb from '../ui/GlowingOrb';
+import AuroraBackground from '../ui/AuroraBackground';
 import BlurText from '../ui/BlurText';
 import SpotlightCard from '../ui/SpotlightCard';
 import MagneticButton from '../ui/MagneticButton';
@@ -13,22 +12,8 @@ import MagneticButton from '../ui/MagneticButton';
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-black">
-        {/* Floating Particles */}
-        <FloatingParticles count={60} speed={0.3} />
-
-        {/* Animated Glowing Orbs */}
-        <GlowingOrb color="#3498db" size={500} className="top-1/4 left-1/4" delay={0} />
-        <GlowingOrb color="#7ED321" size={400} className="bottom-1/4 right-1/4" delay={2} />
-        <GlowingOrb color="#5dade2" size={300} className="top-1/2 right-1/3" delay={1} blur={100} />
-
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid opacity-50" />
-
-        {/* Radial gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
-      </div>
+      {/* Aurora Background */}
+      <AuroraBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

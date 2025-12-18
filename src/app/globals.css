@@ -246,9 +246,56 @@ h1, h2, h3, .display-font {
   outline-offset: 2px;
 }
 
+/* Aurora background animations - GPU accelerated */
+@keyframes aurora-1 {
+  0%, 100% {
+    transform: translateZ(0) translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translateZ(0) translate(5%, 3%) scale(1.05);
+  }
+}
+
+@keyframes aurora-2 {
+  0%, 100% {
+    transform: translateZ(0) translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translateZ(0) translate(-4%, -5%) scale(1.08);
+  }
+}
+
+@keyframes aurora-3 {
+  0%, 100% {
+    transform: translateZ(0) translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateZ(0) translate(3%, 2%) scale(1.03);
+    opacity: 1;
+  }
+}
+
+.animate-aurora-1 {
+  animation: aurora-1 25s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-2 30s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.animate-aurora-3 {
+  animation: aurora-3 20s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  .animate-aurora-1,
+  .animate-aurora-2,
+  .animate-aurora-3 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
