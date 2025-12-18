@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { Users, Heart, DollarSign, Compass } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import SpotlightCard from '../ui/SpotlightCard';
-import GlowingOrb from '../ui/GlowingOrb';
-import FloatingParticles from '../ui/FloatingParticles';
 
 const pillars = [
   {
@@ -22,7 +20,7 @@ const pillars = [
     title: 'Energy Mapping',
     subtitle: 'Faith',
     description: 'Not all hours are equal. We identify when you\'re at peak performance and when you\'re running on fumes, then design your week accordingly.',
-    color: '#2ecc71',
+    color: '#7ED321',
   },
   {
     icon: DollarSign,
@@ -38,18 +36,53 @@ const pillars = [
     title: 'Strategic Architecture',
     subtitle: 'Fitness',
     description: 'We rebuild your entire 168-hour week around what actually creates revenue, impact, and the freedom you started this for.',
-    color: '#2ecc71',
+    color: '#7ED321',
   },
 ];
 
 export default function TheSystem() {
   return (
-    <section className="relative py-24 bg-[#000000] overflow-hidden">
-      {/* Background accents */}
+    <section className="relative py-24 bg-[#0a0a0a] overflow-hidden">
+      {/* Subtle architectural grid background */}
       <div className="absolute inset-0">
-        <FloatingParticles count={30} speed={0.2} />
-        <GlowingOrb color="#3498db" size={500} className="top-1/4 left-0" delay={0} />
-        <GlowingOrb color="#2ecc71" size={400} className="bottom-1/4 right-0" delay={1.5} />
+        {/* Base gradient - warm undertone */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]" />
+
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Soft accent glow - top left (warm amber) */}
+        <div
+          className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 rounded-full opacity-25"
+          style={{
+            background: 'radial-gradient(circle, rgba(217,167,103,0.18) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Soft accent glow - bottom right (warm terracotta) */}
+        <div
+          className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 rounded-full opacity-25"
+          style={{
+            background: 'radial-gradient(circle, rgba(183,121,96,0.15) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Subtle noise texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
+        />
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,7 +164,7 @@ export default function TheSystem() {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           <p className="text-[#aaaaaa] text-lg mb-6">
-            This is the system Bill uses daily. It&apos;s what he&apos;s taught to <span className="text-[#2ecc71] font-semibold">10,000+ entrepreneurs</span> who&apos;ve 
+            This is the system Bill uses daily. It&apos;s what he&apos;s taught to <span className="text-[#7ED321] font-semibold">10,000+ entrepreneurs</span> who&apos;ve 
             reclaimed thousands of hours and scaled past ceilings they thought were permanent.
           </p>
         </motion.div>

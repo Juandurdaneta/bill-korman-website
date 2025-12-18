@@ -24,7 +24,7 @@ export default function ServicesCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Time Is Running Out
           </span>
 

@@ -19,9 +19,9 @@ export default function Stat({ value, label, prefix = '', suffix = '' }: StatPro
       transition={{ duration: 0.5 }}
     >
       <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-        <span className="text-[#2ecc71]">{prefix}</span>
+        <span className="text-[#7ED321]">{prefix}</span>
         {value}
-        <span className="text-[#2ecc71]">{suffix}</span>
+        <span className="text-[#7ED321]">{suffix}</span>
       </div>
       <div className="text-[#888888] text-sm uppercase tracking-wider">{label}</div>
     </motion.div>

@@ -25,7 +25,7 @@ export default function Card({
   const variants = {
     default: 'bg-[#121218] border border-white/5 hover:border-white/10',
     featured: 'bg-gradient-to-br from-[#1a4d7a]/20 to-[#121218] border border-[#5dade2]/20 hover:border-[#5dade2]/40',
-    numbered: 'bg-[#121218] border border-white/5 hover:border-[#2ecc71]/30',
+    numbered: 'bg-[#121218] border border-white/5 hover:border-[#7ED321]/30',
   };
 
   return (
@@ -39,7 +39,7 @@ export default function Card({
     >
       <div className="flex flex-col gap-4">
         {variant === 'numbered' && number !== undefined && (
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2ecc71] to-[#27ae60] flex items-center justify-center text-[#000000] font-bold text-xl">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#7ED321] to-[#27ae60] flex items-center justify-center text-[#000000] font-bold text-xl">
             {number}
           </div>
         )}

@@ -20,7 +20,7 @@ export default function Hero() {
 
         {/* Animated Glowing Orbs */}
         <GlowingOrb color="#3498db" size={500} className="top-1/4 left-1/4" delay={0} />
-        <GlowingOrb color="#2ecc71" size={400} className="bottom-1/4 right-1/4" delay={2} />
+        <GlowingOrb color="#7ED321" size={400} className="bottom-1/4 right-1/4" delay={2} />
         <GlowingOrb color="#5dade2" size={300} className="top-1/2 right-1/3" delay={1} blur={100} />
 
         {/* Grid pattern */}
@@ -46,7 +46,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <Clock className="w-4 h-4 text-[#2ecc71]" />
+              <Clock className="w-4 h-4 text-[#7ED321]" />
               <span className="text-sm text-[#85c1e9] font-medium">Time Ownership Framework</span>
             </motion.div>
 
@@ -110,7 +110,7 @@ export default function Hero() {
             <SpotlightCard className="rounded-3xl" spotlightColor="rgba(52, 152, 219, 0.2)">
               <div className="relative p-8 md:p-10 overflow-hidden">
                 {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#2ecc71]/10 to-transparent" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
 
               <h3 className="text-2xl font-bold text-white mb-8">Proven Results</h3>
 
@@ -130,7 +130,7 @@ export default function Hero() {
 
                 {/* Stat 2 */}
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-black/50">
-                  <div className="w-12 h-12 rounded-lg bg-[#2ecc71]/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-[#7ED321]/20 flex items-center justify-center">
                     <DollarSign className="w-6 h-6 text-[#58d68d]" />
                   </div>
                   <div>
@@ -174,7 +174,7 @@ export default function Hero() {
 
             {/* Floating badge */}
             <motion.div
-              className="absolute -bottom-4 -left-4 bg-gradient-to-r from-[#2ecc71] to-[#27ae60] text-black px-4 py-2 rounded-lg font-bold text-sm shadow-lg"
+              className="absolute -bottom-4 -left-4 bg-gradient-to-r from-[#7ED321] to-[#27ae60] text-black px-4 py-2 rounded-lg font-bold text-sm shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.4 }}

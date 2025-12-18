@@ -39,7 +39,7 @@ export default function AboutStory() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-bold text-[#2ecc71] mb-4">
+          <h3 className="text-2xl font-bold text-[#7ED321] mb-4">
             I had a choice: give up or figure this out.
           </h3>
           <p className="text-[#aaaaaa] text-lg leading-relaxed">
@@ -89,13 +89,13 @@ export default function AboutStory() {
 
           {/* Patrick Bet-David Quote */}
           <div className="p-8 rounded-2xl bg-gradient-to-r from-[#1a4d7a]/20 to-[#3498db]/10 border border-[#5dade2]/20">
-            <Quote className="w-10 h-10 text-[#2ecc71] mb-4" />
+            <Quote className="w-10 h-10 text-[#7ED321] mb-4" />
             <blockquote className="text-xl text-white italic mb-4">
               &ldquo;Owning time, not just managing it, is a true driver of success. Resources like The 168 Game 
               add practical strategies that go far beyond traditional time management.&rdquo;
             </blockquote>
             <cite className="text-[#888888]">
-              — <span className="text-[#2ecc71] font-semibold">Patrick Bet-David</span>, Founder of PHP Agency and Valuetainment
+              — <span className="text-[#7ED321] font-semibold">Patrick Bet-David</span>, Founder of PHP Agency and Valuetainment
             </cite>
           </div>
         </motion.div>
@@ -127,7 +127,7 @@ export default function AboutStory() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="w-2 h-2 rounded-full bg-[#2ecc71]" />
+                <div className="w-2 h-2 rounded-full bg-[#7ED321]" />
                 <span className="text-[#d0d0dd]">{company}</span>
               </motion.div>
             ))}

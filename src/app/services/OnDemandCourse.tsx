@@ -95,14 +95,14 @@ export default function OnDemandCourse() {
             <ul className="space-y-3 mb-8">
               {courseIncludes.map((item, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div className="p-6 rounded-2xl bg-[#141414] border border-[#2ecc71]/20">
-              <h4 className="text-lg font-semibold text-[#2ecc71] mb-2">BONUS:</h4>
+            <div className="p-6 rounded-2xl bg-[#141414] border border-[#7ED321]/20">
+              <h4 className="text-lg font-semibold text-[#7ED321] mb-2">BONUS:</h4>
               <p className="text-[#aaaaaa]">
                 Enroll today and get The CEO Time Architecture Blueprint — the exact weekly framework 
                 Bill uses to run multiple businesses in under 40 hours per week.

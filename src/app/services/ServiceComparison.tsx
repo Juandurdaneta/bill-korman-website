@@ -48,7 +48,7 @@ export default function ServiceComparison() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Quick Comparison
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -76,7 +76,7 @@ export default function ServiceComparison() {
                     }`}
                   >
                     {service.highlighted && (
-                      <span className="text-[#2ecc71] text-xs font-bold uppercase tracking-wider">
+                      <span className="text-[#7ED321] text-xs font-bold uppercase tracking-wider">
                         Most Popular
                       </span>
                     )}
@@ -147,7 +147,7 @@ export default function ServiceComparison() {
                       service.highlighted ? 'bg-[#1a4d7a]/10' : ''
                     }`}
                   >
-                    <span className="text-2xl font-bold text-[#2ecc71]">{service.investment}</span>
+                    <span className="text-2xl font-bold text-[#7ED321]">{service.investment}</span>
                   </td>
                 ))}
               </tr>
@@ -184,12 +184,12 @@ export default function ServiceComparison() {
               transition={{ delay: index * 0.1 }}
             >
               {service.highlighted && (
-                <span className="text-[#2ecc71] text-xs font-bold uppercase tracking-wider">
+                <span className="text-[#7ED321] text-xs font-bold uppercase tracking-wider">
                   Most Popular
                 </span>
               )}
               <h3 className="text-xl font-bold text-white mt-2 mb-4">{service.name}</h3>
-              <div className="text-3xl font-bold text-[#2ecc71] mb-4">{service.investment}</div>
+              <div className="text-3xl font-bold text-[#7ED321] mb-4">{service.investment}</div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-[#888888]">Best For</span>

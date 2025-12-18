@@ -71,11 +71,11 @@ export default function Myths() {
                 {/* The Truth */}
                 <div className="md:p-6 md:bg-[#141414]/30 md:group-hover:bg-[#3498db]/10 transition-colors rounded-r-2xl">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#2ecc71]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-4 h-4 text-[#2ecc71]" />
+                    <div className="w-8 h-8 rounded-full bg-[#7ED321]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-4 h-4 text-[#7ED321]" />
                     </div>
                     <div>
-                      <span className="text-xs uppercase tracking-wider text-[#2ecc71] font-semibold mb-2 block">
+                      <span className="text-xs uppercase tracking-wider text-[#7ED321] font-semibold mb-2 block">
                         Truth
                       </span>
                       <p className="text-[#aaaaaa] leading-relaxed">

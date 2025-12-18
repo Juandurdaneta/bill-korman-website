@@ -7,7 +7,7 @@ export default function AboutMission() {
   return (
     <section className="relative py-24 bg-[#000000] overflow-hidden">
       {/* Background accent */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-96 bg-gradient-to-l from-[#2ecc71]/5 to-transparent blur-3xl" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-96 bg-gradient-to-l from-[#7ED321]/5 to-transparent blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -18,7 +18,7 @@ export default function AboutMission() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
               My Mission
             </span>
 
@@ -35,7 +35,7 @@ export default function AboutMission() {
                 relationships, health, and freedom to build businesses that end up owning them.
               </p>
               <p>
-                They have the talent. The work ethic. The ambition. What they&apos;re missing is <span className="text-[#2ecc71] font-semibold">architecture</span>.
+                They have the talent. The work ethic. The ambition. What they&apos;re missing is <span className="text-[#7ED321] font-semibold">architecture</span>.
               </p>
             </div>
           </motion.div>
@@ -97,7 +97,7 @@ export default function AboutMission() {
         >
           <p className="text-2xl md:text-3xl text-white font-medium leading-relaxed">
             &ldquo;The military taught me systems and discipline. Entrepreneurship taught me leverage and ruthless prioritization. 
-            <span className="text-[#2ecc71]"> The 168 Game is both.</span>&rdquo;
+            <span className="text-[#7ED321]"> The 168 Game is both.</span>&rdquo;
           </p>
           <p className="mt-6 text-[#888888]">— Bill Korman</p>
         </motion.div>

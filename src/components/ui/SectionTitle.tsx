@@ -31,7 +31,7 @@ export default function SectionTitle({
       transition={{ duration: 0.6 }}
     >
       {eyebrow && (
-        <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest">
+        <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest">
           {eyebrow}
         </span>
       )}

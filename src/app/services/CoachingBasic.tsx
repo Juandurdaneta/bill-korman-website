@@ -80,7 +80,7 @@ export default function CoachingBasic() {
                 'You want the full framework without the intensive pace',
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}

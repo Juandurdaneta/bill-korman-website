@@ -43,7 +43,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Got Questions?
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white">

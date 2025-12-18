@@ -16,7 +16,7 @@ export default function GradientBorder({
   className = '',
   borderWidth = 2,
   duration = 4,
-  gradientColors = ['#3498db', '#2ecc71', '#5dade2', '#27ae60', '#3498db'],
+  gradientColors = ['#3498db', '#7ED321', '#5dade2', '#27ae60', '#3498db'],
   borderRadius = '1rem',
 }: GradientBorderProps) {
   return (

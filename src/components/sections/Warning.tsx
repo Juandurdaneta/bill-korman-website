@@ -9,7 +9,7 @@ export default function Warning() {
     <section className="relative py-24 bg-gradient-to-b from-[#121218] to-[#000000] overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2ecc71]/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7ED321]/50 to-transparent" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -20,8 +20,8 @@ export default function Warning() {
           transition={{ duration: 0.6 }}
         >
           {/* Warning icon */}
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#2ecc71]/10 mb-6">
-            <AlertTriangle className="w-8 h-8 text-[#2ecc71]" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#7ED321]/10 mb-6">
+            <AlertTriangle className="w-8 h-8 text-[#7ED321]" />
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -55,7 +55,7 @@ export default function Warning() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <Clock className="w-8 h-8 text-[#2ecc71] mx-auto mb-3" />
+              <Clock className="w-8 h-8 text-[#7ED321] mx-auto mb-3" />
               <div className="text-2xl font-bold text-white mb-1">15-20</div>
               <div className="text-[#888888] text-sm">Hours Wasted Weekly</div>
             </motion.div>

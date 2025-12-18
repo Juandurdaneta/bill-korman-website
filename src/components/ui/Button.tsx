@@ -28,7 +28,7 @@ export default function Button({
   
   const variants = {
     primary: 'bg-gradient-to-br from-[#3498db] to-[#1a6fa3] text-white hover:from-[#5dade2] hover:to-[#3498db] hover:shadow-[0_10px_40px_rgba(52,152,219,0.4)]',
-    accent: 'bg-gradient-to-br from-[#2ecc71] to-[#27ae60] text-black hover:from-[#58d68d] hover:to-[#2ecc71] hover:shadow-[0_10px_40px_rgba(46,204,113,0.4)]',
+    accent: 'bg-gradient-to-br from-[#7ED321] to-[#27ae60] text-black hover:from-[#58d68d] hover:to-[#7ED321] hover:shadow-[0_10px_40px_rgba(46,204,113,0.4)]',
     outline: 'bg-transparent border-2 border-[#5dade2] text-[#85c1e9] hover:bg-[#5dade2]/10 hover:border-[#85c1e9]',
   };
 

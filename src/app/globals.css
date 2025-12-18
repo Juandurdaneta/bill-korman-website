@@ -15,17 +15,17 @@
   --primary-100: #d6eaf8;
   --primary-50: #ebf5fb;
 
-  /* Accent - Green from clock graphic */
-  --accent-900: #145a32;
-  --accent-800: #1e8449;
-  --accent-700: #27ae60;
-  --accent-600: #2ecc71;
-  --accent-500: #58d68d;
-  --accent-400: #82e0aa;
-  --accent-300: #abebc6;
-  --accent-200: #d5f5e3;
-  --accent-100: #e9f7ef;
-  --accent-50: #f4fbf7;
+  /* Accent - Neon/Lime Green */
+  --accent-900: #2E5509;
+  --accent-800: #3D7009;
+  --accent-700: #4C8B0A;
+  --accent-600: #5BA60B;
+  --accent-500: #7ED321;
+  --accent-400: #98DC4D;
+  --accent-300: #B2E579;
+  --accent-200: #CCF0A5;
+  --accent-100: #E5F8D2;
+  --accent-50: #F2FCE8;
 
   /* Secondary - Gold/Cream from author name */
   --gold-900: #7d6608;
@@ -148,7 +148,7 @@ h1, h2, h3, .display-font {
 }
 
 .glow-accent {
-  box-shadow: 0 0 40px rgba(46, 204, 113, 0.4);
+  box-shadow: 0 0 40px rgba(126, 211, 33, 0.4);
 }
 
 .glow-gold {
@@ -196,7 +196,7 @@ h1, h2, h3, .display-font {
 
 .btn-accent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(46, 204, 113, 0.5);
+  box-shadow: 0 10px 40px rgba(126, 211, 33, 0.5);
 }
 
 .btn-gold {

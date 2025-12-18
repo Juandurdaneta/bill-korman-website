@@ -16,7 +16,7 @@ export default function AboutHero() {
       {/* Background */}
       <div className="absolute inset-0 bg-[#000000]">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3498db]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#2ecc71]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#7ED321]/10 rounded-full blur-[120px]" />
         <div className="absolute inset-0 bg-grid opacity-30" />
       </div>
 
@@ -38,7 +38,7 @@ export default function AboutHero() {
               </div>
 
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#2ecc71] to-[#27ae60] rounded-2xl opacity-20" />
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#7ED321] to-[#27ae60] rounded-2xl opacity-20" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-[#3498db] to-[#5dade2] rounded-2xl opacity-20" />
             </div>
           </motion.div>
@@ -50,7 +50,7 @@ export default function AboutHero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
               About Bill Korman
             </span>
 

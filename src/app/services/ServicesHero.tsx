@@ -9,7 +9,7 @@ export default function ServicesHero() {
       {/* Background */}
       <div className="absolute inset-0 bg-[#000000]">
         <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-[#3498db]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-[#2ecc71]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-[#7ED321]/10 rounded-full blur-[120px]" />
         <div className="absolute inset-0 bg-grid opacity-30" />
       </div>
 
@@ -19,7 +19,7 @@ export default function ServicesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Choose Your Path
           </span>
 

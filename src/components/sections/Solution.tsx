@@ -80,14 +80,14 @@ export default function Solution() {
           >
             <div className="bg-gradient-to-br from-[#141414] to-[#000000] rounded-3xl p-8 md:p-10 border border-white/5 relative overflow-hidden">
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#2ecc71]/10 to-transparent" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
               
               <div className="relative">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-5xl font-bold text-white">FREE</span>
                   <div className="flex flex-col">
                     <span className="text-[#888888] text-sm line-through">$497 value</span>
-                    <span className="text-[#2ecc71] text-sm font-semibold">Limited time</span>
+                    <span className="text-[#7ED321] text-sm font-semibold">Limited time</span>
                   </div>
                 </div>
 
@@ -109,7 +109,7 @@ export default function Solution() {
                     'Weekly implementation blueprint',
                   ].map((item, index) => (
                     <li key={index} className="flex items-center gap-3 text-[#d0d0dd]">
-                      <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0" />
+                      <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0" />
                       {item}
                     </li>
                   ))}

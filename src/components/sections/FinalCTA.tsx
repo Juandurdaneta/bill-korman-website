@@ -25,7 +25,7 @@ export default function FinalCTA() {
 
       {/* Animated Glowing Orbs */}
       <GlowingOrb color="#3498db" size={400} className="top-1/4 left-1/4" delay={0} />
-      <GlowingOrb color="#2ecc71" size={350} className="bottom-1/4 right-1/4" delay={1} />
+      <GlowingOrb color="#7ED321" size={350} className="bottom-1/4 right-1/4" delay={1} />
       <GlowingOrb color="#5dade2" size={250} className="top-1/2 right-1/3" delay={2} blur={100} />
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -35,7 +35,7 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
             Ready To Transform?
           </span>
           
@@ -58,7 +58,7 @@ export default function FinalCTA() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0" />
+                <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0" />
                 <span className="text-[#d0d0dd] text-lg">{benefit}</span>
               </motion.div>
             ))}
@@ -72,7 +72,7 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            This is the same framework that&apos;s helped <span className="text-[#2ecc71] font-semibold">10,000+ entrepreneurs</span> and 
+            This is the same framework that&apos;s helped <span className="text-[#7ED321] font-semibold">10,000+ entrepreneurs</span> and 
             business owners scale past their revenue ceilings while working fewer hours.
           </motion.p>
 
@@ -85,7 +85,7 @@ export default function FinalCTA() {
             transition={{ delay: 0.5 }}
           >
             <span className="text-[#888888]">No fluff. No theory.</span>
-            <span className="w-1 h-1 rounded-full bg-[#2ecc71]" />
+            <span className="w-1 h-1 rounded-full bg-[#7ED321]" />
             <span className="text-white font-semibold">Just the exact system that works.</span>
           </motion.div>
 
@@ -103,7 +103,7 @@ export default function FinalCTA() {
               </Button>
             </MagneticButton>
             <p className="text-[#555555] text-sm">
-              <span className="text-[#2ecc71] font-semibold">$497 value</span> — yours free today
+              <span className="text-[#7ED321] font-semibold">$497 value</span> — yours free today
             </p>
           </motion.div>
         </motion.div>

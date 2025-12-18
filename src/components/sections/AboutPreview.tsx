@@ -58,8 +58,8 @@ export default function AboutPreview() {
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#2ecc71]/20 flex items-center justify-center">
-                    <Award className="w-5 h-5 text-[#2ecc71]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#7ED321]/20 flex items-center justify-center">
+                    <Award className="w-5 h-5 text-[#7ED321]" />
                   </div>
                   <div>
                     <div className="text-white font-semibold">Navy Veteran</div>
@@ -95,7 +95,7 @@ export default function AboutPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#2ecc71] font-semibold text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-[#7ED321] font-semibold text-sm uppercase tracking-widest mb-4 block">
               Meet Your Guide
             </span>
             

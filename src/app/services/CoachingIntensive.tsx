@@ -33,9 +33,9 @@ export default function CoachingIntensive() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2ecc71]/10 border border-[#2ecc71]/30 mb-6">
-              <Sparkles className="w-4 h-4 text-[#2ecc71]" />
-              <span className="text-sm text-[#2ecc71] font-medium">Premium 1:1 Program</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7ED321]/10 border border-[#7ED321]/30 mb-6">
+              <Sparkles className="w-4 h-4 text-[#7ED321]" />
+              <span className="text-sm text-[#7ED321] font-medium">Premium 1:1 Program</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -66,7 +66,7 @@ export default function CoachingIntensive() {
             <ul className="space-y-3 mb-8">
               {results.map((result, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0 mt-0.5" />
                   {result}
                 </li>
               ))}
@@ -83,11 +83,11 @@ export default function CoachingIntensive() {
           >
             <div className="bg-gradient-to-br from-[#141414] to-[#121218] rounded-3xl p-8 md:p-10 border border-[#5dade2]/20 relative overflow-hidden">
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#2ecc71]/10 to-transparent" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
 
               <div className="relative">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs uppercase tracking-wider text-[#2ecc71] font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-[#7ED321] font-semibold">
                     90-Day Intensive
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export default function CoachingIntensive() {
                 </Button>
 
                 <p className="text-center text-[#555555] text-sm">
-                  <span className="text-[#2ecc71] font-semibold">Limited:</span> 3 new clients per quarter
+                  <span className="text-[#7ED321] font-semibold">Limited:</span> 3 new clients per quarter
                 </p>
               </div>
             </div>

@@ -29,7 +29,7 @@ export default function Problem() {
   return (
     <section className="relative py-24 bg-[#000000] overflow-hidden">
       {/* Background accents */}
-      <GlowingOrb color="#2ecc71" size={400} className="left-0 top-1/4" delay={0} blur={150} />
+      <GlowingOrb color="#7ED321" size={400} className="left-0 top-1/4" delay={0} blur={150} />
       <GlowingOrb color="#3498db" size={300} className="right-1/4 bottom-1/4" delay={1} blur={120} />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,8 +55,8 @@ export default function Problem() {
                 borderColor="rgba(255, 255, 255, 0.05)"
               >
                 <div className="flex items-start gap-4 p-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#2ecc71]/10 flex items-center justify-center flex-shrink-0">
-                    <point.icon className="w-6 h-6 text-[#2ecc71]" />
+                  <div className="w-12 h-12 rounded-xl bg-[#7ED321]/10 flex items-center justify-center flex-shrink-0">
+                    <point.icon className="w-6 h-6 text-[#7ED321]" />
                   </div>
                   <p className="text-[#d0d0dd] text-lg leading-relaxed">{point.text}</p>
                 </div>
@@ -83,7 +83,7 @@ export default function Problem() {
               </p>
               <p className="text-[#aaaaaa] leading-relaxed">
                 You just don&apos;t have a system. And here&apos;s what nobody tells you about scaling: 
-                <span className="text-[#2ecc71] font-semibold"> More revenue doesn&apos;t give you more time. It gives you more chaos.</span>
+                <span className="text-[#7ED321] font-semibold"> More revenue doesn&apos;t give you more time. It gives you more chaos.</span>
               </p>
             </div>
           </div>

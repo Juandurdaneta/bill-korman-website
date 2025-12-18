@@ -63,7 +63,7 @@ export default function ServicesPreview() {
               transition={{ delay: index * 0.15, duration: 0.6 }}
             >
               {service.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#2ecc71] to-[#27ae60] rounded-full text-xs font-bold text-[#000000]">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#7ED321] to-[#27ae60] rounded-full text-xs font-bold text-[#000000]">
                   MOST POPULAR
                 </div>
               )}
@@ -73,7 +73,7 @@ export default function ServicesPreview() {
               </div>
 
               <div className="mb-4">
-                <span className="text-xs uppercase tracking-wider text-[#2ecc71]">{service.subtitle}</span>
+                <span className="text-xs uppercase tracking-wider text-[#7ED321]">{service.subtitle}</span>
                 <h3 className="text-xl font-bold text-white mt-1">{service.title}</h3>
               </div>
 

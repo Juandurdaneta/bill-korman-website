@@ -15,7 +15,7 @@ const benefits = [
 export default function GroupTraining() {
   return (
     <section id="group" className="relative py-24 bg-[#000000] overflow-hidden">
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] bg-gradient-to-l from-[#2ecc71]/5 to-transparent rounded-l-full blur-3xl" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] bg-gradient-to-l from-[#7ED321]/5 to-transparent rounded-l-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -64,7 +64,7 @@ export default function GroupTraining() {
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
-                  <Check className="w-5 h-5 text-[#2ecc71] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0 mt-0.5" />
                   {benefit}
                 </li>
               ))}
@@ -80,7 +80,7 @@ export default function GroupTraining() {
             transition={{ duration: 0.8 }}
           >
             <div className="bg-gradient-to-br from-[#141414] to-[#121218] rounded-3xl p-8 md:p-10 border border-white/5">
-              <span className="text-xs uppercase tracking-wider text-[#2ecc71] font-semibold">
+              <span className="text-xs uppercase tracking-wider text-[#7ED321] font-semibold">
                 Team Program
               </span>
 
@@ -115,7 +115,7 @@ export default function GroupTraining() {
               </Button>
 
               <p className="text-center text-[#555555] text-sm">
-                <span className="text-[#2ecc71] font-semibold">Limited:</span> 2 organizations per quarter
+                <span className="text-[#7ED321] font-semibold">Limited:</span> 2 organizations per quarter
               </p>
             </div>
           </motion.div>
