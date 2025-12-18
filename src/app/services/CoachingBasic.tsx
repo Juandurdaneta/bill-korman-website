@@ -23,7 +23,7 @@ export default function CoachingBasic() {
                 6-Month Program
               </span>
               
-              <h3 className="text-2xl font-bold text-white mt-2 mb-2">1:1 Coaching: Standard</h3>
+              <h3 className="text-2xl font-bold text-white mt-2 mb-2">1:1 Coaching: Core Level</h3>
               
               <div className="flex items-baseline gap-2 mb-6">
                 <span className="text-5xl font-bold text-white">$15,000</span>
@@ -31,8 +31,8 @@ export default function CoachingBasic() {
               </div>
 
               <p className="text-[#aaaaaa] mb-6 leading-relaxed">
-                Weekly 1:1 coaching over 6 months. Same proven framework, structured implementation, 
-                with focused weekly sessions to ensure consistent progress.
+                Consistent support. Powerful clarity. At your pace. This is the 6-month version of 1:1 coaching
+                with focused implementation support and weekly calls. Same frameworks, same results. Just at a different pace.
               </p>
 
               <div className="space-y-4 mb-8">

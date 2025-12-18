@@ -5,11 +5,11 @@ import { Users, Check, TrendingUp, Target, Clock } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
 const benefits = [
-  'Productivity metrics measurably improved',
-  'Meetings cut by 30-50%',
-  'Projects completed faster',
-  'Burnout rates decrease significantly',
-  'Retention improves across the organization',
+  'Peer accountability from 4 other driven entrepreneurs on the same journey',
+  'Hot seat coaching where Bill works on YOUR calendar, YOUR bottlenecks, YOUR specific challenges',
+  'Same frameworks as 1:1 coaching + peer support',
+  'Weekly coaching calls',
+  'Build your business, systemize your time, grow together',
 ];
 
 export default function GroupTraining() {
@@ -28,38 +28,28 @@ export default function GroupTraining() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3498db]/20 border border-[#5dade2]/30 mb-6">
               <Users className="w-4 h-4 text-[#85c1e9]" />
-              <span className="text-sm text-[#85c1e9] font-medium">Team Transformation</span>
+              <span className="text-sm text-[#85c1e9] font-medium">For Builders Who Don&apos;t Want to Scale Alone</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Organizational Training
+              Group Coaching
             </h2>
 
             <p className="text-xl text-[#aaaaaa] mb-6 leading-relaxed">
-              Your Team Is Maxed Out. Productivity Is Tanking. Burnout Is Costing You Millions.
+              Get Personalized Coaching, Peer Accountability, and Real Results
             </p>
 
             <div className="p-6 rounded-2xl bg-[#141414] border border-white/5 mb-8">
-              <h3 className="text-lg font-semibold text-white mb-4">THE CRISIS YOU&apos;RE MANAGING:</h3>
-              <ul className="space-y-3 text-[#888888]">
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 flex-shrink-0" />
-                  Productivity is down even though everyone&apos;s &ldquo;busy&rdquo;
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 flex-shrink-0" />
-                  You&apos;re losing talent you can&apos;t afford to lose
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 flex-shrink-0" />
-                  Your organization has a reactivity culture, not a time ownership culture
-                </li>
-              </ul>
+              <h3 className="text-lg font-semibold text-white mb-4">THIS ISN&apos;T YOUR STANDARD GROUP TRAINING:</h3>
+              <p className="text-[#888888]">
+                It&apos;s for entrepreneurs and executives who want to implement the 168 Game together,
+                with others playing at a high level. You&apos;ve bought courses before. You know you need more than DIY.
+              </p>
             </div>
 
-            <h3 className="text-xl font-semibold text-white mb-4">WHAT ORGANIZATIONAL TRAINING DELIVERS:</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">WHAT GROUP COACHING DELIVERS:</h3>
             <p className="text-[#aaaaaa] mb-6">
-              This isn&apos;t a one-day seminar that everyone forgets by Tuesday. This is a complete cultural transformation.
+              Join a small group of 5 driven entrepreneurs mastering The 168 Game with Bill&apos;s direct guidance, at a fraction of the 1:1 price.
             </p>
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
@@ -81,27 +71,27 @@ export default function GroupTraining() {
           >
             <div className="bg-gradient-to-br from-[#141414] to-[#121218] rounded-3xl p-8 md:p-10 border border-white/5">
               <span className="text-xs uppercase tracking-wider text-[#7ED321] font-semibold">
-                Team Program
+                6-Month Program
               </span>
 
-              <h3 className="text-2xl font-bold text-white mt-2 mb-2">Group Training</h3>
+              <h3 className="text-2xl font-bold text-white mt-2 mb-2">Group Coaching</h3>
 
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-5xl font-bold text-white">$7,500</span>
-                <span className="text-[#888888]">/ team</span>
+                <span className="text-5xl font-bold text-white">$5,000</span>
+                <span className="text-[#888888]">or 3 payments of $1,750</span>
               </div>
 
               <p className="text-[#aaaaaa] mb-6 leading-relaxed">
-                Scale time ownership across your entire team. Custom company-wide implementation 
-                with measurable improvements in productivity, retention, and output.
+                Join a small group of 5 driven entrepreneurs mastering The 168 Game with Bill&apos;s direct guidance.
+                Same frameworks + accountability + peer support.
               </p>
 
               <div className="space-y-4 mb-8">
                 {[
-                  { icon: Users, text: 'Up to 5 team members' },
+                  { icon: Users, text: 'Small group (5 participants)' },
                   { icon: Clock, text: '6-month program' },
-                  { icon: Target, text: 'Monthly group coaching' },
-                  { icon: TrendingUp, text: 'Measurable ROI tracking' },
+                  { icon: Target, text: 'Weekly coaching calls' },
+                  { icon: TrendingUp, text: 'Shared energy & accountability' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3 text-[#d0d0dd]">
                     <item.icon className="w-5 h-5 text-[#85c1e9]" />
@@ -111,11 +101,11 @@ export default function GroupTraining() {
               </div>
 
               <Button href="#" variant="primary" size="lg" className="w-full mb-4" showArrow>
-                Schedule Free Consultation
+                Learn About Group Coaching
               </Button>
 
               <p className="text-center text-[#555555] text-sm">
-                <span className="text-[#7ED321] font-semibold">Limited:</span> 2 organizations per quarter
+                <span className="text-[#7ED321] font-semibold">Limited:</span> Only 5 spots per cohort | New cohorts launch quarterly
               </p>
             </div>
           </motion.div>

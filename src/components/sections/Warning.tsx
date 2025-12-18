@@ -82,14 +82,15 @@ export default function Warning() {
             transition={{ delay: 0.5 }}
           >
             <p className="text-xl text-white font-medium">
-              Success at scale isn&apos;t about working more. It&apos;s about working on what matters 
-              during the hours when you&apos;re actually capable of doing your best work.
+              Scaling doesn&apos;t come from working more. It comes from working on what matters,
+              during the hours when you&apos;re built to perform.
             </p>
           </motion.div>
 
           <p className="text-[#aaaaaa] mb-8">
-            Successful entrepreneurs design their 168 hours like a financial portfolio — allocating time 
-            to the activities with the highest ROI on revenue, relationships, and fulfillment.
+            Top performers design their 168 hours like an investment portfolio, placing their best energy into
+            high-ROI actions that move revenue, deepen relationships, and protect their peace.
+            If you&apos;re stuck at a plateau, this is why. And the Playbook shows you how to fix it.
           </p>
 
           <Button href="#playbook" variant="accent" size="lg" showArrow>

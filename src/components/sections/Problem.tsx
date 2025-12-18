@@ -9,19 +9,19 @@ import GlowingOrb from '../ui/GlowingOrb';
 const painPoints = [
   {
     icon: Calendar,
-    text: 'Your calendar is full of back-to-back meetings',
+    text: 'Your calendar is full of back-to-back meetings.',
   },
   {
     icon: Zap,
-    text: 'Days disappear into "busy work" while strategic projects sit untouched',
+    text: 'Days disappear into "busy work" while that strategic project that could 3x your business sits untouched for months.',
   },
   {
     icon: TrendingUp,
-    text: 'Your revenue is stuck at a ceiling you can\'t break through',
+    text: 'You\'re doing $10/hour work during your peak energy hours because you haven\'t figured out how to protect them.',
   },
   {
     icon: Heart,
-    text: 'You\'re missing the life moments you started this business to enjoy',
+    text: 'Your revenue is stuck at a ceiling you can\'t break through without working even MORE, which isn\'t sustainable.',
   },
 ];
 
@@ -79,10 +79,10 @@ export default function Problem() {
             </div>
             <div>
               <p className="text-xl text-white font-semibold mb-2">
-                You know you&apos;re capable of more.
+                And the worst part? You&apos;re missing the life moments you started this business to actually enjoy.
               </p>
               <p className="text-[#aaaaaa] leading-relaxed">
-                You just don&apos;t have a system. And here&apos;s what nobody tells you about scaling: 
+                You know you&apos;re capable of more. You just don&apos;t have a system.
                 <span className="text-[#7ED321] font-semibold"> More revenue doesn&apos;t give you more time. It gives you more chaos.</span>
               </p>
             </div>

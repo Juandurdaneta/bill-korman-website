@@ -9,33 +9,33 @@ const pillars = [
   {
     icon: Users,
     number: '01',
-    title: 'Complete Visibility',
-    subtitle: 'Family',
-    description: 'You can\'t fix what you can\'t see. We track every hour to find where time actually goes versus where you think it goes. The gap is usually shocking.',
+    title: 'Family Focus',
+    subtitle: 'Pillar 1',
+    description: 'You can\'t lead your family (or your life) if you\'re constantly distracted, unavailable, or unaware of where your time actually goes. We track every hour so you can align your calendar with what matters most — like presence at home, dinner with your kids, or simply being off without guilt.',
     color: '#85c1e9',
   },
   {
     icon: Heart,
     number: '02',
-    title: 'Energy Mapping',
-    subtitle: 'Faith',
-    description: 'Not all hours are equal. We identify when you\'re at peak performance and when you\'re running on fumes, then design your week accordingly.',
+    title: 'Foundational Faith',
+    subtitle: 'Pillar 2',
+    description: 'Your highest energy is your most sacred resource, and how you use it reflects your values. We map your peak performance windows and align them with your mission-critical work. So you\'re not giving your best self to your inbox and your leftovers to your purpose.',
     color: '#7ED321',
   },
   {
     icon: DollarSign,
     number: '03',
-    title: 'Revenue Forensics',
-    subtitle: 'Finance',
-    description: 'We analyze which activities directly generate income and which ones just feel important. Then we eliminate the waste ruthlessly.',
+    title: 'Financial Forensics',
+    subtitle: 'Pillar 3',
+    description: 'We don\'t just track time. We track return on time. We dissect your week to find what activities actually generate revenue, and cut everything else. You\'ll discover exactly where income is created (and where it\'s leaking).',
     color: '#85c1e9',
   },
   {
     icon: Compass,
     number: '04',
-    title: 'Strategic Architecture',
-    subtitle: 'Fitness',
-    description: 'We rebuild your entire 168-hour week around what actually creates revenue, impact, and the freedom you started this for.',
+    title: 'Vitality Framework',
+    subtitle: 'Pillar 4',
+    description: 'You wouldn\'t go to the gym without a plan. Why build a business without one for your time? We design your entire 168-hour week like a training regimen — optimized for performance, recovery, and sustainability.',
     color: '#7ED321',
   },
 ];
@@ -102,8 +102,8 @@ export default function TheSystem() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-[#aaaaaa] text-lg leading-relaxed">
-            Bill created The 168 Game after 20 years as a Navy Chief Officer and building multiple 7-figure businesses. 
-            When you&apos;re running an agency, co-founding multiple ventures, leading teams, and still trying to have a life, 
+            I created The 168 Game after 20 years as a Navy Chief Officer and building multiple 7-figure businesses.
+            When you&apos;re running an agency, co-founding multiple ventures, leading teams, and still trying to have a life,
             you figure out real fast: <span className="text-white font-semibold">Time isn&apos;t the problem. Architecture is.</span>
           </p>
         </motion.div>
@@ -164,8 +164,11 @@ export default function TheSystem() {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           <p className="text-[#aaaaaa] text-lg mb-6">
-            This is the system Bill uses daily. It&apos;s what he&apos;s taught to <span className="text-[#7ED321] font-semibold">10,000+ entrepreneurs</span> who&apos;ve 
+            This is the system I use daily. It&apos;s what I&apos;ve taught to <span className="text-[#7ED321] font-semibold">10,000+ entrepreneurs</span> who&apos;ve
             reclaimed thousands of hours and scaled past ceilings they thought were permanent.
+          </p>
+          <p className="text-[#888888] text-base">
+            The Time Ownership Playbook gives you the complete foundation. Everything you need to start implementing this week.
           </p>
         </motion.div>
       </div>

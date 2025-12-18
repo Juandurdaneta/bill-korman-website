@@ -21,12 +21,12 @@ export default function AboutCTA() {
           </span>
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            If you&apos;re ready to stop operating with the same architecture high performers use...
+            If you&apos;re ready to stop guessing and start operating with the same architecture high performers use...
           </h2>
 
           <p className="text-[#aaaaaa] text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Whether through 1:1 coaching, my Time Ownership Mastery course, or group coaching, my mission is simple: 
-            teach entrepreneurs how to take back control of their time before they lose everything trying to &ldquo;figure it out&rdquo; alone.
+            I offer four ways to help you master your 168 hours — whether you want access to my full masterclass,
+            personalized coaching, group coaching, or self-guided implementation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

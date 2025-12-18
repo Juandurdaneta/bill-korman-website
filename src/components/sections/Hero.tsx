@@ -56,7 +56,7 @@ export default function Hero() {
               <span className="text-[#5dade2]">
                 <BlurText delay={0.4}>20+ Hours</BlurText>
               </span>{' '}
-              <BlurText delay={0.5}>Per Week Without Sacrificing Revenue</BlurText>
+              <BlurText delay={0.5}>Per Week Without Sacrificing a Single Dollar in Revenue</BlurText>
             </h1>
 
             {/* Subheadline */}
@@ -66,8 +66,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              The proven framework entrepreneurs use to scale past 6-figures while working less. 
-              Stop managing time. Start owning it.
+              The Proven Framework Entrepreneurs Use To Scale Beyond 6-Figures While Working Less.
+              Download The Time Ownership Playbook and discover exactly where you&apos;re losing time,
+              which hours actually make you money, and the 3 moves that get you 20+ hours back this week.
             </motion.p>
 
             {/* CTA Buttons with Magnetic Effect */}
@@ -79,7 +80,7 @@ export default function Hero() {
             >
               <MagneticButton strength={0.2}>
                 <Button href="#playbook" variant="accent" size="lg" showArrow>
-                  Get Your Free Playbook
+                  Get Your Time Ownership Playbook
                 </Button>
               </MagneticButton>
               <MagneticButton strength={0.2}>
@@ -96,7 +97,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <span className="text-[#f1c40f] font-semibold">$497 value</span> — yours free today
+              <span className="text-[#f1c40f] font-semibold">$497 value</span> — yours free for a Limited Time
             </motion.p>
           </motion.div>
 
@@ -122,7 +123,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-white">
-                      <AnimatedNumber value={100} suffix="+" />
+                      <AnimatedNumber value={1000} suffix="+" />
                     </div>
                     <div className="text-[#888888] text-sm">Entrepreneurs Coached</div>
                   </div>

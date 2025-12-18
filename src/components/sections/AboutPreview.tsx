@@ -104,13 +104,16 @@ export default function AboutPreview() {
             </h2>
             
             <p className="text-[#aaaaaa] text-lg leading-relaxed mb-6">
-              Bill Korman is a former US Navy Chief Officer with 20 years of service, 
+              I&apos;m Bill Korman, former US Navy Chief Officer with 20 years of service,
               serial entrepreneur, and author of <span className="text-white font-semibold">The 168 Game: Time Ownership vs. Time Management</span>.
             </p>
-            
+
+            <p className="text-[#aaaaaa] leading-relaxed mb-4">
+              <span className="text-white font-semibold">I don&apos;t teach theory. I teach what works when you&apos;re actually building something real.</span>
+            </p>
+
             <p className="text-[#aaaaaa] leading-relaxed mb-8">
-              From bankruptcy to running multiple 7-figure businesses simultaneously, Bill doesn&apos;t teach theory — 
-              he teaches what works when you&apos;re actually building something real.
+              I run multiple 7-figure businesses simultaneously, and now I&apos;m teaching others how to do the same.
             </p>
 
             {/* Credentials */}

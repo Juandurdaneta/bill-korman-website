@@ -9,8 +9,8 @@ import MagneticButton from '../ui/MagneticButton';
 import BlurText from '../ui/BlurText';
 
 const benefits = [
-  'Exactly where you\'re losing time (most waste 15-20 hours weekly)',
-  'Which hours actually make you money',
+  'Exactly where you\'re losing time (most entrepreneurs waste 15-20 hours per week on low-value work)',
+  'Which hours actually make you money (so you can protect and multiply them)',
   'The 3 immediate changes that get you 20+ hours back',
 ];
 
@@ -72,8 +72,9 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            This is the same framework that&apos;s helped <span className="text-[#7ED321] font-semibold">10,000+ entrepreneurs</span> and 
+            This is the same framework that&apos;s helped <span className="text-[#7ED321] font-semibold">10,000+ entrepreneurs</span> and
             business owners scale past their revenue ceilings while working fewer hours.
+            No fluff. No theory. Just the exact system that works.
           </motion.p>
 
           {/* Value proposition */}
@@ -84,9 +85,10 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            <span className="text-[#888888]">No fluff. No theory.</span>
+            <span className="text-[#888888]">The playbook is valued at</span>
+            <span className="text-[#f1c40f] font-semibold">$497</span>
             <span className="w-1 h-1 rounded-full bg-[#7ED321]" />
-            <span className="text-white font-semibold">Just the exact system that works.</span>
+            <span className="text-white font-semibold">It&apos;s yours free today.</span>
           </motion.div>
 
           {/* CTA */}

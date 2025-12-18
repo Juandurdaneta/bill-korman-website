@@ -9,17 +9,17 @@ const playbookFeatures = [
   {
     icon: Clock,
     title: 'The 168-Hour Audit Process',
-    description: 'Discover where your time actually goes versus where you think it goes. Most entrepreneurs are shocked by this.',
+    description: 'Discover where your time actually goes and uncover the invisible leaks costing you 15+ hours/week.',
   },
   {
     icon: Zap,
     title: 'The Energy Mapping Method',
-    description: 'Identify your peak performance windows and stop wasting them on low-value tasks.',
+    description: 'How to identify your peak performance windows and stop wasting them on low-value tasks.',
   },
   {
     icon: Target,
     title: 'Revenue Forensics',
-    description: 'Which 20% of your activities drive 80% of your income — and which 80% you need to eliminate.',
+    description: 'Which 20% of your activities drive 80% of your income (and which 80% you need to eliminate immediately).',
   },
   {
     icon: Grid3X3,
@@ -44,7 +44,7 @@ export default function Solution() {
         <SectionTitle
           eyebrow="The Free Playbook"
           title="What You'll Discover"
-          subtitle="Download The Time Ownership Playbook and learn the exact system used by 100+ entrepreneurs to break through their revenue ceilings."
+          subtitle="When you download the Time Ownership Playbook, you'll get the exact framework used by high-performing entrepreneurs to reclaim control of their week, without sacrificing income, momentum, or their sanity."
         />
 
         <div className="mt-16 grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
@@ -96,8 +96,8 @@ export default function Solution() {
                 </h3>
                 
                 <p className="text-[#aaaaaa] mb-6 leading-relaxed">
-                  This is the same system Bill uses to run multiple 6-figure businesses simultaneously. 
-                  And it&apos;s helped 100+ entrepreneurs break through revenue ceilings in the last 2 years.
+                  This is the same system Bill uses to run multiple 7-figure businesses simultaneously.
+                  And it&apos;s the framework that&apos;s helped 1000+ entrepreneurs break through their revenue ceilings in the last 2 years.
                 </p>
 
                 <ul className="space-y-3 mb-8">
