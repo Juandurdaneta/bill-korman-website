@@ -24,7 +24,7 @@ export default function Button({
   showArrow = false,
   type = 'button',
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-300 cursor-pointer whitespace-nowrap';
   
   const variants = {
     primary: 'bg-gradient-to-br from-[#3498db] to-[#1a6fa3] text-white hover:from-[#5dade2] hover:to-[#3498db] hover:shadow-[0_10px_40px_rgba(52,152,219,0.4)]',

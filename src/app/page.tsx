@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero';
+import ProvenResults from '@/components/sections/ProvenResults';
 import Problem from '@/components/sections/Problem';
 import Solution from '@/components/sections/Solution';
 import Warning from '@/components/sections/Warning';
@@ -13,6 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ProvenResults />
       <Problem />
       <Solution />
       <Warning />

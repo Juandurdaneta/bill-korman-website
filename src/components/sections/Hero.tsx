@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, Clock, Users, DollarSign } from 'lucide-react';
+import { Clock, Play } from 'lucide-react';
 import Button from '../ui/Button';
-import AnimatedNumber from '../ui/AnimatedNumber';
 import AuroraBackground from '../ui/AuroraBackground';
 import BlurText from '../ui/BlurText';
-import SpotlightCard from '../ui/SpotlightCard';
 import MagneticButton from '../ui/MagneticButton';
 
 export default function Hero() {
@@ -36,12 +34,12 @@ export default function Hero() {
             </motion.div>
 
             {/* Main Headline with BlurText */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-6">
               <BlurText delay={0.3}>Reclaim</BlurText>{' '}
               <span className="text-[#5dade2]">
                 <BlurText delay={0.4}>20+ Hours</BlurText>
               </span>{' '}
-              <BlurText delay={0.5}>Per Week Without Sacrificing a Single Dollar in Revenue</BlurText>
+              <BlurText delay={0.5}>Per Week Without Losing Revenue</BlurText>
             </h1>
 
             {/* Subheadline */}
@@ -86,77 +84,27 @@ export default function Hero() {
             </motion.p>
           </motion.div>
 
-          {/* Right Column - Stats Card with Spotlight Effect */}
+          {/* Right Column - Video */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            <SpotlightCard className="rounded-3xl" spotlightColor="rgba(52, 152, 219, 0.2)">
-              <div className="relative p-8 md:p-10 overflow-hidden">
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
-
-              <h3 className="text-2xl font-bold text-white mb-8">Proven Results</h3>
-
-              <div className="grid grid-cols-1 gap-6">
-                {/* Stat 1 */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-black/50">
-                  <div className="w-12 h-12 rounded-lg bg-[#3498db]/20 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-[#85c1e9]" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">
-                      <AnimatedNumber value={1000} suffix="+" />
-                    </div>
-                    <div className="text-[#888888] text-sm">Entrepreneurs Coached</div>
-                  </div>
-                </div>
-
-                {/* Stat 2 */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-black/50">
-                  <div className="w-12 h-12 rounded-lg bg-[#7ED321]/20 flex items-center justify-center">
-                    <DollarSign className="w-6 h-6 text-[#58d68d]" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">
-                      $<AnimatedNumber value={50} suffix="M+" />
-                    </div>
-                    <div className="text-[#888888] text-sm">Combined Client Revenue</div>
-                  </div>
-                </div>
-
-                {/* Stat 3 */}
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-black/50">
-                  <div className="w-12 h-12 rounded-lg bg-[#3498db]/20 flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-[#85c1e9]" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">
-                      <AnimatedNumber value={2000} suffix="+" />
-                    </div>
-                    <div className="text-[#888888] text-sm">Hours Reclaimed</div>
-                  </div>
-                </div>
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#0d0d14] border border-white/10 aspect-video">
+              {/* Video placeholder - replace src with actual video */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                <motion.button
+                  className="w-20 h-20 rounded-full bg-gradient-to-br from-[#7ED321] to-[#27ae60] flex items-center justify-center shadow-[0_0_40px_rgba(126,211,33,0.4)] cursor-pointer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Play className="w-8 h-8 text-black ml-1" fill="currentColor" />
+                </motion.button>
               </div>
-
-              {/* Trust indicators */}
-              <div className="mt-8 pt-6 border-t border-white/5">
-                <div className="flex flex-wrap gap-3">
-                  {['Navy Veteran', 'Serial Entrepreneur', 'Best-Selling Author'].map((badge) => (
-                    <span
-                      key={badge}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#3498db]/10 text-[#85c1e9] text-xs font-medium"
-                    >
-                      <Check className="w-3 h-3" />
-                      {badge}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              </div>
-            </SpotlightCard>
+              {/* Placeholder image/thumbnail */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#3498db]/20 to-[#7ED321]/10" />
+            </div>
 
             {/* Floating badge */}
             <motion.div
