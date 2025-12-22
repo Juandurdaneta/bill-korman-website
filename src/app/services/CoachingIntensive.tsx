@@ -25,30 +25,40 @@ export default function CoachingIntensive() {
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] bg-gradient-to-r from-[#3498db]/10 to-transparent rounded-r-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Content */}
+        {/* Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7ED321]/10 border border-[#7ED321]/30 mb-6">
+            <Sparkles className="w-4 h-4 text-[#7ED321]" />
+            <span className="text-sm text-[#7ED321] font-medium">Premium 1:1 Program</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            The Complete Rebuild
+          </h2>
+
+          <p className="text-xl text-[#aaaaaa] max-w-3xl mx-auto leading-relaxed">
+            Stop Losing $50K-$200K Per Year To Wasted Time (And Get Your Life Back In The Process)
+          </p>
+        </motion.div>
+
+        {/* Two Column Content: Problems & Results */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* The Reality */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            className="p-6 md:p-8 rounded-2xl bg-[#141414]/50 border border-white/5"
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7ED321]/10 border border-[#7ED321]/30 mb-6">
-              <Sparkles className="w-4 h-4 text-[#7ED321]" />
-              <span className="text-sm text-[#7ED321] font-medium">Premium 1:1 Program</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              1:1 Coaching: The Complete Rebuild
-            </h2>
-
-            <p className="text-xl text-[#aaaaaa] mb-8 leading-relaxed">
-              Stop Losing $50K-$200K Per Year To Wasted Time (And Get Your Life Back In The Process)
-            </p>
-
-            {/* The Reality */}
-            <h3 className="text-xl font-bold text-white mb-4">THE REALITY YOU&apos;RE LIVING:</h3>
-            <ul className="space-y-3 mb-8">
+            <h3 className="text-lg font-bold text-white mb-4">THE REALITY YOU&apos;RE LIVING:</h3>
+            <ul className="space-y-3">
               {problems.map((problem, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#888888]">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 flex-shrink-0" />
@@ -56,14 +66,18 @@ export default function CoachingIntensive() {
                 </li>
               ))}
             </ul>
+          </motion.div>
 
-            {/* What Changes */}
-            <h3 className="text-xl font-bold text-white mb-4">WHAT CHANGES WITH 1:1 COACHING:</h3>
-            <p className="text-[#aaaaaa] mb-6">
-              This isn&apos;t another course you won&apos;t finish or a productivity hack that doesn&apos;t stick. 
-              This is a complete operating system rebuild customized for your business, your goals, your life.
-            </p>
-            <ul className="space-y-3 mb-8">
+          {/* What Changes */}
+          <motion.div
+            className="p-6 md:p-8 rounded-2xl bg-[#141414]/50 border border-[#7ED321]/10"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-lg font-bold text-white mb-4">WHAT CHANGES WITH 1:1 COACHING:</h3>
+            <ul className="space-y-3">
               {results.map((result, index) => (
                 <li key={index} className="flex items-start gap-3 text-[#d0d0dd]">
                   <Check className="w-5 h-5 text-[#7ED321] flex-shrink-0 mt-0.5" />
@@ -72,63 +86,80 @@ export default function CoachingIntensive() {
               ))}
             </ul>
           </motion.div>
+        </div>
 
-          {/* Right Card */}
-          <motion.div
-            className="lg:sticky lg:top-28"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="bg-gradient-to-br from-[#141414] to-[#121218] rounded-3xl p-8 md:p-10 border border-[#5dade2]/20 relative overflow-hidden">
-              {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
+        {/* CTA Card - Full Width Below */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="bg-gradient-to-br from-[#141414] to-[#121218] rounded-3xl border border-[#5dade2]/20 relative overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Left - Program Details */}
+              <div className="p-8 md:p-10 lg:p-12 relative">
+                <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#3498db]/10 to-transparent" />
 
-              <div className="relative">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs uppercase tracking-wider text-[#7ED321] font-semibold">
+                <div className="relative">
+                  <span className="text-xs uppercase tracking-wider text-[#7ED321] font-semibold mb-2 block">
                     90-Day Intensive
                   </span>
+
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">The Complete Rebuild</h3>
+
+                  <div className="flex items-baseline gap-2 mb-6">
+                    <span className="text-5xl font-bold text-white">$25,000</span>
+                    <span className="text-[#888888]">/ program</span>
+                  </div>
+
+                  <p className="text-[#aaaaaa] mb-6 leading-relaxed">
+                    Personalized transformation. Custom frameworks built for your specific business.
+                    Real-time support. This is the fastest path to results.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                    {[
+                      { icon: Clock, text: '90 days of intensive coaching' },
+                      { icon: Sparkles, text: 'Unlimited access to Bill' },
+                      { icon: TrendingUp, text: 'Custom frameworks for your business' },
+                      { icon: DollarSign, text: 'Payment plans available' },
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-3 text-[#d0d0dd]">
+                        <item.icon className="w-5 h-5 text-[#85c1e9]" />
+                        {item.text}
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button href="#" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
+                    Apply for 1:1 Coaching
+                  </Button>
+
+                  <p className="text-[#555555] text-sm mt-4">
+                    <span className="text-[#7ED321] font-semibold">Limited:</span> 3 new clients per quarter
+                  </p>
                 </div>
+              </div>
 
-                <h3 className="text-2xl font-bold text-white mb-2">The Complete Rebuild</h3>
-                
-                <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-5xl font-bold text-white">$25,000</span>
-                  <span className="text-[#888888]">/ program</span>
+              {/* Right - Visual/Quote */}
+              <div className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0d0d14] flex items-center justify-center p-8 lg:p-12 min-h-[300px]">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#3498db]/10 to-transparent" />
+
+                <div className="relative text-center max-w-md">
+                  <p className="text-[#aaaaaa] mb-6 leading-relaxed">
+                    This isn&apos;t another course you won&apos;t finish or a productivity hack that doesn&apos;t stick.
+                    This is a complete operating system rebuild customized for your business, your goals, your life.
+                  </p>
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#7ED321]/10 border border-[#7ED321]/30">
+                    <span className="text-[#7ED321] font-semibold text-sm">The fastest path to results</span>
+                  </div>
                 </div>
-
-                <p className="text-[#aaaaaa] mb-6 leading-relaxed">
-                  Personalized transformation. Custom frameworks built for your specific business. 
-                  Real-time support. This is the fastest path to results.
-                </p>
-
-                <div className="space-y-4 mb-8">
-                  {[
-                    { icon: Clock, text: '90 days of intensive coaching' },
-                    { icon: Sparkles, text: 'Unlimited access to Bill' },
-                    { icon: TrendingUp, text: 'Custom frameworks for your business' },
-                    { icon: DollarSign, text: 'Payment plans available' },
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 text-[#d0d0dd]">
-                      <item.icon className="w-5 h-5 text-[#85c1e9]" />
-                      {item.text}
-                    </div>
-                  ))}
-                </div>
-
-                <Button href="#" variant="accent" size="lg" className="w-full mb-4" showArrow>
-                  Apply for 1:1 Coaching
-                </Button>
-
-                <p className="text-center text-[#555555] text-sm">
-                  <span className="text-[#7ED321] font-semibold">Limited:</span> 3 new clients per quarter
-                </p>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

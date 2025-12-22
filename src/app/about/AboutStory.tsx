@@ -22,8 +22,8 @@ export default function AboutStory() {
           </h2>
           <div className="space-y-4 text-[#aaaaaa] text-lg leading-relaxed">
             <p>
-              I was working harder than I ever had in the Navy — 80-hour weeks, constantly reacting, 
-              drowning in decisions — and I had nothing to show for it except exhaustion and debt.
+              I was working harder than I ever had in the Navy, 80-hour weeks, constantly reacting,
+              drowning in decisions, and I had nothing to show for it except exhaustion and debt.
             </p>
             <p>
               I had structure and systems in the military. But in business? I was winging it. And it nearly destroyed me.
@@ -61,11 +61,11 @@ export default function AboutStory() {
           </h2>
           <div className="space-y-4 text-[#aaaaaa] text-lg leading-relaxed">
             <p>
-              In the military, we didn&apos;t &ldquo;manage&rdquo; time — we architected operations around mission-critical objectives. 
+              In the military, we didn&apos;t &ldquo;manage&rdquo; time, we architected operations around mission-critical objectives. 
               Every hour had a strategic purpose. Every decision was filtered through: does this move us toward the mission?
             </p>
             <p>
-              I applied that same philosophy to my business. I built what would eventually become The 168 Game — 
+              I applied that same philosophy to my business. I built what would eventually become The 168 Game,
               a complete framework for owning every hour of your week instead of being owned by chaos.
             </p>
             <p className="text-white font-semibold text-xl">

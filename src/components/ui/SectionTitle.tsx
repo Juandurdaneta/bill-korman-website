@@ -39,7 +39,7 @@ export default function SectionTitle({
         {animateTitle ? <BlurText delay={0.2}>{title}</BlurText> : title}
       </h2>
       {subtitle && (
-        <p className="text-lg md:text-xl text-[#aaaaaa] max-w-3xl leading-relaxed">
+        <p className="text-lg md:text-xl text-[#aaaaaa] max-w-4xl leading-relaxed">
           {subtitle}
         </p>
       )}
