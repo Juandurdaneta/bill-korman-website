@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Shield, Building2, BookOpen, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const highlights = [
   { icon: Shield, label: '20 Years Navy Service' },
@@ -30,11 +31,15 @@ export default function AboutHero() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              {/* Main image placeholder */}
-              <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-[#141414] to-[#121218] border border-white/5 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-[#888888]">
-                  <span className="text-sm">Bill Korman Portrait</span>
-                </div>
+              {/* Main image */}
+              <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-[#141414] to-[#121218] border border-white/5 overflow-hidden relative">
+                <Image
+                  src="/images/bill_korman.jpeg"
+                  alt="Bill Korman - Leadership Coach and Author"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
               </div>
 
               {/* Decorative elements */}

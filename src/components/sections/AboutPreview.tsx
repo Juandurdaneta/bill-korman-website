@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Award, Building2, BookOpen, Users, Shield, ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
+import Image from 'next/image';
 
 const credentials = [
   { icon: Shield, text: '20 Years US Navy Chief Officer' },
@@ -37,16 +38,14 @@ export default function AboutPreview() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              {/* Image placeholder - replace with actual image */}
-              <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-[#141414] to-[#121218] border border-white/5 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Stylized placeholder */}
-                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-[#3498db] to-[#5dade2] opacity-20" />
-                </div>
-                {/* You would replace this with an actual image */}
-                <div className="absolute inset-0 flex items-center justify-center text-[#888888]">
-                  <span className="text-sm">Bill Korman Photo</span>
-                </div>
+              {/* Bill Korman image */}
+              <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-[#141414] to-[#121218] border border-white/5 overflow-hidden relative">
+                <Image
+                  src="/images/bill_korman.jpeg"
+                  alt="Bill Korman - Leadership Coach and Author"
+                  fill
+                  className="object-cover object-top"
+                />
               </div>
               
               {/* Floating credential cards */}
