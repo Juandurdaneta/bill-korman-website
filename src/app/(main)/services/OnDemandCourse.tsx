@@ -42,7 +42,7 @@ export default function OnDemandCourse() {
                 <h3 className="text-2xl font-bold text-white mb-2">Time Ownership Mastery Course</h3>
 
                 <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-4xl font-bold text-white">Starting at $497</span>
+                  <span className="text-4xl font-bold text-white">$497</span>
                 </div>
 
                 <p className="text-[#aaaaaa] mb-6 leading-relaxed">

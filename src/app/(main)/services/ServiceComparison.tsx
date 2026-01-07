@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 
 const services = [
   {
-    name: '1:1 90-Day Intensive',
+    name: 'The Complete Rebuild Intensive',
     bestFor: 'Entrepreneurs doing $500K-$5M+ who want the fastest results',
     timeline: '90 day intensive',
     interaction: '1:1 calls with Bill + unlimited access',
@@ -15,7 +15,7 @@ const services = [
     highlighted: true,
   },
   {
-    name: '1:1 Coaching 6-Month',
+    name: 'Core 1:1 Program',
     bestFor: 'Entrepreneurs who thrive with structured learning',
     timeline: '1:1 calls for 6 months',
     interaction: '1:1 calls with Bill',
@@ -25,7 +25,7 @@ const services = [
     highlighted: false,
   },
   {
-    name: 'Group Training',
+    name: 'Time Ownership Accelerator',
     bestFor: 'Individuals looking for group support from others ready to scale',
     timeline: '6 months',
     interaction: 'Monthly group coaching + community',
