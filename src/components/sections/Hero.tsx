@@ -54,9 +54,9 @@ export default function Hero() {
               which hours actually make you money, and the 3 moves that get you 20+ hours back this week.
             </motion.p>
 
-            {/* CTA Buttons with Magnetic Effect */}
+            {/* CTA Button with Magnetic Effect */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -64,11 +64,6 @@ export default function Hero() {
               <MagneticButton strength={0.2}>
                 <Button href="#playbook" variant="accent" size="lg" showArrow>
                   Get Your Time Ownership Playbook
-                </Button>
-              </MagneticButton>
-              <MagneticButton strength={0.2}>
-                <Button href="/services" variant="outline" size="lg">
-                  Explore Coaching
                 </Button>
               </MagneticButton>
             </motion.div>

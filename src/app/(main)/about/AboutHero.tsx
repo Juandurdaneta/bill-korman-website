@@ -64,7 +64,7 @@ export default function AboutHero() {
             </h1>
 
             <p className="text-[#aaaaaa] text-lg leading-relaxed mb-8">
-              I know what it&apos;s like to have everything fall apart. After 20 years as a Navy Chief Officer, 
+              I know what it&apos;s like to have everything fall apart. After 20 years as a Navy Chief Petty, 
               I thought I had it figured out. I had discipline. I had work ethic. I knew how to lead teams 
               and execute under pressure. Then I left the military and faced bankruptcy.
             </p>

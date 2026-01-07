@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Clock, Zap, Target, Grid3X3, Calendar, Check } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
+import SpotlightCard from '../ui/SpotlightCard';
+import GlowingOrb from '../ui/GlowingOrb';
 
 const playbookFeatures = [
   {
@@ -35,16 +37,17 @@ const playbookFeatures = [
 
 export default function Solution() {
   return (
-    <section id="playbook" className="relative py-24 bg-[#121218] overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#3498db]/5 to-transparent" />
-      
+    <section id="playbook" className="relative py-24 bg-[#000000] overflow-hidden">
+      {/* Background accents */}
+      <GlowingOrb color="#3498db" size={400} className="right-0 top-1/4" delay={0} blur={150} />
+      <GlowingOrb color="#7ED321" size={300} className="left-1/4 bottom-1/4" delay={1} blur={120} />
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="The Free Playbook"
           title="What You'll Discover"
           subtitle="When you download the Time Ownership Playbook, you'll get the exact framework used by high-performing entrepreneurs to reclaim control of their week, without sacrificing income, momentum, or their sanity."
+          animateTitle
         />
 
         {/* CTA Card with Playbook Cover */}
@@ -55,13 +58,14 @@ export default function Solution() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="bg-gradient-to-br from-[#141414] to-[#000000] rounded-3xl border border-white/5 relative overflow-hidden">
+          <SpotlightCard
+            className="rounded-3xl"
+            spotlightColor="rgba(52, 152, 219, 0.15)"
+            borderColor="rgba(255, 255, 255, 0.05)"
+          >
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Left Column - CTA Content */}
               <div className="p-8 md:p-10 lg:p-12 relative">
-                {/* Corner accent */}
-                <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#3498db]/10 to-transparent" />
-
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-5xl font-bold text-white">FREE</span>
@@ -140,29 +144,39 @@ export default function Solution() {
                 </motion.div>
               </div>
             </div>
-          </div>
+          </SpotlightCard>
         </motion.div>
 
         {/* Features Grid - Below CTA */}
         <div className="mt-16">
-          <h3 className="text-xl font-semibold text-white mb-8 text-center">What&apos;s Inside</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h3 className="text-xl font-semibold text-white mb-8 text-center">
+            What&apos;s Inside
+          </h3>
+          <div className="flex flex-wrap justify-center gap-6">
             {playbookFeatures.map((feature, index) => (
               <motion.div
                 key={index}
-                className="flex gap-4 p-5 rounded-xl bg-[#141414]/50 border border-white/5 hover:border-[#3498db]/30 transition-colors"
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#3498db] to-[#5dade2] flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-white mb-1">{feature.title}</h4>
-                  <p className="text-[#888888] text-sm leading-relaxed">{feature.description}</p>
-                </div>
+                <SpotlightCard
+                  className="h-full"
+                  spotlightColor="rgba(52, 152, 219, 0.15)"
+                  borderColor="rgba(255, 255, 255, 0.05)"
+                >
+                  <div className="flex gap-4 p-5">
+                    <div className="w-12 h-12 rounded-xl bg-[#3498db]/20 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-6 h-6 text-[#85c1e9]" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-white mb-1">{feature.title}</h4>
+                      <p className="text-[#888888] text-sm leading-relaxed">{feature.description}</p>
+                    </div>
+                  </div>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>

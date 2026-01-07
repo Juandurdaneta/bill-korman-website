@@ -28,7 +28,7 @@ const services = [
     icon: GraduationCap,
     title: 'Time Ownership Mastery Course',
     subtitle: 'On Demand',
-    price: 'Starting at $497',
+    price: '$497',
     description: 'The full system. Self-guided. Expert-supported. Get lifetime access to the complete 168 Game framework with monthly coaching calls.',
     bestFor: 'Self-directed entrepreneurs who want structured learning',
     highlight: false,

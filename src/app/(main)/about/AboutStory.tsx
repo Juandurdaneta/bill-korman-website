@@ -33,19 +33,21 @@ export default function AboutStory() {
 
         {/* The Turning Point */}
         <motion.div
-          className="mb-16 p-8 rounded-2xl bg-[#141414] border border-white/5"
+          className="mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-bold text-[#7ED321] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             I had a choice: give up or figure this out.
-          </h3>
-          <p className="text-[#aaaaaa] text-lg leading-relaxed">
-            I chose to figure it out. I spent the next several years studying everything I could about productivity, 
-            performance, and how successful entrepreneurs actually operate. I tested frameworks. I failed. I adjusted. I tried again.
-          </p>
+          </h2>
+          <div className="space-y-4 text-[#aaaaaa] text-lg leading-relaxed">
+            <p>
+              I chose to figure it out. I spent the next several years studying everything I could about productivity,
+              performance, and how successful entrepreneurs actually operate. I tested frameworks. I failed. I adjusted. I tried again.
+            </p>
+          </div>
         </motion.div>
 
         {/* The Breakthrough */}
@@ -91,7 +93,7 @@ export default function AboutStory() {
           <div className="p-8 rounded-2xl bg-gradient-to-r from-[#1a4d7a]/20 to-[#3498db]/10 border border-[#5dade2]/20">
             <Quote className="w-10 h-10 text-[#7ED321] mb-4" />
             <blockquote className="text-xl text-white italic mb-4">
-              &ldquo;Owning time, not just managing it, is a true driver of success. Resources like The 168 Game 
+              &ldquo;Owning time, not just managing it, is a true driver of success. Resources like The 168 Game
               add practical strategies that go far beyond traditional time management.&rdquo;
             </blockquote>
             <cite className="text-[#888888]">
