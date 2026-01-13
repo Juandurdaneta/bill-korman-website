@@ -48,7 +48,7 @@ export default function CoachingBasic() {
                 ))}
               </div>
 
-              <Button href="#" variant="primary" size="lg" className="w-full" showArrow>
+              <Button href="/contact" variant="primary" size="lg" className="w-full" showArrow>
                 Apply Now
               </Button>
             </div>

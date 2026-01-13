@@ -10,7 +10,8 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/#playbook', label: 'Free Playbook' },
+  { href: '/free-book', label: 'Free Playbook' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -62,7 +63,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button href="/#playbook" variant="accent" size="sm" showArrow>
+            <Button href="/free-book" variant="accent" size="sm" showArrow>
               Get Free Playbook
             </Button>
           </div>
@@ -111,7 +112,7 @@ export default function Header() {
                 transition={{ delay: navLinks.length * 0.1 }}
                 className="pt-4"
               >
-                <Button href="/#playbook" variant="accent" className="w-full" showArrow>
+                <Button href="/free-book" variant="accent" className="w-full" showArrow>
                   Get Free Playbook
                 </Button>
               </motion.div>

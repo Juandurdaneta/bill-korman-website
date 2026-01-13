@@ -69,10 +69,10 @@ export default function ServicesCTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            <Button href="#" variant="accent" size="lg" showArrow>
+            <Button href="/contact" variant="accent" size="lg" showArrow>
               Schedule Free Consultation
             </Button>
-            <Button href="/#playbook" variant="outline" size="lg">
+            <Button href="/free-book" variant="outline" size="lg">
               Download Free Playbook First
             </Button>
           </motion.div>

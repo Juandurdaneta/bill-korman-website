@@ -100,7 +100,7 @@ export default function GroupTraining() {
                 ))}
               </div>
 
-              <Button href="#" variant="primary" size="lg" className="w-full mb-4" showArrow>
+              <Button href="/contact" variant="primary" size="lg" className="w-full mb-4" showArrow>
                 Learn About Group Coaching
               </Button>
 

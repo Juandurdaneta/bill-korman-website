@@ -5,6 +5,7 @@ const footerLinks = {
   company: [
     { label: 'About Bill', href: '/about' },
     { label: 'Services', href: '/services' },
+    { label: 'Contact', href: '/contact' },
     { label: 'The 168 Game Book', href: 'https://www.amazon.com/168-Game-Time-Ownership-Management/dp/B0D9YCKD9G', external: true },
     { label: 'Convention 2026', href: 'https://the168gameconvention.com', external: true },
   ],

@@ -139,7 +139,7 @@ export default function CoachingIntensive() {
                     ))}
                   </div>
 
-                  <Button href="#" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
+                  <Button href="/contact" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
                     Apply for 1:1 Coaching
                   </Button>
 

@@ -62,7 +62,7 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               <MagneticButton strength={0.2}>
-                <Button href="#playbook" variant="accent" size="lg" showArrow>
+                <Button href="/free-book" variant="accent" size="lg" showArrow>
                   Get Your Time Ownership Playbook
                 </Button>
               </MagneticButton>

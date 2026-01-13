@@ -2,7 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['assets.cdn.filesafe.space', 'storage.googleapis.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.cdn.filesafe.space',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+      },
+    ],
   },
 };
 

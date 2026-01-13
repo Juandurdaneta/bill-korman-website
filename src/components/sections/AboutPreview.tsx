@@ -48,9 +48,9 @@ export default function AboutPreview() {
                 />
               </div>
               
-              {/* Floating credential cards */}
+              {/* Floating credential cards - hidden on mobile to prevent overflow */}
               <motion.div
-                className="absolute -right-4 lg:-right-8 top-20 bg-[#141414] rounded-xl p-4 border border-white/10 shadow-xl"
+                className="hidden sm:block absolute right-0 sm:-right-4 lg:-right-8 top-20 bg-[#141414] rounded-xl p-4 border border-white/10 shadow-xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -68,7 +68,7 @@ export default function AboutPreview() {
               </motion.div>
 
               <motion.div
-                className="absolute -left-4 lg:-left-8 bottom-20 bg-[#141414] rounded-xl p-4 border border-white/10 shadow-xl"
+                className="hidden sm:block absolute left-0 sm:-left-4 lg:-left-8 bottom-20 bg-[#141414] rounded-xl p-4 border border-white/10 shadow-xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -116,10 +116,10 @@ export default function AboutPreview() {
             </p>
 
             {/* Credentials */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
               {credentials.map((cred, index) => (
                 <div key={index} className="flex items-center gap-2 text-[#d0d0dd]">
-                  <cred.icon className="w-5 h-5 text-[#85c1e9]" />
+                  <cred.icon className="w-5 h-5 text-[#85c1e9] flex-shrink-0" />
                   <span className="text-sm">{cred.text}</span>
                 </div>
               ))}

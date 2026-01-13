@@ -30,7 +30,7 @@ export default function AboutCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/#playbook" variant="accent" size="lg" showArrow>
+            <Button href="/free-book" variant="accent" size="lg" showArrow>
               Get Your Free Playbook
             </Button>
             <Button href="/services" variant="primary" size="lg">

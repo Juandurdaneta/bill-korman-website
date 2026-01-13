@@ -99,7 +99,7 @@ export default function Solution() {
                     ))}
                   </ul>
 
-                  <Button href="#" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
+                  <Button href="/free-book" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
                     Get Your Free Playbook Now
                   </Button>
 
@@ -132,9 +132,9 @@ export default function Solution() {
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#7ED321]/20 to-transparent" />
                 </div>
 
-                {/* Floating badge */}
+                {/* Floating badge - adjusted positioning for mobile */}
                 <motion.div
-                  className="absolute -bottom-3 -right-3 lg:bottom-8 lg:right-8 bg-gradient-to-r from-[#f1c40f] to-[#f39c12] text-black px-4 py-2 rounded-lg font-bold text-sm shadow-lg"
+                  className="absolute bottom-4 right-4 sm:-bottom-3 sm:-right-3 lg:bottom-8 lg:right-8 bg-gradient-to-r from-[#f1c40f] to-[#f39c12] text-black px-4 py-2 rounded-lg font-bold text-sm shadow-lg"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}

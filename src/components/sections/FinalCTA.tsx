@@ -79,15 +79,14 @@ export default function FinalCTA() {
 
           {/* Value proposition */}
           <motion.div
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#141414] border border-white/10 mb-8"
+            className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-6 py-3 rounded-2xl sm:rounded-full bg-[#141414] border border-white/10 mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            <span className="text-[#888888]">The playbook is valued at</span>
-            <span className="text-[#f1c40f] font-semibold">$497</span>
-            <span className="w-1 h-1 rounded-full bg-[#7ED321]" />
+            <span className="text-[#888888]">The playbook is valued at <span className="text-[#f1c40f] font-semibold">$497</span></span>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-[#7ED321]" />
             <span className="text-white font-semibold">It&apos;s yours free today.</span>
           </motion.div>
 
@@ -100,11 +99,11 @@ export default function FinalCTA() {
             transition={{ delay: 0.6 }}
           >
             <MagneticButton strength={0.15}>
-              <Button href="#" variant="accent" size="lg" showArrow className="text-lg px-10">
+              <Button href="/free-book" variant="accent" size="lg" showArrow className="text-lg px-10">
                 Get Your Free Playbook Now
               </Button>
             </MagneticButton>
-            <p className="text-[#555555] text-sm">
+            <p className="text-white text-sm">
               <span className="text-[#7ED321] font-semibold">$497 value</span> — yours free today
             </p>
           </motion.div>

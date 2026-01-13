@@ -64,7 +64,7 @@ export default function OnDemandCourse() {
                   ))}
                 </div>
 
-                <Button href="#" variant="accent" size="lg" className="w-full mb-4" showArrow>
+                <Button href="/contact" variant="accent" size="lg" className="w-full mb-4" showArrow>
                   Enroll Now
                 </Button>
 
