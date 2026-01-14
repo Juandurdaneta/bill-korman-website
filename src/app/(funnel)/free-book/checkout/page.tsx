@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 import Input from '@/components/ui/Input';
 import OrderBump from '@/components/funnel/OrderBump';
 import FunnelCTA from '@/components/funnel/FunnelCTA';
-import BookPreview from '@/components/funnel/BookPreview';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -276,8 +275,17 @@ export default function CheckoutPage() {
 
                 {/* Book Preview */}
                 <div className="flex items-start gap-4 mb-6 pb-6 border-b border-neutral-800">
-                  <div className="w-20 flex-shrink-0">
-                    <BookPreview className="scale-50 origin-top-left" />
+                  <div className="w-16 h-24 flex-shrink-0 rounded overflow-hidden bg-gradient-to-br from-primary-500 via-primary-600 to-primary-800 shadow-lg relative">
+                    {/* Mini Book Cover */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-r from-primary-900 to-primary-700" />
+                    <div className="p-2 flex flex-col justify-between h-full">
+                      <span className="text-[6px] bg-gold-500 text-black font-bold px-1 py-0.5 rounded self-center">BESTSELLER</span>
+                      <div className="text-center">
+                        <p className="text-[10px] font-bold text-white leading-tight" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>THE 168</p>
+                        <p className="text-[10px] font-bold text-accent-400 leading-tight" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>GAME</p>
+                      </div>
+                      <p className="text-[5px] text-gold-400 font-bold text-center">BILL KORMAN</p>
+                    </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-white">The 168 Game Book</h3>
