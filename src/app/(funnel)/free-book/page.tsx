@@ -376,18 +376,18 @@ export default function FreeBookPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              About The Author
+              <span className="text-white">About </span>
+              <span className="text-primary-400">The Author</span>
             </h2>
 
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              {/* Photo placeholder */}
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex-shrink-0 overflow-hidden">
+              {/* Photo */}
+              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex-shrink-0 overflow-hidden relative">
                 <Image
-                  src="https://assets.cdn.filesafe.space/Q5OlsJVagIkFLNDXxRcC/media/67523d929a46ab16c312b679.png"
+                  src="/images/bill_korman.jpeg"
                   alt="Bill Korman"
-                  width={192}
-                  height={192}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover object-center"
                 />
               </div>
 
@@ -503,14 +503,14 @@ export default function FreeBookPage() {
               Here's The Deal:
             </h2>
 
-            <p className="text-xl text-neutral-300 mb-4">
-              Normally, this book sells for <span className="line-through text-neutral-500">$20</span>.
+            <p className="text-xl text-white mb-4">
+              Normally, this book sells for <span className="line-through text-red-400">$20</span>.
             </p>
             <p className="text-3xl text-white font-bold mb-6">
               But today, you're getting it <span style={{ color: '#7ED321' }}>FREE.</span>
             </p>
             <p className="text-lg text-neutral-300 mb-8">
-              Just cover the <span className="text-gold-400 font-semibold">$5.95</span> shipping and handling, and I'll rush you a physical copy of{' '}
+              Just cover the <span className="text-gold-400 font-semibold">$5.95</span> shipping and handling, and I'll rush you a <br/> physical copy of{' '}
               <em className="text-white">The 168 Game</em>.
             </p>
 
