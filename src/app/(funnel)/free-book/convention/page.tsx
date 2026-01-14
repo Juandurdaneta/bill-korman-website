@@ -83,7 +83,13 @@ export default function ConventionUpsellPage() {
               You Just Got The Framework. Now Come Master It With 150 Elite Entrepreneurs in 3 Days.
             </p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-gradient-x bg-clip-text text-transparent bg-[length:200%_auto]"
+              style={{
+                fontFamily: 'Bebas Neue, sans-serif',
+                backgroundImage: 'linear-gradient(90deg, #7ED321, #3498db, #7ED321)',
+              }}
+            >
               THE 168 GAME CONVENTION
             </h1>
 
@@ -104,7 +110,7 @@ export default function ConventionUpsellPage() {
               next level of freedom.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-4">
               <FunnelCTA onClick={() => handleAccept('regular')} variant="primary" size="lg">
                 Regular Ticket - $997
               </FunnelCTA>

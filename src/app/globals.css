@@ -320,12 +320,27 @@ h1, h2, h3, .display-font {
   animation-delay: -10s;
 }
 
+/* Animated gradient text */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   .animate-aurora-1,
   .animate-aurora-2,
-  .animate-aurora-3 {
+  .animate-aurora-3,
+  .animate-gradient-x {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
