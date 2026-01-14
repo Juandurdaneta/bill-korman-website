@@ -13,6 +13,7 @@ interface FunnelCTAProps {
   className?: string;
   showArrow?: boolean;
   pulse?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function FunnelCTA({
@@ -24,6 +25,7 @@ export default function FunnelCTA({
   className = '',
   showArrow = true,
   pulse = false,
+  type = 'button',
 }: FunnelCTAProps) {
   const variantStyles = {
     primary: {
@@ -92,6 +94,7 @@ export default function FunnelCTA({
 
   return (
     <motion.button
+      type={type}
       onClick={onClick}
       className={buttonClasses}
       style={variantStyles[variant]}

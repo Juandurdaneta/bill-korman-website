@@ -233,14 +233,15 @@ export default function CheckoutPage() {
                 {/* Submit Button */}
                 <div className="pt-4">
                   <FunnelCTA
-                    onClick={() => {}}
+                    type="submit"
                     size="xl"
                     className="w-full"
+                    showArrow={false}
                   >
-                    <button type="submit" className="w-full flex items-center justify-center gap-2">
+                    <span className="flex items-center justify-center gap-2">
                       <Lock className="w-5 h-5" />
                       Complete Order - ${total.toFixed(2)}
-                    </button>
+                    </span>
                   </FunnelCTA>
                 </div>
 
