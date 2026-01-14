@@ -486,60 +486,98 @@ export default function FreeBookPage() {
       </section>
 
       {/* The Deal Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background accents */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
-        <div className="absolute -right-48 top-1/4 w-96 h-96 bg-gold-500/10 blur-3xl rounded-full" />
-        <div className="absolute -left-48 bottom-1/4 w-96 h-96 bg-accent-500/10 blur-3xl rounded-full" />
+      <section className="relative py-24 overflow-hidden">
+        {/* Dynamic background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-accent-900/10 to-black" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-500/10 blur-[150px] rounded-full" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-500/30 to-transparent" />
 
-        <div className="max-w-3xl mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          {/* Main headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              <span className="text-gold-400">Here's The Deal</span>
+            </h2>
+
+            {/* Price comparison - dramatic */}
+            <div className="flex items-center justify-center gap-4 md:gap-8 mb-8">
+              <div className="text-center">
+                <p className="text-neutral-500 text-sm uppercase tracking-wider mb-1">Retail Price</p>
+                <p className="text-4xl md:text-5xl font-bold text-red-400 line-through opacity-60">$20</p>
+              </div>
+              <div className="text-4xl text-neutral-600">&rarr;</div>
+              <div className="text-center">
+                <p className="text-accent-400 text-sm uppercase tracking-wider mb-1">Your Price Today</p>
+                <motion.p
+                  className="text-5xl md:text-7xl font-bold"
+                  style={{ color: '#7ED321' }}
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  FREE
+                </motion.p>
+              </div>
+            </div>
+
+            <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto">
+              Just cover <span className="text-gold-400 font-bold">$5.95</span> shipping and I'll rush you a physical copy of <em className="text-accent-400">The 168 Game</em>
+            </p>
+          </motion.div>
+
+          {/* Why - conversational flow */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-center mb-16"
+          >
+            <p className="text-2xl md:text-3xl text-white font-light mb-4">
+              Why am I giving this away?
+            </p>
+            <p className="text-lg text-neutral-400 max-w-xl mx-auto mb-4">
+              Because I know once you read this book and implement the framework, you'll see results.
+            </p>
+            <p className="text-xl text-white font-semibold">
+              This isn't a gimmick. <span className="text-accent-400">It's the real system I use every day.</span>
+            </p>
+          </motion.div>
+
+          {/* Guarantee - bold statement */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Shield className="w-8 h-8 text-accent-400" />
+              <span className="text-accent-400 text-lg font-bold uppercase tracking-widest">30-Day Guarantee</span>
+              <Shield className="w-8 h-8 text-accent-400" />
+            </div>
+            <p className="text-2xl md:text-3xl text-white font-bold mb-2">
+              Don't love it? Send it back for a full refund.
+            </p>
+            <p className="text-xl text-accent-400 font-semibold">
+              You literally risk nothing.
+            </p>
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: 'Bebas Neue, sans-serif', color: '#f1c40f' }}>
-              Here's The Deal:
-            </h2>
-
-            <p className="text-xl text-white mb-4">
-              Normally, this book sells for <span className="line-through text-red-400">$20</span>.
-            </p>
-            <p className="text-3xl text-white font-bold mb-6">
-              But today, you're getting it <span style={{ color: '#7ED321' }}>FREE.</span>
-            </p>
-            <p className="text-lg text-neutral-300 mb-8">
-              Just cover the <span className="text-gold-400 font-semibold">$5.95</span> shipping and handling, and I'll rush you a <br/> physical copy of{' '}
-              <em className="text-white">The 168 Game</em>.
-            </p>
-
-            <div className="bg-gradient-to-br from-neutral-900/80 to-neutral-900/40 border border-neutral-700/50 rounded-xl p-6 mb-8 text-left shadow-xl">
-              <h3 className="text-lg font-bold text-white mb-2">Why am I doing this?</h3>
-              <p className="text-neutral-300 mb-4">
-                Because I know once you read this book and implement the framework, you'll see results.
-              </p>
-              <p className="text-white font-semibold">
-                This isn't a gimmick. It's the real system I use every day.
-              </p>
-              <p className="text-accent-400 mt-2 font-semibold">And I want you to have it.</p>
-            </div>
-
-            {/* Guarantee */}
-            <div className="bg-gradient-to-br from-accent-500/20 to-accent-500/5 border border-accent-500/40 rounded-xl p-6 mb-8 shadow-xl shadow-accent-500/5">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-accent-500/20 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-accent-400" />
-                </div>
-                <h3 className="text-xl font-bold" style={{ color: '#7ED321' }}>GUARANTEE</h3>
-              </div>
-              <p className="text-neutral-300">
-                <span className="text-white font-semibold">If you don't love the book, send it back within 30 days
-                for a full refund of your shipping cost.</span> No questions asked.
-              </p>
-              <p className="text-accent-400 font-bold mt-4 text-lg">You literally risk nothing.</p>
-            </div>
-
             <FunnelCTA href="/free-book/checkout" size="xl">
               Yes! Send Me The Book Now
             </FunnelCTA>
@@ -548,43 +586,58 @@ export default function FreeBookPage() {
       </section>
 
       {/* Limited Offer Warning */}
-      <section className="relative py-16 bg-red-500/10">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="relative py-20 overflow-hidden">
+        {/* Urgent background effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-red-900/20 via-red-950/30 to-black" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-red-500/10 blur-[120px] rounded-full" />
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center"
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Clock className="w-6 h-6 text-red-400" />
-              <h2 className="text-2xl font-bold text-red-400" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-                Fair Warning: We're Limiting This Offer
-              </h2>
+            {/* Warning badge */}
+            <motion.div
+              className="inline-flex items-center gap-2 mb-8"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <Clock className="w-5 h-5 text-red-400" />
+              <span className="text-red-400 font-bold uppercase tracking-widest text-sm">Limited Availability</span>
+              <Clock className="w-5 h-5 text-red-400" />
+            </motion.div>
+
+            {/* Big number */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              <span className="text-white">Only </span>
+              <span className="text-red-400">300</span>
+              <span className="text-white"> Free Copies Available</span>
+            </h2>
+
+            <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+              After that, the book goes back to <span className="text-white font-semibold">$20 retail</span>
+            </p>
+
+            {/* Reason */}
+            <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto mb-10">
+              Shipping physical books at this price is expensive. We're taking a loss on every copy to get this framework into the hands of entrepreneurs who need it most.
+            </p>
+
+            {/* Urgency statement */}
+            <div className="mb-10">
+              <p className="text-2xl md:text-3xl text-white font-bold mb-2">
+                Once they're gone, they're gone.
+              </p>
+              <p className="text-xl text-red-400 font-semibold">
+                Don't miss your chance.
+              </p>
             </div>
 
-            <p className="text-lg text-neutral-300 mb-4">
-              We're only offering the free+shipping deal for the{' '}
-              <span className="text-white font-bold">first 300 copies</span>.
-            </p>
-            <p className="text-neutral-400 mb-4">
-              After that, the book goes back to full retail price ($20).
-            </p>
-
-            <p className="text-sm text-neutral-500 mb-6">
-              <strong className="text-neutral-300">Why the limit?</strong> Because shipping physical books at
-              this price is expensive. We're taking a loss on every copy to get this framework into the hands
-              of entrepreneurs who need it most.
-            </p>
-
-            <p className="text-white font-semibold mb-6">
-              Once we hit 300, the offer disappears.
-            </p>
-            <p className="text-accent-400 font-bold text-lg mb-6">
-              Don't wait. Claim your copy now.
-            </p>
-
             <FunnelCTA href="/free-book/checkout" size="xl">
-              Lock In My Free Copy Before They're Gone
+              Claim My Free Copy Now
             </FunnelCTA>
           </motion.div>
         </div>
@@ -609,41 +662,41 @@ export default function FreeBookPage() {
 
       {/* Final CTA Section */}
       <section className="relative py-20">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+        <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              <span className="text-red-400">Stop Losing Time.</span>{' '}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 whitespace-nowrap" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              <span className="text-white">Stop Losing Time.</span><br/>
               <span className="text-accent-400">Start Building Leverage.</span>
             </h2>
 
-            <p className="text-lg text-neutral-300 mb-6">
+            <p className="text-xl md:text-2xl text-neutral-300 mb-8">
               Every week you operate without a system is another week of:
             </p>
 
-            <ul className="text-left max-w-md mx-auto space-y-3 mb-8">
+            <ul className="text-left max-w-xl mx-auto space-y-4 mb-10">
               {[
                 'Peak energy hours wasted on low-value work',
                 "Revenue left on the table because you don't have capacity",
                 "Relationships deteriorating because you're never fully present",
                 'Health declining from chronic stress',
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-neutral-400">
-                  <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                <li key={index} className="flex items-start gap-3 text-neutral-300 text-lg md:text-xl">
+                  <X className="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
             </ul>
 
-            <p className="text-white font-semibold text-lg mb-4">
+            <p className="text-white font-semibold text-xl md:text-2xl mb-6">
               You can't get this time back. But you can change what happens next.
             </p>
 
-            <p className="text-neutral-300 mb-8">
-              Claim your free copy of <em>The 168 Game</em> right now.<br />
+            <p className="text-neutral-300 text-lg md:text-xl mb-10">
+              Claim your free copy of <em className="text-accent-400">The 168 Game</em> right now.<br />
               Just cover $5.95 shipping and it's yours.
             </p>
 
