@@ -318,39 +318,118 @@ export default function ConventionUpsellPage() {
       </section>
 
       {/* Scarcity */}
-      <section className="py-16 bg-red-500/10">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="py-16 overflow-hidden">
+        <div className="max-w-3xl mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            animate={{
+              y: [0, -10, 0],
+              boxShadow: [
+                '0 0 30px rgba(239, 68, 68, 0.4), 0 0 60px rgba(239, 68, 68, 0.2), inset 0 0 30px rgba(239, 68, 68, 0.1)',
+                '0 0 50px rgba(239, 68, 68, 0.6), 0 0 100px rgba(239, 68, 68, 0.3), inset 0 0 50px rgba(239, 68, 68, 0.15)',
+                '0 0 30px rgba(239, 68, 68, 0.4), 0 0 60px rgba(239, 68, 68, 0.2), inset 0 0 30px rgba(239, 68, 68, 0.1)',
+              ],
+            }}
+            transition={{
+              y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+              boxShadow: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+            }}
+            className="relative bg-gradient-to-b from-red-950 to-neutral-950 border-2 border-red-500 rounded-2xl p-8 md:p-10 text-center overflow-hidden"
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Clock className="w-6 h-6 text-red-400" />
-              <h2 className="text-2xl font-bold text-red-400" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-                Only 150 Tickets Left
-              </h2>
+            {/* Flying tickets background */}
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ x: '-10%', y: '100%', opacity: 0, rotate: -15 }}
+                animate={{
+                  x: ['0%', '110%'],
+                  y: ['100%', '-20%'],
+                  opacity: [0, 0.6, 0.6, 0],
+                  rotate: [-15, 15],
+                }}
+                transition={{
+                  duration: 3 + i * 0.5,
+                  repeat: Infinity,
+                  delay: i * 0.8,
+                  ease: 'easeOut',
+                }}
+                className="absolute text-red-500/30 pointer-events-none"
+                style={{ left: `${10 + i * 15}%` }}
+              >
+                <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 10V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4h20zm0 2H2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6zM4 14h4v2H4v-2z"/>
+                </svg>
+              </motion.div>
+            ))}
+
+            {/* Urgent flashing border */}
+            <motion.div
+              animate={{ opacity: [0.3, 0.8, 0.3] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+              className="absolute inset-0 rounded-2xl border-2 border-red-400 pointer-events-none"
+            />
+
+            {/* Sweeping light effect */}
+            <motion.div
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent skew-x-12 pointer-events-none"
+            />
+
+            <div className="relative z-10">
+              {/* Alarm icon with shake */}
+              <motion.div
+                animate={{
+                  rotate: [0, -10, 10, -10, 10, 0],
+                  scale: [1, 1.1, 1.1, 1.1, 1.1, 1],
+                }}
+                transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
+                className="flex justify-center mb-4"
+              >
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500">
+                  <Clock className="w-8 h-8 md:w-10 md:h-10 text-red-400" />
+                </div>
+              </motion.div>
+
+              {/* Main headline */}
+              <motion.h2
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-red-400 mb-2"
+                style={{ fontFamily: 'Bebas Neue, sans-serif' }}
+              >
+                ONLY 150 TICKETS LEFT
+              </motion.h2>
+
+              <p className="text-xl md:text-2xl text-red-300 font-semibold mb-6">
+                Tickets are selling as you read this!
+              </p>
+
+              <p className="text-lg md:text-xl text-neutral-300 mb-4">
+                We intentionally keep The 168 Game Convention small.{' '}
+                <span className="text-white font-bold">500 attendees max.</span> Because intimacy matters.
+              </p>
+
+              <p className="text-lg text-neutral-400 mb-6">
+                VIP tickets sell out first — <span className="text-red-400 font-semibold">only 50 VIP spots available!</span>
+              </p>
+
+              <motion.div
+                animate={{ scale: [1, 1.02, 1], backgroundColor: ['rgba(239, 68, 68, 0.1)', 'rgba(239, 68, 68, 0.2)', 'rgba(239, 68, 68, 0.1)'] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="rounded-xl p-4 md:p-6 mb-6 border border-red-500/50"
+              >
+                <p className="text-xl md:text-2xl text-white font-bold">
+                  This page only appears ONCE. Leave without your ticket and you'll pay full price later — if any remain.
+                </p>
+              </motion.div>
+
+              <p className="text-base text-neutral-400">
+                Attend Day 1. If you're not blown away, get a full refund. <span className="text-white">You risk nothing.</span>
+              </p>
             </div>
-
-            <p className="text-neutral-300 mb-4">
-              We intentionally keep The 168 Game Convention small.{' '}
-              <span className="text-white font-semibold">500 attendees.</span> Why? Because intimacy matters.
-              At 500 people, you can actually connect with attendees. Have real conversations.
-              Build relationships that last.
-            </p>
-
-            <p className="text-neutral-400 mb-6">
-              Regular tickets are selling fast. VIP tickets sell out first (only 50 VIP spots available).
-            </p>
-
-            <p className="text-white font-semibold mb-8">
-              This page only appears once. If you leave without securing your spot,
-              you'll pay full price later—if tickets are even still available.
-            </p>
-
-            <p className="text-sm text-neutral-500 mb-8">
-              Attend Day 1. If you're not blown away, get a full refund. You risk nothing.
-            </p>
           </motion.div>
         </div>
       </section>

@@ -1,10 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Check, X, Clock, Shield, Star, BookOpen } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Check, X, Shield, Star, BookOpen, Loader2, AlertTriangle, Package, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import BookPreview from '@/components/funnel/BookPreview';
-import FunnelCTA from '@/components/funnel/FunnelCTA';
 import FunnelFAQ from '@/components/funnel/FunnelFAQ';
 import GlowingOrb from '@/components/ui/GlowingOrb';
 
@@ -44,25 +45,224 @@ const faqItems = [
   },
 ];
 
+// Stock check modal stages
+const checkStages = [
+  { text: 'Connecting to warehouse...', duration: 800 },
+  { text: 'Checking current inventory...', duration: 1200 },
+  { text: 'Verifying availability...', duration: 1000 },
+  { text: 'Reserving your copy...', duration: 800 },
+];
+
 export default function FreeBookPage() {
+  const router = useRouter();
+  const [stockCount, setStockCount] = useState(47);
+  const [showModal, setShowModal] = useState(false);
+  const [checkStage, setCheckStage] = useState(0);
+  const [checkComplete, setCheckComplete] = useState(false);
+  const [justSold, setJustSold] = useState(false);
+
+  // Decrease stock periodically to simulate sales
+  useEffect(() => {
+    const decreaseStock = () => {
+      const randomDelay = Math.random() * 15000 + 10000; // 10-25 seconds
+
+      setTimeout(() => {
+        setStockCount(prev => {
+          if (prev <= 12) return prev; // Don't go below 12
+          const decrease = Math.random() > 0.7 ? 2 : 1;
+          return prev - decrease;
+        });
+        setJustSold(true);
+        setTimeout(() => setJustSold(false), 3000);
+        decreaseStock();
+      }, randomDelay);
+    };
+
+    decreaseStock();
+  }, []);
+
+  // Handle CTA click - show modal then redirect
+  const handleClaimClick = useCallback(() => {
+    setShowModal(true);
+    setCheckStage(0);
+    setCheckComplete(false);
+
+    // Progress through stages
+    let totalDelay = 0;
+    checkStages.forEach((stage, index) => {
+      totalDelay += stage.duration;
+      setTimeout(() => {
+        setCheckStage(index + 1);
+      }, totalDelay);
+    });
+
+    // Complete and redirect
+    setTimeout(() => {
+      setCheckComplete(true);
+      setTimeout(() => {
+        router.push('/free-book/checkout');
+      }, 1500);
+    }, totalDelay + 500);
+  }, [router]);
+
+  // Stock level colors
+  const getStockColor = () => {
+    if (stockCount <= 20) return 'text-red-400';
+    if (stockCount <= 35) return 'text-orange-400';
+    return 'text-accent-400';
+  };
+
+  const getStockBgColor = () => {
+    if (stockCount <= 20) return 'from-red-500';
+    if (stockCount <= 35) return 'from-orange-500';
+    return 'from-accent-500';
+  };
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Stock Check Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-neutral-900 border-2 border-primary-500/50 rounded-2xl p-8 md:p-10 max-w-md mx-4 text-center relative overflow-hidden"
+            >
+              {/* Animated background */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                className="absolute inset-0 bg-gradient-to-r from-primary-500/10 via-transparent to-accent-500/10"
+              />
+
+              <div className="relative z-10">
+                {!checkComplete ? (
+                  <>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                      className="w-16 h-16 mx-auto mb-6"
+                    >
+                      <Loader2 className="w-16 h-16 text-primary-400" />
+                    </motion.div>
+
+                    <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                      CHECKING AVAILABILITY
+                    </h3>
+
+                    {/* Progress stages */}
+                    <div className="space-y-3 mb-6">
+                      {checkStages.map((stage, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0.3 }}
+                          animate={{ opacity: checkStage > index ? 1 : 0.3 }}
+                          className="flex items-center gap-3"
+                        >
+                          {checkStage > index ? (
+                            <CheckCircle2 className="w-5 h-5 text-accent-400 shrink-0" />
+                          ) : (
+                            <div className="w-5 h-5 rounded-full border-2 border-neutral-600 shrink-0" />
+                          )}
+                          <span className={`text-sm ${checkStage > index ? 'text-white' : 'text-neutral-500'}`}>
+                            {stage.text}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <p className="text-neutral-400 text-sm">
+                      Please wait while we check our inventory...
+                    </p>
+                  </>
+                ) : (
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                  >
+                    <motion.div
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 0.5 }}
+                      className="w-20 h-20 mx-auto mb-6 rounded-full bg-accent-500/20 flex items-center justify-center"
+                    >
+                      <CheckCircle2 className="w-12 h-12 text-accent-400" />
+                    </motion.div>
+
+                    <h3 className="text-3xl font-bold text-accent-400 mb-2" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                      COPY RESERVED!
+                    </h3>
+
+                    <p className="text-white text-lg mb-4">
+                      We've reserved 1 copy for you
+                    </p>
+
+                    <p className="text-neutral-400">
+                      Redirecting to secure checkout...
+                    </p>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Live Stock Alert Banner */}
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="sticky top-0 z-40 bg-gradient-to-r from-red-950 via-red-900 to-red-950 border-b border-red-500/50 py-3"
+      >
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
+            >
+              <AlertTriangle className="w-5 h-5 text-red-400" />
+            </motion.div>
+            <span className="text-white font-semibold">LIMITED STOCK ALERT:</span>
+            <motion.span
+              key={stockCount}
+              initial={{ scale: 1.3, color: '#ff0000' }}
+              animate={{ scale: 1, color: '#f87171' }}
+              className={`font-bold text-xl ${getStockColor()}`}
+            >
+              Only {stockCount} copies left!
+            </motion.span>
+            {justSold && (
+              <motion.span
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                className="text-yellow-400 text-sm font-semibold"
+              >
+                — Someone just claimed a copy!
+              </motion.span>
+            )}
+          </div>
+        </div>
+      </motion.div>
+
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <GlowingOrb color="#3498db" size={800} className="absolute -top-64 -right-64 opacity-40" blur={150} />
         <GlowingOrb color="#7ED321" size={600} className="absolute top-1/3 -left-64 opacity-30" blur={120} />
         <GlowingOrb color="#f1c40f" size={400} className="absolute bottom-0 right-1/4 opacity-20" blur={100} />
-        {/* Grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(52,152,219,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(52,152,219,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
       {/* Hero Section */}
       <section className="relative py-12 md:py-20 min-h-[90vh] flex items-center">
-        {/* Gradient overlays for hero */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary-900/30 via-accent-900/10 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 via-transparent to-accent-900/20 pointer-events-none" />
-
-        {/* Animated corner accents */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary-500/20 to-transparent blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-accent-500/20 to-transparent blur-3xl pointer-events-none" />
 
@@ -92,16 +292,50 @@ export default function FreeBookPage() {
                 <span style={{ background: 'linear-gradient(90deg, #3498db, #5dade2, #1a6fa3)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>While Working Less</span>
               </h1>
 
-              <p className="text-lg text-neutral-300 mb-8 leading-relaxed">
+              <p className="text-lg text-neutral-300 mb-6 leading-relaxed">
                 Get your <span className="text-accent-400 font-bold">FREE</span> copy of{' '}
                 <em className="text-white font-medium">The 168 Game: Time Ownership vs. Time Management</em>
                 and discover the exact framework that took Bill Korman from bankruptcy to building
                 multiple 7-figure businesses, without working 80-hour weeks.
               </p>
 
-              <FunnelCTA href="/free-book/checkout" size="xl" className="mb-8">
-                Yes! Send Me The Book (Just Pay Shipping)
-              </FunnelCTA>
+              {/* Stock indicator in hero */}
+              <motion.div
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-red-400 font-semibold flex items-center gap-2">
+                    <Package className="w-5 h-5" />
+                    Stock Running Low
+                  </span>
+                  <span className={`text-2xl font-bold ${getStockColor()}`}>{stockCount} left</span>
+                </div>
+                <div className="w-full h-3 bg-neutral-800 rounded-full overflow-hidden">
+                  <motion.div
+                    className={`h-full bg-gradient-to-r ${getStockBgColor()} to-transparent rounded-full`}
+                    initial={{ width: '100%' }}
+                    animate={{ width: `${(stockCount / 100) * 100}%` }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+              </motion.div>
+
+              <button
+                onClick={handleClaimClick}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02] mb-6"
+                style={{
+                  background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                  color: '#000000',
+                  boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
+                }}
+              >
+                <span>Claim My Free Copy Now</span>
+                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  →
+                </motion.span>
+              </button>
 
               {/* Trust Signals */}
               <div className="space-y-4">
@@ -113,10 +347,6 @@ export default function FreeBookPage() {
                   <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-accent-500/20 to-accent-500/10 border border-accent-500/30 text-accent-400 font-medium shadow-lg shadow-accent-500/5">
                     <Star className="w-4 h-4 fill-accent-400" />
                     $50M+ client revenue scaled
-                  </span>
-                  <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/20 to-primary-500/10 border border-primary-500/30 text-primary-400 font-medium shadow-lg shadow-primary-500/5">
-                    <Star className="w-4 h-4 fill-primary-400" />
-                    2,000+ hours reclaimed
                   </span>
                 </div>
               </div>
@@ -143,7 +373,6 @@ export default function FreeBookPage() {
 
       {/* Problem Section */}
       <section className="relative py-20 bg-neutral-950 overflow-hidden">
-        {/* Background accents */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-red-500/10 blur-3xl rounded-full" />
         <div className="absolute -right-32 top-1/3 w-64 h-64 bg-red-500/10 blur-3xl rounded-full" />
@@ -182,7 +411,7 @@ export default function FreeBookPage() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start gap-4 p-4 rounded-lg bg-red-500/5 border border-red-500/20"
                   >
-                    <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center shrink-0">
                       <X className="w-4 h-4 text-red-400" />
                     </div>
                     <span className="text-neutral-300">{item}</span>
@@ -208,7 +437,6 @@ export default function FreeBookPage() {
 
       {/* Solution Section */}
       <section className="relative py-20 overflow-hidden">
-        {/* Background accents */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent-500/50 to-transparent" />
         <div className="absolute -right-48 top-1/4 w-96 h-96 bg-accent-500/10 blur-3xl rounded-full" />
         <div className="absolute -left-48 bottom-1/4 w-96 h-96 bg-primary-500/10 blur-3xl rounded-full" />
@@ -247,12 +475,12 @@ export default function FreeBookPage() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  { title: 'The 168-Hour Audit Process', desc: 'Track where your time actually goes versus where you think it goes (most entrepreneurs waste 15-20 hours per week without realizing it)' },
-                  { title: 'Energy Mapping Method', desc: 'Identify your peak performance windows and stop wasting them on email and admin work' },
+                  { title: 'The 168-Hour Audit Process', desc: 'Track where your time actually goes versus where you think it goes' },
+                  { title: 'Energy Mapping Method', desc: 'Identify your peak performance windows and stop wasting them on email' },
                   { title: 'Revenue Forensics Framework', desc: 'Discover which 20% of your activities drive 80% of your income' },
-                  { title: 'The Priority Decision Matrix', desc: "Know exactly what deserves your time and what's killing your capacity to scale" },
-                  { title: 'Delegation System That Actually Works', desc: 'Stop being the bottleneck. Build teams that execute without you micromanaging' },
-                  { title: 'The CEO Time Architecture Blueprint', desc: "Bill's personal structure for running multiple 7-figure businesses in under 40 hours per week" },
+                  { title: 'The Priority Decision Matrix', desc: "Know exactly what deserves your time and what's killing your capacity" },
+                  { title: 'Delegation System That Works', desc: 'Stop being the bottleneck. Build teams that execute without you' },
+                  { title: 'CEO Time Architecture Blueprint', desc: "Bill's structure for running multiple 7-figure businesses in under 40 hours" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -262,7 +490,7 @@ export default function FreeBookPage() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start gap-3 p-4 rounded-lg bg-accent-500/5 border border-accent-500/20 hover:border-accent-500/40 transition-colors"
                   >
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-500/30 to-accent-500/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-500/30 to-accent-500/10 flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4 text-accent-400" />
                     </div>
                     <div>
@@ -279,9 +507,20 @@ export default function FreeBookPage() {
             </p>
 
             <div className="text-center">
-              <FunnelCTA href="/free-book/checkout" size="xl">
-                Yes! Send Me The Book (Just Pay $5.95 Shipping)
-              </FunnelCTA>
+              <button
+                onClick={handleClaimClick}
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                  color: '#000000',
+                  boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
+                }}
+              >
+                <span>Yes! Send Me The Book (Just Pay $5.95 Shipping)</span>
+                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  →
+                </motion.span>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -289,7 +528,6 @@ export default function FreeBookPage() {
 
       {/* Not For Everyone Section */}
       <section className="relative py-20 bg-neutral-950 overflow-hidden">
-        {/* Background accents */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500/30 via-transparent to-accent-500/30" />
         <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-red-500/10 blur-3xl rounded-full" />
         <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10 blur-3xl rounded-full" />
@@ -306,7 +544,6 @@ export default function FreeBookPage() {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* NOT for you */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -325,7 +562,7 @@ export default function FreeBookPage() {
                     "You're looking for motivation instead of frameworks",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-neutral-300">
-                      <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
                         <X className="w-3 h-3 text-red-400" />
                       </div>
                       <span className="text-sm">{item}</span>
@@ -334,7 +571,6 @@ export default function FreeBookPage() {
                 </ul>
               </motion.div>
 
-              {/* IS for you */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -349,12 +585,12 @@ export default function FreeBookPage() {
                   {[
                     "You've already built something real but hit a ceiling you can't break through",
                     "You're working harder than ever with less to show for it",
-                    "You know you need a system but don't have time to figure it out through trial and error",
+                    "You know you need a system but don't have time to figure it out",
                     'You value freedom and impact over "looking busy"',
-                    "You're ready to take back ownership of your 168 hours before you lose what matters most",
+                    "You're ready to take back ownership of your 168 hours",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-neutral-300">
-                      <div className="w-6 h-6 rounded-full bg-accent-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-accent-500/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3 h-3 text-accent-400" />
                       </div>
                       <span className="text-sm">{item}</span>
@@ -381,8 +617,7 @@ export default function FreeBookPage() {
             </h2>
 
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              {/* Photo */}
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex-shrink-0 overflow-hidden relative">
+              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 shrink-0 overflow-hidden relative">
                 <Image
                   src="/images/bill_korman.jpeg"
                   alt="Bill Korman"
@@ -404,23 +639,7 @@ export default function FreeBookPage() {
                 <p className="text-white font-semibold text-lg">Then he figured out the system.</p>
                 <p>
                   By applying military discipline to entrepreneurial chaos, Bill created The 168 Game—a complete
-                  framework for time ownership that took him from rock bottom to:
-                </p>
-                <ul className="space-y-2">
-                  {[
-                    "Top performer at Patrick Bet-David's PHP Agency",
-                    "Managing one of the company's most prominent offices (760+ agents)",
-                    "Founder/CEO of multiple 7-figure businesses running simultaneously",
-                    "Author and creator of The 168 Game",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-white font-semibold pt-4">
-                  Bill doesn't teach theory. He teaches what works when you're actually building something real.
+                  framework for time ownership.
                 </p>
                 <p className="text-accent-400 font-semibold text-lg">
                   And now, he's giving you the playbook—for free.
@@ -429,9 +648,20 @@ export default function FreeBookPage() {
             </div>
 
             <div className="text-center mt-12">
-              <FunnelCTA href="/free-book/checkout" size="xl">
-                Claim My Free Copy Now (Just Pay Shipping)
-              </FunnelCTA>
+              <button
+                onClick={handleClaimClick}
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                  color: '#000000',
+                  boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
+                }}
+              >
+                <span>Claim My Free Copy Now (Just Pay Shipping)</span>
+                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  →
+                </motion.span>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -439,7 +669,6 @@ export default function FreeBookPage() {
 
       {/* Chapters Section */}
       <section className="relative py-20 bg-neutral-950 overflow-hidden">
-        {/* Background accents */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
         <div className="absolute -left-48 top-1/3 w-96 h-96 bg-primary-500/10 blur-3xl rounded-full" />
         <div className="absolute -right-48 bottom-1/3 w-96 h-96 bg-accent-500/10 blur-3xl rounded-full" />
@@ -468,7 +697,7 @@ export default function FreeBookPage() {
                   transition={{ delay: chapter.number * 0.05 }}
                   className="flex items-start gap-4 p-4 bg-gradient-to-r from-neutral-900/80 to-neutral-900/40 rounded-lg border border-neutral-800 hover:border-primary-500/50 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500/30 to-primary-500/10 flex items-center justify-center flex-shrink-0 group-hover:from-primary-500/50 group-hover:to-primary-500/20 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500/30 to-primary-500/10 flex items-center justify-center shrink-0 group-hover:from-primary-500/50 group-hover:to-primary-500/20 transition-colors">
                     <span className="text-primary-400 font-bold">{chapter.number}</span>
                   </div>
                   <p className="text-neutral-300 text-sm">{chapter.title}</p>
@@ -477,9 +706,20 @@ export default function FreeBookPage() {
             </div>
 
             <div className="text-center mt-12">
-              <FunnelCTA href="/free-book/checkout" size="xl">
-                Send Me The Book (Just Cover $5.95 Shipping)
-              </FunnelCTA>
+              <button
+                onClick={handleClaimClick}
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                  color: '#000000',
+                  boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
+                }}
+              >
+                <span>Send Me The Book (Just Cover $5.95 Shipping)</span>
+                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  →
+                </motion.span>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -487,14 +727,12 @@ export default function FreeBookPage() {
 
       {/* The Deal Section */}
       <section className="relative py-24 overflow-hidden">
-        {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-accent-900/10 to-black" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-500/10 blur-[150px] rounded-full" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-500/30 to-transparent" />
 
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          {/* Main headline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -505,7 +743,6 @@ export default function FreeBookPage() {
               <span className="text-gold-400">Here's The Deal</span>
             </h2>
 
-            {/* Price comparison - dramatic */}
             <div className="flex items-center justify-center gap-4 md:gap-8 mb-8">
               <div className="text-center">
                 <p className="text-neutral-500 text-sm uppercase tracking-wider mb-1">Retail Price</p>
@@ -526,30 +763,10 @@ export default function FreeBookPage() {
             </div>
 
             <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto">
-              Just cover <span className="text-gold-400 font-bold">$5.95</span> shipping and I'll rush you a physical copy of <em className="text-accent-400">The 168 Game</em>
+              Just cover <span className="text-gold-400 font-bold">$5.95</span> shipping and I'll rush you a physical copy
             </p>
           </motion.div>
 
-          {/* Why - conversational flow */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-center mb-16"
-          >
-            <p className="text-2xl md:text-3xl text-white font-light mb-4">
-              Why am I giving this away?
-            </p>
-            <p className="text-lg text-neutral-400 max-w-xl mx-auto mb-4">
-              Because I know once you read this book and implement the framework, you'll see results.
-            </p>
-            <p className="text-xl text-white font-semibold">
-              This isn't a gimmick. <span className="text-accent-400">It's the real system I use every day.</span>
-            </p>
-          </motion.div>
-
-          {/* Guarantee - bold statement */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -570,7 +787,6 @@ export default function FreeBookPage() {
             </p>
           </motion.div>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -578,67 +794,167 @@ export default function FreeBookPage() {
             transition={{ delay: 0.4 }}
             className="text-center"
           >
-            <FunnelCTA href="/free-book/checkout" size="xl">
-              Yes! Send Me The Book Now
-            </FunnelCTA>
+            <button
+              onClick={handleClaimClick}
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                color: '#000000',
+                boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
+              }}
+            >
+              <span>Yes! Send Me The Book Now</span>
+              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                →
+              </motion.span>
+            </button>
           </motion.div>
         </div>
       </section>
 
-      {/* Limited Offer Warning */}
+      {/* DRAMATIC Limited Offer Section */}
       <section className="relative py-20 overflow-hidden">
-        {/* Urgent background effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-red-900/20 via-red-950/30 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-red-900/30 via-red-950/40 to-black" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-red-500/10 blur-[120px] rounded-full" />
 
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-center"
+            animate={{
+              y: [0, -10, 0],
+              boxShadow: [
+                '0 0 30px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1)',
+                '0 0 50px rgba(239, 68, 68, 0.5), 0 0 100px rgba(239, 68, 68, 0.2)',
+                '0 0 30px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1)',
+              ],
+            }}
+            transition={{
+              y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+              boxShadow: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+            }}
+            className="relative bg-gradient-to-b from-red-950 to-neutral-950 border-2 border-red-500 rounded-2xl p-8 md:p-12 text-center overflow-hidden"
           >
-            {/* Warning badge */}
+            {/* Flying books animation */}
+            {[...Array(8)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ x: '-10%', y: '100%', opacity: 0, rotate: -20 }}
+                animate={{
+                  x: ['0%', '120%'],
+                  y: ['100%', '-30%'],
+                  opacity: [0, 0.4, 0.4, 0],
+                  rotate: [-20, 20],
+                }}
+                transition={{
+                  duration: 4 + i * 0.3,
+                  repeat: Infinity,
+                  delay: i * 0.7,
+                  ease: 'easeOut',
+                }}
+                className="absolute text-red-500/20 pointer-events-none"
+                style={{ left: `${5 + i * 12}%` }}
+              >
+                <BookOpen className="w-10 h-10 md:w-14 md:h-14" />
+              </motion.div>
+            ))}
+
+            {/* Flashing border */}
             <motion.div
-              className="inline-flex items-center gap-2 mb-8"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <Clock className="w-5 h-5 text-red-400" />
-              <span className="text-red-400 font-bold uppercase tracking-widest text-sm">Limited Availability</span>
-              <Clock className="w-5 h-5 text-red-400" />
-            </motion.div>
+              animate={{ opacity: [0.3, 0.8, 0.3] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+              className="absolute inset-0 rounded-2xl border-2 border-red-400 pointer-events-none"
+            />
 
-            {/* Big number */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              <span className="text-white">Only </span>
-              <span className="text-red-400">300</span>
-              <span className="text-white"> Free Copies Available</span>
-            </h2>
+            {/* Sweeping light */}
+            <motion.div
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1 }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent skew-x-12 pointer-events-none"
+            />
 
-            <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-2xl mx-auto">
-              After that, the book goes back to <span className="text-white font-semibold">$20 retail</span>
-            </p>
+            <div className="relative z-10">
+              {/* Shaking alarm */}
+              <motion.div
+                animate={{
+                  rotate: [0, -15, 15, -15, 15, 0],
+                  scale: [1, 1.1, 1.1, 1.1, 1.1, 1],
+                }}
+                transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}
+                className="flex justify-center mb-6"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500">
+                  <AlertTriangle className="w-10 h-10 md:w-12 md:h-12 text-red-400" />
+                </div>
+              </motion.div>
 
-            {/* Reason */}
-            <p className="text-neutral-400 text-base md:text-lg max-w-xl mx-auto mb-10">
-              Shipping physical books at this price is expensive. We're taking a loss on every copy to get this framework into the hands of entrepreneurs who need it most.
-            </p>
+              <motion.h2
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-red-400 mb-4"
+                style={{ fontFamily: 'Bebas Neue, sans-serif' }}
+              >
+                COPIES RUNNING OUT FAST!
+              </motion.h2>
 
-            {/* Urgency statement */}
-            <div className="mb-10">
-              <p className="text-2xl md:text-3xl text-white font-bold mb-2">
-                Once they're gone, they're gone.
-              </p>
-              <p className="text-xl text-red-400 font-semibold">
-                Don't miss your chance.
+              {/* Live stock display */}
+              <motion.div
+                key={stockCount}
+                initial={{ scale: 1.2 }}
+                animate={{ scale: 1 }}
+                className="mb-6"
+              >
+                <p className="text-2xl text-white mb-2">Only</p>
+                <p className={`text-7xl md:text-8xl font-bold ${getStockColor()}`} style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                  {stockCount}
+                </p>
+                <p className="text-2xl text-white">FREE copies remaining!</p>
+              </motion.div>
+
+              {/* Progress bar */}
+              <div className="max-w-md mx-auto mb-8">
+                <div className="w-full h-4 bg-neutral-800 rounded-full overflow-hidden border border-red-500/30">
+                  <motion.div
+                    className={`h-full bg-gradient-to-r ${getStockBgColor()} to-red-700 rounded-full`}
+                    animate={{ width: `${(stockCount / 100) * 100}%` }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+                <p className="text-red-400 text-sm mt-2">
+                  {100 - stockCount} copies claimed in the last hour!
+                </p>
+              </div>
+
+              <motion.div
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8 max-w-xl mx-auto"
+              >
+                <p className="text-xl md:text-2xl text-white font-bold">
+                  When they're gone, the price goes back to $20. Don't miss your chance!
+                </p>
+              </motion.div>
+
+              <button
+                onClick={handleClaimClick}
+                className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                  color: '#000000',
+                  boxShadow: '0 4px 30px rgba(126, 211, 33, 0.5)',
+                }}
+              >
+                <span>CLAIM MY FREE COPY NOW</span>
+                <motion.span animate={{ x: [0, 8, 0] }} transition={{ duration: 1, repeat: Infinity }}>
+                  →
+                </motion.span>
+              </button>
+
+              <p className="text-neutral-400 text-sm mt-6">
+                Just pay $5.95 shipping • 30-day guarantee • Instant digital access
               </p>
             </div>
-
-            <FunnelCTA href="/free-book/checkout" size="xl">
-              Claim My Free Copy Now
-            </FunnelCTA>
           </motion.div>
         </div>
       </section>
@@ -685,7 +1001,7 @@ export default function FreeBookPage() {
                 'Health declining from chronic stress',
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3 text-neutral-300 text-lg md:text-xl">
-                  <X className="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" />
+                  <X className="w-6 h-6 text-red-400 shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -695,25 +1011,39 @@ export default function FreeBookPage() {
               You can't get this time back. But you can change what happens next.
             </p>
 
-            <p className="text-neutral-300 text-lg md:text-xl mb-10">
-              Claim your free copy of <em className="text-accent-400">The 168 Game</em> right now.<br />
-              Just cover $5.95 shipping and it's yours.
-            </p>
+            {/* Final stock reminder */}
+            <motion.p
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className={`text-2xl font-bold mb-8 ${getStockColor()}`}
+            >
+              Only {stockCount} free copies left — Claim yours now!
+            </motion.p>
 
-            <FunnelCTA href="/free-book/checkout" size="xl" className="mb-8">
-              Send Me The Book (Just Pay Shipping)
-            </FunnelCTA>
+            <button
+              onClick={handleClaimClick}
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02] mb-8"
+              style={{
+                background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
+                color: '#000000',
+                boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
+              }}
+            >
+              <span>Send Me The Book (Just Pay Shipping)</span>
+              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                →
+              </motion.span>
+            </button>
 
-            {/* Footer reminder */}
             <p className="text-sm text-neutral-500">
               <span className="text-neutral-400 font-semibold">Still on the fence?</span> Remember: You risk nothing.
-              If you don't love the book, send it back within 30 days for a full refund. You cannot lose.
+              If you don't love the book, send it back within 30 days for a full refund.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Simple Footer */}
+      {/* Footer */}
       <footer className="py-8 border-t border-neutral-900">
         <div className="max-w-4xl mx-auto px-4 text-center text-sm text-neutral-600">
           <p>&copy; {new Date().getFullYear()} Bill Korman. All rights reserved.</p>
