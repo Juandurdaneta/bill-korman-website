@@ -79,10 +79,10 @@ export default function FreeBookPage() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-accent-500/20 to-accent-500/10 border border-accent-500/40 mb-6 shadow-lg shadow-accent-500/10"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold-500/20 to-gold-500/10 border border-gold-500/40 mb-6 shadow-lg shadow-gold-500/10"
               >
-                <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse shadow-lg shadow-accent-400/50" />
-                <span className="text-accent-400 text-sm font-semibold">FREE + $5.95 Shipping</span>
+                <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shadow-lg shadow-gold-400/50" />
+                <span className="text-gold-400 text-sm font-semibold">FREE + $5.95 Shipping</span>
               </motion.div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
@@ -94,7 +94,7 @@ export default function FreeBookPage() {
 
               <p className="text-lg text-neutral-300 mb-8 leading-relaxed">
                 Get your <span className="text-accent-400 font-bold">FREE</span> copy of{' '}
-                <em className="text-white font-medium">The 168 Game: Time Ownership vs. Time Management</em> (just cover $5.95 shipping)
+                <em className="text-white font-medium">The 168 Game: Time Ownership vs. Time Management</em>
                 and discover the exact framework that took Bill Korman from bankruptcy to building
                 multiple 7-figure businesses, without working 80-hour weeks.
               </p>
@@ -105,13 +105,6 @@ export default function FreeBookPage() {
 
               {/* Trust Signals */}
               <div className="space-y-4">
-                <blockquote className="text-neutral-300 italic border-l-4 border-gradient-to-b from-primary-500 to-primary-400 pl-4 bg-gradient-to-r from-primary-500/10 to-transparent py-3 pr-4 rounded-r-lg">
-                  "Time ownership—not just management—is a true driver of success."
-                  <footer className="text-sm text-primary-400 mt-2 not-italic font-semibold">
-                    — Patrick Bet-David, Entrepreneur & Founder of Valuetainment
-                  </footer>
-                </blockquote>
-
                 <div className="flex flex-wrap gap-3 text-sm">
                   <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold-500/20 to-gold-500/10 border border-gold-500/30 text-gold-400 font-medium shadow-lg shadow-gold-500/5">
                     <Star className="w-4 h-4 fill-gold-400" />
@@ -134,9 +127,15 @@ export default function FreeBookPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex justify-center items-center order-1 md:order-2 py-8 md:py-0"
+              className="flex flex-col justify-center items-center order-1 md:order-2 py-8 md:py-0"
             >
               <BookPreview />
+              <blockquote className="text-neutral-300 italic border-l-4 border-gradient-to-b from-primary-500 to-primary-400 pl-4 bg-gradient-to-r from-primary-500/10 to-transparent py-3 pr-4 rounded-r-lg mt-6 max-w-md">
+                "Time ownership—not just management—is a true driver of success."
+                <footer className="text-sm text-primary-400 mt-2 not-italic font-semibold">
+                  — Patrick Bet-David, Entrepreneur & Founder of Valuetainment
+                </footer>
+              </blockquote>
             </motion.div>
           </div>
         </div>
@@ -156,9 +155,9 @@ export default function FreeBookPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              <span className="text-white">You're Working 60+ Hour Weeks. </span>
+              <span className="text-white">You're Working 60+ Hour Weeks. </span> <br/>
               <span className="text-red-400">Your Revenue Won't Budge.</span>
-              <span className="text-white"> And You're One Breakdown Away From </span>
+              <span className="text-white"> And You're One Breakdown Away From </span> <br />
               <span className="text-red-400">Losing Everything That Matters.</span>
             </h2>
 
@@ -191,7 +190,7 @@ export default function FreeBookPage() {
                 ))}
               </ul>
 
-              <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-neutral-900/80 to-neutral-900/50 border border-neutral-800">
+              <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-neutral-900/80 to-neutral-900/50 border border-neutral-800 text-center">
                 <p className="text-white font-semibold text-xl mb-3">
                   You know you're capable of more. But you don't have a system.
                 </p>
@@ -657,12 +656,6 @@ export default function FreeBookPage() {
               <span className="text-neutral-400 font-semibold">Still on the fence?</span> Remember: You risk nothing.
               If you don't love the book, send it back within 30 days for a full refund. You cannot lose.
             </p>
-
-            <div className="mt-8">
-              <FunnelCTA href="/free-book/checkout" variant="primary" size="lg">
-                Yes, Send Me The Book Now
-              </FunnelCTA>
-            </div>
           </motion.div>
         </div>
       </section>
