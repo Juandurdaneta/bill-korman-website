@@ -72,48 +72,54 @@ export default function CourseDownsellPage() {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-16 bg-neutral-950">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="py-24 md:py-32 bg-neutral-950">
+        <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              You've Got the Book. Now Get the Full System That Makes It Work.
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              You've Got the Book. Now Get the Full System <span className="text-accent-400">That Makes It Work.</span>
             </h2>
 
-            <p className="text-neutral-300 mb-4">
+            <p className="text-xl md:text-2xl text-neutral-300 mb-6">
               The book gives you the framework.
             </p>
-            <p className="text-neutral-300 mb-4">
+            <p className="text-xl md:text-2xl text-neutral-300 mb-6">
               But let's be honest… reading alone doesn't create results.
             </p>
-            <p className="text-white font-semibold text-xl mb-8">
+            <motion.p
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="text-3xl md:text-4xl font-bold mb-10"
+            >
               <span className="text-accent-400">Implementation does.</span>
-            </p>
+            </motion.p>
 
-            <p className="text-neutral-400">
-              Get the exact step-by-step system that's helped 10,000+ entrepreneurs reclaim their time,
-              10x their clarity, and scale without sacrificing everything else.
-            </p>
+            <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-8">
+              <p className="text-lg md:text-xl text-neutral-300">
+                Get the exact step-by-step system that's helped <span className="text-white font-bold">10,000+ entrepreneurs</span> reclaim their time,
+                10x their clarity, and scale without sacrificing everything else.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="py-24 md:py-32">
+        <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-center text-white mb-12" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              Here's What You'll Get Before Anyone Else Does:
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-16" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              Here's What You'll Get <span className="text-accent-400">Before Anyone Else Does:</span>
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -121,109 +127,131 @@ export default function CourseDownsellPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="flex items-start gap-4 p-4 bg-neutral-900/50 border border-neutral-800 rounded-lg"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="flex items-start gap-5 p-6 bg-neutral-900/50 border border-neutral-800 hover:border-primary-500/50 rounded-2xl transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary-400" />
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/30 to-accent-500/20 flex items-center justify-center shrink-0">
+                    <feature.icon className="w-7 h-7 text-primary-400" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-sm mb-1">{feature.title}</h3>
-                    <p className="text-xs text-neutral-400">{feature.desc}</p>
+                    <h3 className="font-bold text-white text-lg mb-2">{feature.title}</h3>
+                    <p className="text-base text-neutral-400">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
             {/* Bonus */}
-            <div className="bg-gold-500/10 border border-gold-500/30 rounded-xl p-6 text-center mb-8">
-              <p className="text-gold-400 font-bold mb-2">BONUS: CEO Architecture Blueprint</p>
-              <p className="text-neutral-300 text-sm">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="bg-gold-500/10 border-2 border-gold-500/50 rounded-2xl p-8 text-center"
+            >
+              <p className="text-gold-400 font-bold text-xl mb-3">BONUS: CEO Architecture Blueprint</p>
+              <p className="text-neutral-300 text-lg">
                 The exact weekly structure Bill uses to run multiple 7-figure businesses in under 40 hours/week.
-                Yours free when you enroll today.
+                <span className="text-white font-semibold"> Yours free when you enroll today.</span>
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* This Is For You */}
-      <section className="py-16 bg-neutral-950">
-        <div className="max-w-3xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-neutral-950">
+        <div className="max-w-4xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-bold text-center text-white mb-8" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
               This Is For You If:
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-12">
+            <div className="grid md:grid-cols-2 gap-6 mb-16">
               {[
                 "You're self-motivated and ready to implement on your schedule",
                 "You already know the problem. You just want the solution",
                 "You've invested in books, but you're ready to build infrastructure",
                 "You want to reclaim 20+ hours this week",
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3 text-neutral-300">
-                  <Check className="w-5 h-5 text-accent-400 flex-shrink-0" />
-                  <span className="text-sm">{item}</span>
-                </div>
+                <motion.div
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-4 p-5 bg-neutral-900/50 border border-neutral-800 rounded-xl"
+                >
+                  <Check className="w-6 h-6 text-accent-400 shrink-0" />
+                  <span className="text-lg text-neutral-300">{item}</span>
+                </motion.div>
               ))}
             </div>
 
             {/* Pricing */}
-            <div className="text-center">
-              <p className="text-neutral-400 mb-2">Only</p>
-              <div className="text-5xl font-bold text-accent-400 mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="text-center bg-gradient-to-b from-neutral-900 to-neutral-950 border-2 border-primary-500/50 rounded-3xl p-10"
+            >
+              <p className="text-xl text-neutral-400 mb-4">Only</p>
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-7xl md:text-8xl font-bold text-accent-400 mb-8"
+                style={{ fontFamily: 'Bebas Neue, sans-serif' }}
+              >
                 $497
-              </div>
+              </motion.div>
 
-              <FunnelCTA onClick={handleAccept} size="xl" className="w-full max-w-md mx-auto mb-6">
+              <FunnelCTA onClick={handleAccept} size="xl" className="w-full max-w-lg mx-auto mb-6">
                 Yes! Add This To My Order For Only $497
               </FunnelCTA>
 
               <button
                 onClick={handleDecline}
-                className="text-neutral-500 hover:text-neutral-400 text-sm underline transition-colors"
+                className="text-neutral-500 hover:text-neutral-400 text-base underline transition-colors"
               >
                 No thanks, I'll figure it out alone
               </button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Final Push */}
-      <section className="py-16">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="py-24 md:py-32">
+        <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              This Is The Most Affordable Way To Implement The 168 Game.
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              This Is The Most Affordable Way To Implement <span className="text-accent-400">The 168 Game.</span>
             </h2>
 
-            <p className="text-neutral-300 mb-4">
+            <p className="text-xl md:text-2xl text-neutral-300 mb-4">
               You've taken the first step.
             </p>
-            <p className="text-neutral-300 mb-8">
+            <p className="text-xl md:text-2xl text-neutral-300 mb-10">
               Now get the blueprint that makes it real—without breaking the bank.
             </p>
 
-            <p className="text-white font-semibold text-xl mb-8">
-              <span className="text-accent-400">$497</span> gets you everything.
-            </p>
+            <motion.p
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="text-3xl md:text-4xl font-bold mb-10"
+            >
+              <span className="text-accent-400">$497</span> <span className="text-white">gets you everything.</span>
+            </motion.p>
 
-            <FunnelCTA onClick={handleAccept} size="xl" className="w-full max-w-md mx-auto mb-6">
+            <FunnelCTA onClick={handleAccept} size="xl" className="w-full max-w-lg mx-auto mb-6">
               Add To My Order For $497
             </FunnelCTA>
 
             <button
               onClick={handleDecline}
-              className="text-neutral-500 hover:text-neutral-400 text-sm underline transition-colors"
+              className="text-neutral-500 hover:text-neutral-400 text-base underline transition-colors"
             >
               I'll figure it out alone
             </button>
