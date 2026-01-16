@@ -7,8 +7,8 @@ import FunnelCTA from '@/components/funnel/FunnelCTA';
 import UrgencyBanner from '@/components/funnel/UrgencyBanner';
 
 const features = [
-  { icon: Calendar, title: '90-Day Accelerator Roadmap', desc: 'Your custom game plan, tailored to your business model, bottlenecks, and goals.', value: '$2,500' },
-  { icon: Video, title: 'Weekly Coaching Calls (Live With Bill)', desc: 'Tactical strategy sessions where we rip apart your calendar, revenue systems, and energy flow. Together.', value: '$6,000' },
+  { icon: Calendar, title: '6-Month Accelerator Roadmap', desc: 'Your custom game plan, tailored to your business model, bottlenecks, and goals.', value: '$2,500' },
+  { icon: Video, title: 'Bi-Weekly Coaching Calls (Live With Bill)', desc: 'Tactical strategy sessions where we rip apart your calendar, revenue systems, and energy flow. Together.', value: '$6,000' },
   { icon: Users, title: 'Ongoing Community Support', desc: 'Get feedback, ideas, and accountability from others running real businesses.', value: '$1,500' },
   { icon: MessageSquare, title: 'Peer Accountability & Hot Seats', desc: "Weekly hot seats = YOUR business in focus. You'll get direct coaching on what's keeping you stuck.", value: '$3,000' },
   { icon: Users, title: 'Access to Private Community', desc: 'Connect with an exclusive group of other founders mastering time ownership.', value: '$1,200' },
@@ -140,12 +140,12 @@ export default function MasteryUpsellPage() {
                   </h3>
                 </div>
 
-                <p className="text-xl text-primary-400 font-semibold mb-6">90-Day Elite Group Coaching Program</p>
+                <p className="text-xl text-primary-400 font-semibold mb-6">6-Month Elite Group Coaching Program</p>
 
                 <div className="grid md:grid-cols-3 gap-4 text-center">
                   <div className="bg-neutral-800/50 rounded-xl p-4">
-                    <p className="text-3xl font-bold text-white">90</p>
-                    <p className="text-neutral-400">Days of Coaching</p>
+                    <p className="text-3xl font-bold text-white">6</p>
+                    <p className="text-neutral-400">Months of Coaching</p>
                   </div>
                   <div className="bg-neutral-800/50 rounded-xl p-4">
                     <p className="text-3xl font-bold text-accent-400">12</p>
@@ -228,8 +228,8 @@ export default function MasteryUpsellPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-4" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
               EVERYTHING YOU GET INSIDE THE ACCELERATOR
             </h2>
-            <p className="text-xl text-neutral-400 text-center mb-12">
-              Total Value: <span className="text-accent-400 font-bold text-2xl">${totalValue.toLocaleString()}</span>
+            <p className="text-xl text-center mb-12">
+              <span className="text-accent-400 font-bold text-2xl">Total Value: ${totalValue.toLocaleString()}</span>
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -353,7 +353,7 @@ export default function MasteryUpsellPage() {
 
                 <div className="border-t-2 border-accent-500/50 mt-6 pt-6">
                   <div className="flex justify-between items-center text-2xl font-bold">
-                    <span className="text-white">TOTAL VALUE:</span>
+                    <span className="text-accent-400">TOTAL VALUE:</span>
                     <span className="text-accent-400">${totalValue.toLocaleString()}</span>
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export default function MasteryUpsellPage() {
                 <span className="text-accent-400 font-bold ml-4">SAVE ${savings.toLocaleString()}!</span>
               </p>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="max-w-md mx-auto">
                 {/* One-time payment */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
@@ -389,33 +389,7 @@ export default function MasteryUpsellPage() {
                   <FunnelCTA onClick={() => handleAccept('full')} variant="primary" size="xl" className="w-full">
                     YES! Add This To My Order
                   </FunnelCTA>
-                </motion.div>
-
-                {/* Payment plan */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  animate={{
-                    boxShadow: [
-                      '0 0 20px rgba(126, 211, 33, 0.3)',
-                      '0 0 40px rgba(126, 211, 33, 0.5)',
-                      '0 0 20px rgba(126, 211, 33, 0.3)',
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="relative bg-gradient-to-b from-accent-950 to-neutral-950 border-2 border-accent-500 rounded-2xl p-8"
-                >
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-500 text-black font-bold px-4 py-1 rounded-full text-sm">
-                    MOST POPULAR
-                  </div>
-                  <h4 className="text-2xl font-bold text-white mb-2">3 Monthly Payments</h4>
-                  <p className="text-neutral-400 mb-4">Easy on your cash flow</p>
-                  <div className="mb-6">
-                    <span className="text-6xl font-bold text-accent-400" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>$2,667</span>
-                    <span className="text-xl text-neutral-400">/month</span>
-                  </div>
-                  <FunnelCTA onClick={() => handleAccept('payments')} variant="accent" size="xl" className="w-full">
-                    Start Today - 3 Payments
-                  </FunnelCTA>
+                  <p className="text-neutral-400 text-sm mt-4 text-center">Payment plans available</p>
                 </motion.div>
               </div>
 
@@ -429,7 +403,7 @@ export default function MasteryUpsellPage() {
                 <Shield className="w-12 h-12 text-accent-400 mx-auto mb-4" />
                 <h4 className="text-2xl font-bold text-white mb-2">30-Day Money-Back Guarantee</h4>
                 <p className="text-lg text-neutral-300">
-                  Show up, do the work, and don't see traction? Let us know within 30 days and we'll refund you. <span className="text-white font-semibold">No questions asked.</span>
+                  Show up, do the work, and don't see traction? Let us know within 30 days and we'll refund you. <span className="text-white font-semibold whitespace-nowrap">No questions asked.</span>
                 </p>
               </motion.div>
             </motion.div>
@@ -531,10 +505,8 @@ export default function MasteryUpsellPage() {
                 <FunnelCTA onClick={() => handleAccept('full')} variant="primary" size="xl">
                   Add To My Order - $7,500
                 </FunnelCTA>
-                <FunnelCTA onClick={() => handleAccept('payments')} variant="accent" size="xl">
-                  3 Payments of $2,667
-                </FunnelCTA>
               </div>
+              <p className="text-neutral-400 text-sm mb-4">Payment plans available</p>
 
               <button
                 onClick={handleDecline}

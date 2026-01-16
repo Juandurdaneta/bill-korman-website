@@ -46,8 +46,7 @@ export default function CourseDownsellPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              Get The Complete System.{' '}
-              <span className="text-accent-400">On Your Terms.</span>
+              Get The Complete System. <span className="text-accent-400 whitespace-nowrap">On Your Terms.</span>
             </h1>
 
             <p className="text-xl text-neutral-300 mb-4">
@@ -57,8 +56,7 @@ export default function CourseDownsellPage() {
               You just need the <span className="text-accent-400">exact blueprint</span> to learn on your own terms.
             </p>
 
-            <p className="text-neutral-400 mb-4">Here's EXACTLY what you need.</p>
-            <p className="text-sm text-neutral-500 mb-8">Introducing:</p>
+            <p className="text-neutral-400 mb-8">Here's EXACTLY what you need.</p>
 
             <div className="bg-gradient-to-r from-primary-500/20 to-accent-500/20 border border-primary-500/30 rounded-2xl p-8 mb-8">
               <p className="text-accent-400 font-semibold text-sm mb-2">EXCLUSIVE EARLY ACCESS</p>
