@@ -25,23 +25,23 @@ const chapters = [
 const faqItems = [
   {
     question: '"Is this really free?"',
-    answer: 'Yes. The book is free. You just cover the $5.95 shipping and handling to get it delivered to your door.',
+    answer: 'Yes. The Time Ownership Playbook is completely free. No credit card required. Just instant digital access.',
   },
   {
-    question: '"Is this a physical book or digital?"',
-    answer: "Physical book shipped to you. You'll also get instant digital access while you wait for shipping.",
+    question: '"Is this a physical workbook or digital?"',
+    answer: "It's a digital workbook you can download immediately and use right away. Print it out or work through it digitally—whatever works best for you.",
   },
   {
-    question: '"How long does shipping take?"',
-    answer: 'US orders typically arrive within 7-10 business days. International takes 2-3 weeks.',
+    question: '"How do I access it?"',
+    answer: 'After claiming your copy, you\'ll be redirected to download the workbook instantly. You\'ll also receive an email with the download link.',
   },
   {
-    question: '"Will I be charged for anything else?"',
-    answer: 'No. $5.95 shipping is the only charge. No hidden fees. No subscriptions.',
+    question: '"Will I be charged for anything?"',
+    answer: 'No. The workbook is completely free. No hidden fees. No subscriptions. No credit card required.',
   },
   {
-    question: '"What if I don\'t like it?"',
-    answer: 'Send it back within 30 days for a full refund of your shipping cost. Keep the digital version.',
+    question: '"What if I need help implementing it?"',
+    answer: 'The workbook includes step-by-step instructions and templates. If you want personalized guidance, you can book a strategy call with Bill.',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function FreeBookPage() {
     decreaseStock();
   }, []);
 
-  // Handle CTA click - show modal then redirect
+  // Handle CTA click - show modal then redirect to workbook
   const handleClaimClick = useCallback(() => {
     setShowModal(true);
     setCheckStage(0);
@@ -96,11 +96,12 @@ export default function FreeBookPage() {
       }, totalDelay);
     });
 
-    // Complete and redirect
+    // Complete and redirect to workbook
     setTimeout(() => {
       setCheckComplete(true);
       setTimeout(() => {
-        router.push('/free-book/checkout');
+        window.open('https://drive.google.com/file/d/1zDGMujgltYZzmibjtvHOLYROKualy11c/view?usp=sharing', '_blank');
+        router.push('/free-book/thank-you');
       }, 1500);
     }, totalDelay + 500);
   }, [router]);
@@ -196,15 +197,15 @@ export default function FreeBookPage() {
                     </motion.div>
 
                     <h3 className="text-3xl font-bold text-accent-400 mb-2" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-                      COPY RESERVED!
+                      ACCESS GRANTED!
                     </h3>
 
                     <p className="text-white text-lg mb-4">
-                      We've reserved 1 copy for you
+                      Your workbook is ready to download
                     </p>
 
                     <p className="text-neutral-400">
-                      Redirecting to secure checkout...
+                      Opening download link...
                     </p>
                   </motion.div>
                 )}
@@ -214,7 +215,7 @@ export default function FreeBookPage() {
         )}
       </AnimatePresence>
 
-      {/* Live Stock Alert Banner */}
+      {/* Limited Time Alert Banner */}
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -228,14 +229,13 @@ export default function FreeBookPage() {
             >
               <AlertTriangle className="w-5 h-5 text-red-400" />
             </motion.div>
-            <span className="text-white font-semibold">LIMITED STOCK ALERT:</span>
+            <span className="text-white font-semibold">LIMITED TIME OFFER:</span>
             <motion.span
-              key={stockCount}
               initial={{ scale: 1.3, color: '#ff0000' }}
               animate={{ scale: 1, color: '#f87171' }}
-              className={`font-bold text-xl ${getStockColor()}`}
+              className="font-bold text-xl text-red-400"
             >
-              Only {stockCount} copies left!
+              Free Workbook Download Available Now!
             </motion.span>
             {justSold && (
               <motion.span
@@ -244,7 +244,7 @@ export default function FreeBookPage() {
                 exit={{ opacity: 0 }}
                 className="text-yellow-400 text-sm font-semibold"
               >
-                — Someone just claimed a copy!
+                — Someone just downloaded!
               </motion.span>
             )}
           </div>
@@ -282,7 +282,7 @@ export default function FreeBookPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold-500/20 to-gold-500/10 border border-gold-500/40 mb-6 shadow-lg shadow-gold-500/10"
               >
                 <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shadow-lg shadow-gold-400/50" />
-                <span className="text-gold-400 text-sm font-semibold">FREE + $5.95 Shipping</span>
+                <span className="text-gold-400 text-sm font-semibold">100% FREE - Instant Download</span>
               </motion.div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
@@ -293,32 +293,23 @@ export default function FreeBookPage() {
               </h1>
 
               <p className="text-lg text-neutral-300 mb-6 leading-relaxed">
-                Get your <span className="text-accent-400 font-bold">FREE</span> copy of{' '}
-                <em className="text-white font-medium">The 168 Game: Time Ownership vs. Time Management</em>
-                and discover the exact framework that took Bill Korman from bankruptcy to building
+                Download your <span className="text-accent-400 font-bold">FREE</span> copy of{' '}
+                <em className="text-white font-medium">The Time Ownership Playbook</em>
+                {' '}and discover the exact framework that took Bill Korman from bankruptcy to building
                 multiple 7-figure businesses, without working 80-hour weeks.
               </p>
 
-              {/* Stock indicator in hero */}
+              {/* Limited time indicator in hero */}
               <motion.div
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6"
+                className="bg-accent-500/10 border border-accent-500/30 rounded-xl p-4 mb-6"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-red-400 font-semibold flex items-center gap-2">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-accent-400 font-semibold flex items-center gap-2">
                     <Package className="w-5 h-5" />
-                    Stock Running Low
+                    Limited Time Offer — Download Now!
                   </span>
-                  <span className={`text-2xl font-bold ${getStockColor()}`}>{stockCount} left</span>
-                </div>
-                <div className="w-full h-3 bg-neutral-800 rounded-full overflow-hidden">
-                  <motion.div
-                    className={`h-full bg-gradient-to-r ${getStockBgColor()} to-transparent rounded-full`}
-                    initial={{ width: '100%' }}
-                    animate={{ width: `${(stockCount / 100) * 100}%` }}
-                    transition={{ duration: 0.5 }}
-                  />
                 </div>
               </motion.div>
 
@@ -331,7 +322,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Claim My Free Copy Now</span>
+                <span>Download My Free Workbook Now</span>
                 <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   →
                 </motion.span>
@@ -516,7 +507,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Yes! Send Me The Book (Just Pay $5.95 Shipping)</span>
+                <span>Yes! Send Me The Workbook (It's FREE)</span>
                 <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   →
                 </motion.span>
@@ -657,7 +648,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Claim My Free Copy Now (Just Pay Shipping)</span>
+                <span>Download My Free Workbook Now</span>
                 <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   →
                 </motion.span>
@@ -715,7 +706,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Send Me The Book (Just Cover $5.95 Shipping)</span>
+                <span>Send Me The Workbook (It's FREE)</span>
                 <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   →
                 </motion.span>
@@ -763,7 +754,7 @@ export default function FreeBookPage() {
             </div>
 
             <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto">
-              Just cover <span className="text-gold-400 font-bold">$5.95</span> shipping and I'll rush you a physical copy
+              Instant digital download — <span className="text-gold-400 font-bold">No shipping required</span>
             </p>
           </motion.div>
 
@@ -776,14 +767,14 @@ export default function FreeBookPage() {
           >
             <div className="inline-flex items-center gap-3 mb-4">
               <Shield className="w-8 h-8 text-accent-400" />
-              <span className="text-accent-400 text-lg font-bold uppercase tracking-widest">30-Day Guarantee</span>
+              <span className="text-accent-400 text-lg font-bold uppercase tracking-widest">100% Free Access</span>
               <Shield className="w-8 h-8 text-accent-400" />
             </div>
             <p className="text-2xl md:text-3xl text-white font-bold mb-2">
-              Don't love it? Send it back for a full refund.
+              Instant download. No credit card required.
             </p>
             <p className="text-xl text-accent-400 font-semibold">
-              You literally risk nothing.
+              Start implementing today — completely free.
             </p>
           </motion.div>
 
@@ -803,7 +794,7 @@ export default function FreeBookPage() {
                 boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
               }}
             >
-              <span>Yes! Send Me The Book Now</span>
+              <span>Yes! Send Me The Workbook Now</span>
               <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                 →
               </motion.span>
@@ -895,36 +886,22 @@ export default function FreeBookPage() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-red-400 mb-4"
                 style={{ fontFamily: 'Bebas Neue, sans-serif' }}
               >
-                COPIES RUNNING OUT FAST!
+                LIMITED TIME FREE OFFER!
               </motion.h2>
 
-              {/* Live stock display */}
+              {/* Call to action message */}
               <motion.div
-                key={stockCount}
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
-                className="mb-6"
+                className="mb-8"
               >
-                <p className="text-2xl text-white mb-2">Only</p>
-                <p className={`text-7xl md:text-8xl font-bold ${getStockColor()}`} style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-                  {stockCount}
+                <p className="text-2xl md:text-3xl text-white mb-4">
+                  Download The Time Ownership Playbook
                 </p>
-                <p className="text-2xl text-white">FREE copies remaining!</p>
+                <p className="text-xl text-accent-400 font-bold">
+                  100% FREE — Instant Digital Access
+                </p>
               </motion.div>
-
-              {/* Progress bar */}
-              <div className="max-w-md mx-auto mb-8">
-                <div className="w-full h-4 bg-neutral-800 rounded-full overflow-hidden border border-red-500/30">
-                  <motion.div
-                    className={`h-full bg-gradient-to-r ${getStockBgColor()} to-red-700 rounded-full`}
-                    animate={{ width: `${(stockCount / 100) * 100}%` }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </div>
-                <p className="text-red-400 text-sm mt-2">
-                  {100 - stockCount} copies claimed in the last hour!
-                </p>
-              </div>
 
               <motion.div
                 animate={{ scale: [1, 1.02, 1] }}
@@ -932,7 +909,7 @@ export default function FreeBookPage() {
                 className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8 max-w-xl mx-auto"
               >
                 <p className="text-xl md:text-2xl text-white font-bold">
-                  When they're gone, the price goes back to $20. Don't miss your chance!
+                  This free offer won't last forever. Download yours before it's gone!
                 </p>
               </motion.div>
 
@@ -945,14 +922,14 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 30px rgba(126, 211, 33, 0.5)',
                 }}
               >
-                <span>CLAIM MY FREE COPY NOW</span>
+                <span>DOWNLOAD MY FREE WORKBOOK NOW</span>
                 <motion.span animate={{ x: [0, 8, 0] }} transition={{ duration: 1, repeat: Infinity }}>
                   →
                 </motion.span>
               </button>
 
               <p className="text-neutral-400 text-sm mt-6">
-                Just pay $5.95 shipping • 30-day guarantee • Instant digital access
+                100% Free • No credit card required • Instant digital access
               </p>
             </div>
           </motion.div>
@@ -1011,13 +988,13 @@ export default function FreeBookPage() {
               You can't get this time back. But you can change what happens next.
             </p>
 
-            {/* Final stock reminder */}
+            {/* Final urgency reminder */}
             <motion.p
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className={`text-2xl font-bold mb-8 ${getStockColor()}`}
+              className="text-2xl font-bold mb-8 text-accent-400"
             >
-              Only {stockCount} free copies left — Claim yours now!
+              Limited time offer — Download yours now!
             </motion.p>
 
             <button
@@ -1029,15 +1006,15 @@ export default function FreeBookPage() {
                 boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
               }}
             >
-              <span>Send Me The Book (Just Pay Shipping)</span>
+              <span>Send Me The Workbook (It's FREE)</span>
               <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                 →
               </motion.span>
             </button>
 
             <p className="text-sm text-neutral-500">
-              <span className="text-neutral-400 font-semibold">Still on the fence?</span> Remember: You risk nothing.
-              If you don't love the book, send it back within 30 days for a full refund.
+              <span className="text-neutral-400 font-semibold">Still on the fence?</span> Remember: It's completely free.
+              No credit card. No shipping fees. Just instant access to the framework that works.
             </p>
           </motion.div>
         </div>

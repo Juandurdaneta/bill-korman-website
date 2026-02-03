@@ -7,9 +7,9 @@ import FunnelCTA from '@/components/funnel/FunnelCTA';
 import BookPreview from '@/components/funnel/BookPreview';
 
 const nextSteps = [
-  { icon: Mail, title: 'Check Your Email', desc: "You'll receive a confirmation email shortly with tracking info and access to any digital bonuses you added to your order." },
-  { icon: Truck, title: 'Book Ships Soon', desc: 'Your physical copy is being prepped for shipment. US orders typically arrive within 7-10 business days.' },
-  { icon: BookOpen, title: 'Start Reading', desc: "If you added digital access, you can start reading immediately while waiting for your physical copy." },
+  { icon: BookOpen, title: 'Download Your Workbook', desc: "Access your Time Ownership Playbook immediately and start implementing the framework today." },
+  { icon: Mail, title: 'Check Your Email', desc: "You'll receive a confirmation email with the workbook link and additional resources." },
+  { icon: Calendar, title: 'Start Implementing', desc: "Use the templates and worksheets to audit your 168 hours and reclaim 20+ hours this week." },
 ];
 
 const strategyCallBenefits = [
@@ -43,7 +43,7 @@ export default function ThankYouPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              Your Book Is On Its Way!
+              Your Workbook Is Ready!
             </h1>
 
             <p className="text-xl text-accent-400 font-semibold mb-4">
@@ -51,7 +51,7 @@ export default function ThankYouPage() {
             </p>
 
             <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
-              In just a few days, you'll hold the exact framework that's helped 10,000+ entrepreneurs
+              You now have access to the exact framework that's helped 10,000+ entrepreneurs
               reclaim thousands of hours and scale with clarity, not chaos.
             </p>
 
@@ -127,10 +127,10 @@ export default function ThankYouPage() {
 
               <div className="bg-neutral-900/50 rounded-xl p-6 mb-8">
                 <h3 className="text-xl font-bold text-white mb-4">
-                  Book a Free 1:1 Strategy Session with Bill Korman
+                  Access Your Time Ownership Playbook
                 </h3>
 
-                <p className="text-neutral-400 mb-4">During this 30-minute call, we'll:</p>
+                <p className="text-neutral-400 mb-4">Inside your workbook, you'll find:</p>
 
                 <ul className="space-y-3 text-left max-w-md mx-auto mb-6">
                   {strategyCallBenefits.map((benefit, index) => (
@@ -143,22 +143,24 @@ export default function ThankYouPage() {
 
                 <div className="bg-neutral-800/50 rounded-lg p-4 mb-6">
                   <p className="text-sm text-neutral-400">
-                    <span className="text-white font-semibold">This is NOT a sales call.</span>{' '}
-                    This is a clarity session for serious builders who want to operate with intention. Not reaction.
+                    <span className="text-white font-semibold">Start implementing today.</span>{' '}
+                    This workbook contains the exact templates and frameworks Bill uses with his clients to reclaim 20+ hours per week.
                   </p>
                 </div>
 
                 <div className="flex items-center justify-center gap-2 text-sm text-neutral-500 mb-6">
-                  <Calendar className="w-4 h-4" />
-                  <span>Limited Availability - Bill only takes select strategy calls each month</span>
+                  <BookOpen className="w-4 h-4" />
+                  <span>Instant access - Download and start using it right now</span>
                 </div>
 
                 <FunnelCTA
-                  href="https://calendly.com" // Placeholder - replace with actual booking link
+                  href="https://drive.google.com/file/d/1zDGMujgltYZzmibjtvHOLYROKualy11c/view?usp=sharing"
                   size="xl"
                   className="w-full"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Apply For A Strategy Call Now
+                  Download Your Free Workbook Now
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </FunnelCTA>
               </div>
@@ -176,7 +178,7 @@ export default function ThankYouPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl font-bold text-center text-white mb-8" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              Your Order Summary
+              What You're Getting
             </h2>
 
             <div className="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
@@ -184,24 +186,24 @@ export default function ThankYouPage() {
                 <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
                   <div className="flex items-center gap-3">
                     <BookOpen className="w-5 h-5 text-primary-400" />
-                    <span className="text-white">The 168 Game Book (Physical + Digital)</span>
+                    <span className="text-white">The Time Ownership Playbook (Digital)</span>
                   </div>
                   <span className="text-accent-400 font-semibold">FREE</span>
                 </div>
 
                 <div className="flex items-center justify-between text-neutral-400">
-                  <span>Shipping & Handling</span>
-                  <span>$5.95</span>
+                  <span>Value</span>
+                  <span className="text-gold-400 font-semibold">$497</span>
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-neutral-800 text-lg">
-                  <span className="text-white font-bold">Total Charged</span>
-                  <span className="text-white font-bold">$5.95</span>
+                  <span className="text-white font-bold">Your Investment</span>
+                  <span className="text-accent-400 font-bold">$0.00</span>
                 </div>
               </div>
 
               <p className="text-sm text-neutral-500 mt-6 text-center">
-                A receipt has been sent to your email address.
+                Instant digital access - no shipping required
               </p>
             </div>
           </motion.div>
