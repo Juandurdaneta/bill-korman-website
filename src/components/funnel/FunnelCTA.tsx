@@ -14,6 +14,8 @@ interface FunnelCTAProps {
   showArrow?: boolean;
   pulse?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  target?: string;
+  rel?: string;
 }
 
 export default function FunnelCTA({
@@ -26,6 +28,8 @@ export default function FunnelCTA({
   showArrow = true,
   pulse = false,
   type = 'button',
+  target,
+  rel,
 }: FunnelCTAProps) {
   const variantStyles = {
     primary: {
@@ -85,6 +89,8 @@ export default function FunnelCTA({
           href={href}
           className={buttonClasses}
           style={variantStyles[variant]}
+          target={target}
+          rel={rel}
         >
           {content}
         </Link>
