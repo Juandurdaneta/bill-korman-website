@@ -809,69 +809,25 @@ export default function FreeBookPage() {
 
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            animate={{
-              y: [0, -10, 0],
-              boxShadow: [
-                '0 0 30px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1)',
-                '0 0 50px rgba(239, 68, 68, 0.5), 0 0 100px rgba(239, 68, 68, 0.2)',
-                '0 0 30px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1)',
-              ],
-            }}
-            transition={{
-              y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
-              boxShadow: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
-            }}
+            transition={{ duration: 0.6 }}
             className="relative bg-gradient-to-b from-red-950 to-neutral-950 border-2 border-red-500 rounded-2xl p-8 md:p-12 text-center overflow-hidden"
+            style={{ boxShadow: '0 0 40px rgba(239, 68, 68, 0.3), 0 0 80px rgba(239, 68, 68, 0.1)' }}
           >
-            {/* Flying books animation */}
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ x: '-10%', y: '100%', opacity: 0, rotate: -20 }}
-                animate={{
-                  x: ['0%', '120%'],
-                  y: ['100%', '-30%'],
-                  opacity: [0, 0.4, 0.4, 0],
-                  rotate: [-20, 20],
-                }}
-                transition={{
-                  duration: 4 + i * 0.3,
-                  repeat: Infinity,
-                  delay: i * 0.7,
-                  ease: 'easeOut',
-                }}
-                className="absolute text-red-500/20 pointer-events-none"
-                style={{ left: `${5 + i * 12}%` }}
-              >
-                <BookOpen className="w-10 h-10 md:w-14 md:h-14" />
-              </motion.div>
-            ))}
-
-            {/* Flashing border */}
-            <motion.div
-              animate={{ opacity: [0.3, 0.8, 0.3] }}
-              transition={{ duration: 0.8, repeat: Infinity }}
-              className="absolute inset-0 rounded-2xl border-2 border-red-400 pointer-events-none"
-            />
-
-            {/* Sweeping light */}
+            {/* Subtle sweeping light */}
             <motion.div
               animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1 }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent skew-x-12 pointer-events-none"
+              transition={{ duration: 4, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent skew-x-12 pointer-events-none"
             />
 
             <div className="relative z-10">
-              {/* Shaking alarm */}
+              {/* Alert icon */}
               <motion.div
-                animate={{
-                  rotate: [0, -15, 15, -15, 15, 0],
-                  scale: [1, 1.1, 1.1, 1.1, 1.1, 1],
-                }}
-                transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}
+                animate={{ rotate: [0, -8, 8, -8, 8, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 4 }}
                 className="flex justify-center mb-6"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500">
@@ -879,38 +835,27 @@ export default function FreeBookPage() {
                 </div>
               </motion.div>
 
-              <motion.h2
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              <h2
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-red-400 mb-4"
                 style={{ fontFamily: 'Bebas Neue, sans-serif' }}
               >
                 LIMITED TIME FREE OFFER!
-              </motion.h2>
+              </h2>
 
-              {/* Call to action message */}
-              <motion.div
-                initial={{ scale: 1.2 }}
-                animate={{ scale: 1 }}
-                className="mb-8"
-              >
+              <div className="mb-8">
                 <p className="text-2xl md:text-3xl text-white mb-4">
                   Download The Time Ownership Playbook
                 </p>
                 <p className="text-xl text-accent-400 font-bold">
                   100% FREE — Instant Digital Access
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8 max-w-xl mx-auto"
-              >
+              <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8 max-w-xl mx-auto">
                 <p className="text-xl md:text-2xl text-white font-bold">
-                  This free offer won't last forever. Download yours before it's gone!
+                  This free offer won&apos;t last forever. Download yours before it&apos;s gone!
                 </p>
-              </motion.div>
+              </div>
 
               <button
                 onClick={handleClaimClick}
@@ -922,7 +867,7 @@ export default function FreeBookPage() {
                 }}
               >
                 <span>DOWNLOAD MY FREE WORKBOOK NOW</span>
-                <motion.span animate={{ x: [0, 8, 0] }} transition={{ duration: 1, repeat: Infinity }}>
+                <motion.span animate={{ x: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   →
                 </motion.span>
               </button>
