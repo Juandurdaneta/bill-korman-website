@@ -222,12 +222,9 @@ export default function FreeBookPage() {
       >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
+            <div>
               <AlertTriangle className="w-5 h-5 text-red-400" />
-            </motion.div>
+            </div>
             <span className="text-white font-semibold">LIMITED TIME OFFER:</span>
             <motion.span
               initial={{ scale: 1.3, color: '#ff0000' }}
@@ -299,18 +296,14 @@ export default function FreeBookPage() {
               </p>
 
               {/* Limited time indicator in hero */}
-              <motion.div
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="bg-accent-500/10 border border-accent-500/30 rounded-xl p-4 mb-6"
-              >
+              <div className="bg-accent-500/10 border border-accent-500/30 rounded-xl p-4 mb-6">
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-accent-400 font-semibold flex items-center gap-2">
                     <Package className="w-5 h-5" />
                     Limited Time Offer — Download Now!
                   </span>
                 </div>
-              </motion.div>
+              </div>
 
               <button
                 onClick={handleClaimClick}
@@ -322,9 +315,7 @@ export default function FreeBookPage() {
                 }}
               >
                 <span>Download My Free Workbook Now</span>
-                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  →
-                </motion.span>
+                <span>→</span>
               </button>
 
               {/* Trust Signals */}
@@ -507,9 +498,7 @@ export default function FreeBookPage() {
                 }}
               >
                 <span>Yes! Send Me The Workbook (It's FREE)</span>
-                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  →
-                </motion.span>
+                <span>→</span>
               </button>
             </div>
           </motion.div>
@@ -648,9 +637,7 @@ export default function FreeBookPage() {
                 }}
               >
                 <span>Download My Free Workbook Now</span>
-                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  →
-                </motion.span>
+                <span>→</span>
               </button>
             </div>
           </motion.div>
@@ -706,9 +693,7 @@ export default function FreeBookPage() {
                 }}
               >
                 <span>Send Me The Workbook (It's FREE)</span>
-                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  →
-                </motion.span>
+                <span>→</span>
               </button>
             </div>
           </motion.div>
@@ -741,14 +726,12 @@ export default function FreeBookPage() {
               <div className="text-4xl text-neutral-600">&rarr;</div>
               <div className="text-center">
                 <p className="text-accent-400 text-sm uppercase tracking-wider mb-1">Your Price Today</p>
-                <motion.p
+                <p
                   className="text-5xl md:text-7xl font-bold"
                   style={{ color: '#7ED321' }}
-                  animate={{ scale: [1, 1.02, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
                 >
                   FREE
-                </motion.p>
+                </p>
               </div>
             </div>
 
@@ -794,9 +777,7 @@ export default function FreeBookPage() {
               }}
             >
               <span>Yes! Send Me The Workbook Now</span>
-              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                →
-              </motion.span>
+              <span>→</span>
             </button>
           </motion.div>
         </div>
@@ -808,32 +789,16 @@ export default function FreeBookPage() {
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
 
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
             className="relative bg-gradient-to-b from-red-950 to-neutral-950 border-2 border-red-500 rounded-2xl p-8 md:p-12 text-center overflow-hidden"
             style={{ boxShadow: '0 0 40px rgba(239, 68, 68, 0.3), 0 0 80px rgba(239, 68, 68, 0.1)' }}
           >
-            {/* Subtle sweeping light */}
-            <motion.div
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 4, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent skew-x-12 pointer-events-none"
-            />
-
             <div className="relative z-10">
-              {/* Alert icon */}
-              <motion.div
-                animate={{ rotate: [0, -8, 8, -8, 8, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 4 }}
-                className="flex justify-center mb-6"
-              >
+              <div className="flex justify-center mb-6">
                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-red-500/20 flex items-center justify-center border-2 border-red-500">
                   <AlertTriangle className="w-10 h-10 md:w-12 md:h-12 text-red-400" />
                 </div>
-              </motion.div>
+              </div>
 
               <h2
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-red-400 mb-4"
@@ -859,7 +824,7 @@ export default function FreeBookPage() {
 
               <button
                 onClick={handleClaimClick}
-                className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl rounded-lg font-bold transition-all duration-300 hover:scale-105"
                 style={{
                   background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
                   color: '#000000',
@@ -867,16 +832,14 @@ export default function FreeBookPage() {
                 }}
               >
                 <span>DOWNLOAD MY FREE WORKBOOK NOW</span>
-                <motion.span animate={{ x: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  →
-                </motion.span>
+                <span className="ml-1">→</span>
               </button>
 
               <p className="text-neutral-400 text-sm mt-6">
                 100% Free • No credit card required • Instant digital access
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -932,14 +895,9 @@ export default function FreeBookPage() {
               You can't get this time back. But you can change what happens next.
             </p>
 
-            {/* Final urgency reminder */}
-            <motion.p
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-2xl font-bold mb-8 text-accent-400"
-            >
+            <p className="text-2xl font-bold mb-8 text-accent-400">
               Limited time offer — Download yours now!
-            </motion.p>
+            </p>
 
             <button
               onClick={handleClaimClick}
@@ -951,9 +909,7 @@ export default function FreeBookPage() {
               }}
             >
               <span>Send Me The Workbook (It's FREE)</span>
-              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                →
-              </motion.span>
+              <span>→</span>
             </button>
 
             <p className="text-sm text-neutral-500">
