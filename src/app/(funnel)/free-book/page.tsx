@@ -96,12 +96,11 @@ export default function FreeBookPage() {
       }, totalDelay);
     });
 
-    // Complete and redirect to workbook
+    // Complete and redirect to checkout
     setTimeout(() => {
       setCheckComplete(true);
       setTimeout(() => {
-        window.open('https://drive.google.com/file/d/1zDGMujgltYZzmibjtvHOLYROKualy11c/view?usp=sharing', '_blank');
-        router.push('/free-book/thank-you');
+        router.push('/free-book/checkout');
       }, 1500);
     }, totalDelay + 500);
   }, [router]);

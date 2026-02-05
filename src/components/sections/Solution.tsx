@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Clock, Zap, Target, Grid3X3, Calendar, Check } from 'lucide-react';
+import Image from 'next/image';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
 import SpotlightCard from '../ui/SpotlightCard';
@@ -115,21 +116,14 @@ export default function Solution() {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#7ED321]/10 to-transparent" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#3498db]/10 to-transparent" />
 
-                {/* Playbook Cover Placeholder */}
-                <div className="relative w-full max-w-[280px] aspect-[3/4] bg-gradient-to-br from-[#1e3a5f] to-[#0d1b2a] rounded-lg shadow-2xl border border-white/10 overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                  {/* Cover design */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                    <div>
-                      <div className="text-[#7ED321] text-xs font-semibold uppercase tracking-wider mb-2">Bill Korman</div>
-                      <h4 className="text-white text-xl font-bold leading-tight">The Time Ownership Playbook</h4>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="h-1 w-16 bg-[#7ED321] rounded-full" />
-                      <p className="text-[#85c1e9] text-xs">Reclaim 20+ Hours Per Week</p>
-                    </div>
-                  </div>
-                  {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#7ED321]/20 to-transparent" />
+                {/* Playbook Cover Image */}
+                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-lg shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/images/Cover the time ownership .jpg"
+                    alt="The Time Ownership Playbook"
+                    fill
+                    className="object-cover object-center"
+                  />
                 </div>
 
                 {/* Floating badge - adjusted positioning for mobile */}
