@@ -77,6 +77,7 @@ export default function TicketCard({
           variant={highlighted ? 'accent' : 'primary'}
           size="lg"
           className="w-full"
+          {...(href?.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >
           {ctaText}
         </FunnelCTA>

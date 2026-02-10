@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, Calendar, MapPin, Users, Clock, Star } from 'lucide-react';
-import Link from 'next/link';
+import { Check, Calendar, MapPin, Users, Clock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import FunnelCTA from '@/components/funnel/FunnelCTA';
 import UrgencyBanner from '@/components/funnel/UrgencyBanner';
@@ -55,11 +54,6 @@ const day3 = [
 export default function ConventionUpsellPage() {
   const router = useRouter();
 
-  const handleAccept = (tier: 'regular' | 'vip') => {
-    // Mock purchase - go to next upsell
-    router.push('/free-book/mastery');
-  };
-
   const handleDecline = () => {
     // Go to downsell (payment plan)
     router.push('/free-book/convention-plan');
@@ -111,10 +105,10 @@ export default function ConventionUpsellPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <FunnelCTA onClick={() => handleAccept('regular')} variant="primary" size="lg">
+              <FunnelCTA href="https://buy.stripe.com/6oUeVc97W5pmeywew8fnO02" target="_blank" rel="noopener noreferrer" variant="primary" size="lg">
                 Regular Ticket - $997
               </FunnelCTA>
-              <FunnelCTA onClick={() => handleAccept('vip')} variant="accent" size="lg">
+              <FunnelCTA href="https://buy.stripe.com/3cI7sKesgdVSaig4VyfnO03" target="_blank" rel="noopener noreferrer" variant="accent" size="lg">
                 VIP Ticket - $1,497
               </FunnelCTA>
             </div>
@@ -236,7 +230,7 @@ export default function ConventionUpsellPage() {
                 originalValue="$13,500+"
                 features={regularFeatures}
                 ctaText="Secure Your Ticket"
-                onSelect={() => handleAccept('regular')}
+                href="https://buy.stripe.com/6oUeVc97W5pmeywew8fnO02"
               />
 
               <TicketCard
@@ -246,7 +240,7 @@ export default function ConventionUpsellPage() {
                 features={vipFeatures}
                 highlighted
                 ctaText="Upgrade to VIP"
-                onSelect={() => handleAccept('vip')}
+                href="https://buy.stripe.com/3cI7sKesgdVSaig4VyfnO03"
               />
             </div>
           </motion.div>
@@ -306,10 +300,10 @@ export default function ConventionUpsellPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <FunnelCTA onClick={() => handleAccept('regular')} variant="primary" size="lg">
+              <FunnelCTA href="https://buy.stripe.com/6oUeVc97W5pmeywew8fnO02" target="_blank" rel="noopener noreferrer" variant="primary" size="lg">
                 Secure My Regular Ticket - $997
               </FunnelCTA>
-              <FunnelCTA onClick={() => handleAccept('vip')} variant="accent" size="lg">
+              <FunnelCTA href="https://buy.stripe.com/3cI7sKesgdVSaig4VyfnO03" target="_blank" rel="noopener noreferrer" variant="accent" size="lg">
                 Upgrade to VIP - $1,497
               </FunnelCTA>
             </div>
@@ -438,10 +432,10 @@ export default function ConventionUpsellPage() {
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <FunnelCTA onClick={() => handleAccept('regular')} variant="primary" size="xl">
+            <FunnelCTA href="https://buy.stripe.com/6oUeVc97W5pmeywew8fnO02" target="_blank" rel="noopener noreferrer" variant="primary" size="xl">
               Secure My Regular Ticket - $997
             </FunnelCTA>
-            <FunnelCTA onClick={() => handleAccept('vip')} variant="accent" size="xl">
+            <FunnelCTA href="https://buy.stripe.com/3cI7sKesgdVSaig4VyfnO03" target="_blank" rel="noopener noreferrer" variant="accent" size="xl">
               Upgrade to VIP - $1,497
             </FunnelCTA>
           </div>
