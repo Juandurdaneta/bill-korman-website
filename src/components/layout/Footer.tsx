@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Clock, Linkedin, Instagram, Youtube, Mail, Phone } from 'lucide-react';
+import Image from 'next/image';
+import { Linkedin, Instagram, Youtube, Mail, Phone } from 'lucide-react';
 
 const footerLinks = {
   company: [
@@ -31,13 +32,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#3498db] to-[#5dade2] flex items-center justify-center">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-[#5dade2] tracking-tight">THE 168 GAME</span>
-                <span className="text-[10px] text-[#888888] uppercase tracking-widest">Bill Korman</span>
-              </div>
+              <Image
+                src="/images/Logo 1.png"
+                alt="The 168 Game"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-[#888888] text-sm leading-relaxed mb-6">
               Transform your relationship with time. Stop managing it. Start owning it.

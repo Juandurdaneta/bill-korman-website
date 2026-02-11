@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Clock } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Button from '../ui/Button';
 
 const navLinks = [
@@ -39,13 +40,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#3498db] to-[#5dade2] flex items-center justify-center group-hover:from-[#5dade2] group-hover:to-[#85c1e9] transition-all duration-300">
-              <Clock className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-[#5dade2] tracking-tight">THE 168 GAME</span>
-              <span className="text-[10px] text-[#888888] uppercase tracking-widest">Bill Korman</span>
-            </div>
+            <Image
+              src="/images/Logo 1.png"
+              alt="The 168 Game"
+              width={160}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
