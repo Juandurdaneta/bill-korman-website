@@ -99,7 +99,7 @@ export default function FinalCTA() {
             transition={{ delay: 0.6 }}
           >
             <MagneticButton strength={0.15}>
-              <Button href="/free-book" variant="accent" size="lg" showArrow className="text-lg px-10">
+              <Button href="/get-playbook" variant="accent" size="lg" showArrow className="text-lg px-10">
                 Get Your Free Playbook Now
               </Button>
             </MagneticButton>

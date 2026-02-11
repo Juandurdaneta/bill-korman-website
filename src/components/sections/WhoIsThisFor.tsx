@@ -109,7 +109,7 @@ export default function WhoIsThisFor() {
           <p className="text-[#aaaaaa] text-lg mb-6">
             If the right column describes you, download the playbook and let&apos;s get started.
           </p>
-          <Button href="#playbook" variant="accent" size="lg" showArrow>
+          <Button href="/get-playbook" variant="accent" size="lg" showArrow>
             Yes, I&apos;m Ready — Get The Playbook
           </Button>
         </motion.div>

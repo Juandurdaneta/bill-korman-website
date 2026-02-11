@@ -100,7 +100,7 @@ export default function Solution() {
                     ))}
                   </ul>
 
-                  <Button href="/free-book" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
+                  <Button href="/get-playbook" variant="accent" size="lg" className="w-full sm:w-auto" showArrow>
                     Get Your Free Playbook Now
                   </Button>
 

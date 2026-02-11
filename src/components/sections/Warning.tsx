@@ -93,7 +93,7 @@ export default function Warning() {
             If you&apos;re stuck at a plateau, this is why. And the Playbook shows you how to fix it.
           </p>
 
-          <Button href="#playbook" variant="accent" size="lg" showArrow>
+          <Button href="/get-playbook" variant="accent" size="lg" showArrow>
             Get Your Free Playbook Now
           </Button>
         </motion.div>
