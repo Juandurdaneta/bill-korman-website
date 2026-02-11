@@ -9,7 +9,9 @@ interface ContactFormData {
   message: string;
 }
 
-// Subject mapping for email formatting
+const GHL_BASE_URL = 'https://services.leadconnectorhq.com';
+
+// Subject mapping for display labels and GHL tags
 const subjectLabels: Record<string, string> = {
   'coaching-intensive': '1:1 Coaching Intensive',
   'coaching-basic': '1:1 Basic Coaching',
@@ -18,6 +20,16 @@ const subjectLabels: Record<string, string> = {
   'speaking': 'Speaking Engagement',
   'media': 'Media/Press Inquiry',
   'other': 'General Question',
+};
+
+const subjectTags: Record<string, string[]> = {
+  'coaching-intensive': ['contact-form', 'coaching-intensive', 'high-intent'],
+  'coaching-basic': ['contact-form', 'coaching-basic'],
+  'group-training': ['contact-form', 'group-training', 'corporate'],
+  'course': ['contact-form', 'course-interest'],
+  'speaking': ['contact-form', 'speaking-inquiry'],
+  'media': ['contact-form', 'media-inquiry'],
+  'other': ['contact-form', 'general-inquiry'],
 };
 
 function validateContactForm(data: ContactFormData): {
@@ -48,6 +60,96 @@ function validateContactForm(data: ContactFormData): {
   };
 }
 
+function getGHLHeaders() {
+  return {
+    Authorization: `Bearer ${process.env.GHL_API_KEY}`,
+    'Content-Type': 'application/json',
+    Version: '2021-07-28',
+  };
+}
+
+async function createOrUpdateGHLContact(data: ContactFormData): Promise<string> {
+  const locationId = process.env.GHL_LOCATION_ID;
+  const tags = subjectTags[data.subject] || ['contact-form'];
+
+  // Try to create the contact
+  const createRes = await fetch(`${GHL_BASE_URL}/contacts/`, {
+    method: 'POST',
+    headers: getGHLHeaders(),
+    body: JSON.stringify({
+      firstName: data.firstName.trim(),
+      lastName: data.lastName.trim(),
+      email: data.email.trim().toLowerCase(),
+      phone: data.phone?.trim() || undefined,
+      locationId,
+      tags,
+      source: 'Website Contact Form',
+    }),
+  });
+
+  if (createRes.ok) {
+    const result = await createRes.json();
+    return result.contact.id;
+  }
+
+  // GHL returns 400/422/409 for duplicate contacts
+  // The error response includes the existing contactId in meta
+  const errorResult = await createRes.json().catch(() => null);
+
+  if (errorResult?.meta?.contactId) {
+    const contactId = errorResult.meta.contactId;
+    // Update existing contact with new tags and info
+    await fetch(`${GHL_BASE_URL}/contacts/${contactId}`, {
+      method: 'PUT',
+      headers: getGHLHeaders(),
+      body: JSON.stringify({
+        firstName: data.firstName.trim(),
+        lastName: data.lastName.trim(),
+        phone: data.phone?.trim() || undefined,
+        tags,
+      }),
+    });
+    return contactId;
+  }
+
+  throw new Error(`Failed to create GHL contact: ${createRes.status} ${JSON.stringify(errorResult)}`);
+}
+
+async function createGHLOpportunity(contactId: string, data: ContactFormData) {
+  const pipelineId = process.env.GHL_PIPELINE_ID;
+  const pipelineStageId = process.env.GHL_PIPELINE_STAGE_ID;
+  const locationId = process.env.GHL_LOCATION_ID;
+
+  if (!pipelineId || !pipelineStageId) {
+    console.warn('GHL pipeline not configured — skipping opportunity creation');
+    return null;
+  }
+
+  const topicLabel = subjectLabels[data.subject] || data.subject;
+
+  const res = await fetch(`${GHL_BASE_URL}/opportunities/`, {
+    method: 'POST',
+    headers: getGHLHeaders(),
+    body: JSON.stringify({
+      pipelineId,
+      pipelineStageId,
+      locationId,
+      contactId,
+      name: `${topicLabel} — ${data.firstName} ${data.lastName}`,
+      status: 'open',
+    }),
+  });
+
+  if (!res.ok) {
+    const errorBody = await res.text();
+    console.error('Failed to create GHL opportunity:', res.status, errorBody);
+    return null;
+  }
+
+  const result = await res.json();
+  return result.opportunity;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: ContactFormData = await request.json();
@@ -58,104 +160,31 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, errors }, { status: 400 });
     }
 
-    // Format email content
-    const emailContent = {
-      to: 'hello@the168game.com',
-      from: body.email,
-      subject: `[Contact Form] ${subjectLabels[body.subject] || body.subject} - ${body.firstName} ${body.lastName}`,
-      text: `
-New Contact Form Submission
-============================
+    // Check GHL configuration
+    if (!process.env.GHL_API_KEY || !process.env.GHL_LOCATION_ID) {
+      console.error('GHL integration not configured — missing GHL_API_KEY or GHL_LOCATION_ID');
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Something went wrong. Please try again or email us directly.',
+        },
+        { status: 500 }
+      );
+    }
 
-Name: ${body.firstName} ${body.lastName}
-Email: ${body.email}
-Phone: ${body.phone || 'Not provided'}
-Topic: ${subjectLabels[body.subject] || body.subject}
+    // 1. Create or update contact in GHL
+    const contactId = await createOrUpdateGHLContact(body);
 
-Message:
-${body.message}
+    // 2. Create pipeline opportunity
+    await createGHLOpportunity(contactId, body);
 
----
-Sent from The 168 Game website contact form
-      `.trim(),
-      html: `
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: linear-gradient(135deg, #3498db, #1a6fa3); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-    .content { background: #f5f5f5; padding: 20px; border-radius: 0 0 8px 8px; }
-    .field { margin-bottom: 15px; }
-    .label { font-weight: bold; color: #555; }
-    .value { color: #333; }
-    .message-box { background: white; padding: 15px; border-radius: 4px; border-left: 4px solid #3498db; }
-    .footer { margin-top: 20px; font-size: 12px; color: #888; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="margin: 0;">New Contact Form Submission</h1>
-      <p style="margin: 5px 0 0 0; opacity: 0.9;">The 168 Game Website</p>
-    </div>
-    <div class="content">
-      <div class="field">
-        <div class="label">Name</div>
-        <div class="value">${body.firstName} ${body.lastName}</div>
-      </div>
-      <div class="field">
-        <div class="label">Email</div>
-        <div class="value"><a href="mailto:${body.email}">${body.email}</a></div>
-      </div>
-      <div class="field">
-        <div class="label">Phone</div>
-        <div class="value">${body.phone || 'Not provided'}</div>
-      </div>
-      <div class="field">
-        <div class="label">Topic</div>
-        <div class="value">${subjectLabels[body.subject] || body.subject}</div>
-      </div>
-      <div class="field">
-        <div class="label">Message</div>
-        <div class="message-box">${body.message.replace(/\n/g, '<br>')}</div>
-      </div>
-      <div class="footer">
-        Sent from The 168 Game website contact form
-      </div>
-    </div>
-  </div>
-</body>
-</html>
-      `.trim(),
-    };
-
-    // TODO: Integrate with email service
-    // Option 1: Resend (recommended)
-    // npm install resend
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'The 168 Game <noreply@the168game.com>',
-    //   to: emailContent.to,
-    //   replyTo: body.email,
-    //   subject: emailContent.subject,
-    //   text: emailContent.text,
-    //   html: emailContent.html,
-    // });
-
-    // Option 2: SendGrid
-    // npm install @sendgrid/mail
-    // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    // await sgMail.send(emailContent);
-
-    // For now, log the submission (replace with actual email service)
-    console.log('Contact form submission:', {
-      name: `${body.firstName} ${body.lastName}`,
-      email: body.email,
-      phone: body.phone || 'Not provided',
-      subject: subjectLabels[body.subject] || body.subject,
-      message: body.message,
+    // 3. Add a note with the full message to the contact
+    await fetch(`${GHL_BASE_URL}/contacts/${contactId}/notes`, {
+      method: 'POST',
+      headers: getGHLHeaders(),
+      body: JSON.stringify({
+        body: `**Website Contact Form Submission**\n\nTopic: ${subjectLabels[body.subject] || body.subject}\n\nMessage:\n${body.message}`,
+      }),
     });
 
     return NextResponse.json(
