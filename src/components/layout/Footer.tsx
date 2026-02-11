@@ -35,9 +35,9 @@ export default function Footer() {
               <Image
                 src="/images/Logo 1.png"
                 alt="The 168 Game"
-                width={160}
-                height={40}
-                className="h-10 w-auto"
+                width={2792}
+                height={394}
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-[#888888] text-sm leading-relaxed mb-6">
