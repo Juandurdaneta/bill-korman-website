@@ -25,23 +25,23 @@ const chapters = [
 const faqItems = [
   {
     question: '"Is this really free?"',
-    answer: 'Yes. The Time Ownership Playbook is completely free. No credit card required. Just instant digital access.',
+    answer: 'Yes. The book itself is completely free. We just ask you to cover the $5.95 shipping cost so we can send it to your door. No hidden fees, no subscriptions, no upsells.',
   },
   {
-    question: '"Is this a physical workbook or digital?"',
-    answer: "It's a digital workbook you can download immediately and use right away. Print it out or work through it digitally—whatever works best for you.",
+    question: '"Is this a physical book or digital?"',
+    answer: "It's a physical book that we'll ship directly to you. You'll also get instant digital access so you can start reading right away while your copy is in transit.",
   },
   {
-    question: '"How do I access it?"',
-    answer: 'After claiming your copy, you\'ll be redirected to download the workbook instantly. You\'ll also receive an email with the download link.',
+    question: '"How long does shipping take?"',
+    answer: 'US orders typically arrive within 7-10 business days. International orders may take 2-3 weeks depending on your location.',
   },
   {
-    question: '"Will I be charged for anything?"',
-    answer: 'No. The workbook is completely free. No hidden fees. No subscriptions. No credit card required.',
+    question: '"Will I be charged for anything else?"',
+    answer: 'No. You pay $5.95 for shipping and that\'s it. No hidden charges, no recurring fees, no surprise upsells. Ever.',
   },
   {
-    question: '"What if I need help implementing it?"',
-    answer: 'The workbook includes step-by-step instructions and templates. If you want personalized guidance, you can book a strategy call with Bill.',
+    question: '"What if I don\'t like it?"',
+    answer: 'Send it back within 30 days for a full refund of your shipping cost. No questions asked. You can even keep the digital version.',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function FreeBookPage() {
     decreaseStock();
   }, []);
 
-  // Handle CTA click - show modal then redirect to workbook
+  // Handle CTA click - show modal then redirect to checkout
   const handleClaimClick = useCallback(() => {
     setShowModal(true);
     setCheckStage(0);
@@ -200,11 +200,11 @@ export default function FreeBookPage() {
                     </h3>
 
                     <p className="text-white text-lg mb-4">
-                      Your workbook is ready to download
+                      Your copy has been reserved!
                     </p>
 
                     <p className="text-neutral-400">
-                      Opening download link...
+                      Redirecting to checkout...
                     </p>
                   </motion.div>
                 )}
@@ -231,7 +231,7 @@ export default function FreeBookPage() {
               animate={{ scale: 1, color: '#f87171' }}
               className="font-bold text-xl text-red-400"
             >
-              Free Workbook Download Available Now!
+              Free Book — Just Cover $5.95 Shipping!
             </motion.span>
             {justSold && (
               <motion.span
@@ -240,7 +240,7 @@ export default function FreeBookPage() {
                 exit={{ opacity: 0 }}
                 className="text-yellow-400 text-sm font-semibold"
               >
-                — Someone just downloaded!
+                — Someone just claimed a copy!
               </motion.span>
             )}
           </div>
@@ -278,7 +278,7 @@ export default function FreeBookPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold-500/20 to-gold-500/10 border border-gold-500/40 mb-6 shadow-lg shadow-gold-500/10"
               >
                 <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shadow-lg shadow-gold-400/50" />
-                <span className="text-gold-400 text-sm font-semibold">100% FREE - Instant Download</span>
+                <span className="text-gold-400 text-sm font-semibold">FREE + $5.95 Shipping</span>
               </motion.div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
@@ -289,9 +289,9 @@ export default function FreeBookPage() {
               </h1>
 
               <p className="text-lg text-neutral-300 mb-6 leading-relaxed">
-                Download your <span className="text-accent-400 font-bold">FREE</span> copy of{' '}
-                <em className="text-white font-medium">The Time Ownership Playbook</em>
-                {' '}and discover the exact framework that took Bill Korman from bankruptcy to building
+                Get your <span className="text-accent-400 font-bold">FREE</span> copy of{' '}
+                <em className="text-white font-medium">The 168 Game: Time Ownership vs. Time Management</em>
+                {' '}(just cover $5.95 shipping) and discover the exact framework that took Bill Korman from bankruptcy to building
                 multiple 7-figure businesses, without working 80-hour weeks.
               </p>
 
@@ -300,7 +300,7 @@ export default function FreeBookPage() {
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-accent-400 font-semibold flex items-center gap-2">
                     <Package className="w-5 h-5" />
-                    Limited Time Offer — Download Now!
+                    Limited Time Offer — Claim Your Free Copy!
                   </span>
                 </div>
               </div>
@@ -314,7 +314,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Download My Free Workbook Now</span>
+                <span>Yes! Send Me The Book (Just Pay Shipping)</span>
                 <span>→</span>
               </button>
 
@@ -328,6 +328,10 @@ export default function FreeBookPage() {
                   <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-accent-500/20 to-accent-500/10 border border-accent-500/30 text-accent-400 font-medium shadow-lg shadow-accent-500/5">
                     <Star className="w-4 h-4 fill-accent-400" />
                     $50M+ client revenue scaled
+                  </span>
+                  <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/20 to-primary-500/10 border border-primary-500/30 text-primary-400 font-medium shadow-lg shadow-primary-500/5">
+                    <Star className="w-4 h-4 fill-primary-400" />
+                    2,000+ hours reclaimed
                   </span>
                 </div>
               </div>
@@ -456,12 +460,12 @@ export default function FreeBookPage() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 {[
-                  { title: 'The 168-Hour Audit Process', desc: 'Track where your time actually goes versus where you think it goes' },
-                  { title: 'Energy Mapping Method', desc: 'Identify your peak performance windows and stop wasting them on email' },
+                  { title: 'The 168-Hour Audit Process', desc: 'Most entrepreneurs waste 15-20 hours per week without realizing it. This shows you exactly where your time goes' },
+                  { title: 'Energy Mapping Method', desc: 'Identify your peak performance windows and stop wasting them on email and admin work' },
                   { title: 'Revenue Forensics Framework', desc: 'Discover which 20% of your activities drive 80% of your income' },
-                  { title: 'The Priority Decision Matrix', desc: "Know exactly what deserves your time and what's killing your capacity" },
-                  { title: 'Delegation System That Works', desc: 'Stop being the bottleneck. Build teams that execute without you' },
-                  { title: 'CEO Time Architecture Blueprint', desc: "Bill's structure for running multiple 7-figure businesses in under 40 hours" },
+                  { title: 'The Priority Decision Matrix', desc: "Know exactly what deserves your time and what's killing your capacity to scale" },
+                  { title: 'Delegation System That Actually Works', desc: 'Stop being the bottleneck. Build teams that execute without you micromanaging' },
+                  { title: 'CEO Time Architecture Blueprint', desc: "Bill's personal structure for running multiple 7-figure businesses in under 40 hours per week" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -497,7 +501,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Yes! Send Me The Workbook (It's FREE)</span>
+                <span>Yes! Send Me The Book (Just Pay $5.95 Shipping)</span>
                 <span>→</span>
               </button>
             </div>
@@ -564,9 +568,9 @@ export default function FreeBookPage() {
                   {[
                     "You've already built something real but hit a ceiling you can't break through",
                     "You're working harder than ever with less to show for it",
-                    "You know you need a system but don't have time to figure it out",
+                    "You know you need a system but don't have time to figure it out through trial and error",
                     'You value freedom and impact over "looking busy"',
-                    "You're ready to take back ownership of your 168 hours",
+                    "You're ready to take back ownership of your 168 hours before you lose what matters most",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-neutral-300">
                       <div className="w-6 h-6 rounded-full bg-accent-500/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -610,7 +614,7 @@ export default function FreeBookPage() {
                   <span className="text-white font-semibold">Bill Korman</span> is a retired US Navy Chief Petty Officer
                   with 20 years of service, serial entrepreneur, and founder of The 168 Game Framework.
                 </p>
-                <p className="text-white font-semibold text-lg">He's been where you are.</p>
+                <p className="text-white font-semibold text-lg">He&apos;s been where you are.</p>
                 <p>
                   After leaving the military, Bill faced bankruptcy. He was working 80-hour weeks, drowning in
                   reactivity, and had nothing to show for it except exhaustion and debt.
@@ -618,10 +622,13 @@ export default function FreeBookPage() {
                 <p className="text-white font-semibold text-lg">Then he figured out the system.</p>
                 <p>
                   By applying military discipline to entrepreneurial chaos, Bill created The 168 Game—a complete
-                  framework for time ownership.
+                  framework for time ownership. Since then, he&apos;s become a top performer at Patrick Bet-David&apos;s PHP Agency,
+                  managing one of the company&apos;s most prominent offices with 760+ agents, and is the founder/CEO of
+                  multiple 7-figure businesses running simultaneously.
                 </p>
                 <p className="text-accent-400 font-semibold text-lg">
-                  And now, he's giving you the playbook—for free.
+                  Bill doesn&apos;t teach theory. He teaches what works when you&apos;re actually building something real.
+                  And now, he&apos;s giving you the playbook—for free.
                 </p>
               </div>
             </div>
@@ -636,7 +643,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Download My Free Workbook Now</span>
+                <span>Claim My Free Copy Now (Just Pay Shipping)</span>
                 <span>→</span>
               </button>
             </div>
@@ -692,7 +699,7 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
                 }}
               >
-                <span>Send Me The Workbook (It's FREE)</span>
+                <span>Send Me The Book (Just Cover $5.95 Shipping)</span>
                 <span>→</span>
               </button>
             </div>
@@ -732,11 +739,12 @@ export default function FreeBookPage() {
                 >
                   FREE
                 </p>
+                <p className="text-neutral-400 text-sm mt-1">(Just cover $5.95 shipping)</p>
               </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto">
-              Instant digital download — <span className="text-gold-400 font-bold">No shipping required</span>
+            <p className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto">
+              Why am I doing this? Because I know once you read this book and implement the framework, you&apos;ll see results.
             </p>
           </motion.div>
 
@@ -749,14 +757,14 @@ export default function FreeBookPage() {
           >
             <div className="inline-flex items-center gap-3 mb-4">
               <Shield className="w-8 h-8 text-accent-400" />
-              <span className="text-accent-400 text-lg font-bold uppercase tracking-widest">100% Free Access</span>
+              <span className="text-accent-400 text-lg font-bold uppercase tracking-widest">30-Day Guarantee</span>
               <Shield className="w-8 h-8 text-accent-400" />
             </div>
             <p className="text-2xl md:text-3xl text-white font-bold mb-2">
-              Instant download. No credit card required.
+              If you don&apos;t love the book, send it back within 30 days for a full refund of your shipping cost.
             </p>
             <p className="text-xl text-accent-400 font-semibold">
-              Start implementing today — completely free.
+              No questions asked. You literally risk nothing.
             </p>
           </motion.div>
 
@@ -776,7 +784,7 @@ export default function FreeBookPage() {
                 boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
               }}
             >
-              <span>Yes! Send Me The Workbook Now</span>
+              <span>Yes! Send Me The Book Now</span>
               <span>→</span>
             </button>
           </motion.div>
@@ -804,21 +812,25 @@ export default function FreeBookPage() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-red-400 mb-4"
                 style={{ fontFamily: 'Bebas Neue, sans-serif' }}
               >
-                LIMITED TIME FREE OFFER!
+                Fair Warning: We&apos;re Limiting This Offer
               </h2>
 
               <div className="mb-8">
                 <p className="text-2xl md:text-3xl text-white mb-4">
-                  Download The Time Ownership Playbook
+                  We&apos;re only offering the free+shipping deal for the first 300 copies.
                 </p>
-                <p className="text-xl text-accent-400 font-bold">
-                  100% FREE — Instant Digital Access
+                <p className="text-xl text-neutral-300">
+                  After that, the book goes back to full retail price ($20).
                 </p>
               </div>
 
               <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8 max-w-xl mx-auto">
+                <p className="text-lg text-neutral-300 mb-2">
+                  Because shipping physical books at this price is expensive. We&apos;re taking a loss on every copy—but we know
+                  that once you read it and implement the framework, you&apos;ll see the value.
+                </p>
                 <p className="text-xl md:text-2xl text-white font-bold">
-                  This free offer won&apos;t last forever. Download yours before it&apos;s gone!
+                  Don&apos;t wait. Claim yours before they&apos;re gone.
                 </p>
               </div>
 
@@ -831,12 +843,12 @@ export default function FreeBookPage() {
                   boxShadow: '0 4px 30px rgba(126, 211, 33, 0.5)',
                 }}
               >
-                <span>DOWNLOAD MY FREE WORKBOOK NOW</span>
+                <span>Lock In My Free Copy Before They&apos;re Gone</span>
                 <span className="ml-1">→</span>
               </button>
 
               <p className="text-neutral-400 text-sm mt-6">
-                100% Free • No credit card required • Instant digital access
+                Free book • Just $5.95 shipping • 30-day money-back guarantee
               </p>
             </div>
           </div>
@@ -892,30 +904,43 @@ export default function FreeBookPage() {
             </ul>
 
             <p className="text-white font-semibold text-xl md:text-2xl mb-6">
-              You can't get this time back. But you can change what happens next.
+              You can&apos;t get this time back. But you can change what happens next.
             </p>
 
             <p className="text-2xl font-bold mb-8 text-accent-400">
-              Limited time offer — Download yours now!
+              Claim your free copy of The 168 Game right now. Just cover $5.95 shipping and it&apos;s yours.
             </p>
 
             <button
               onClick={handleClaimClick}
-              className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02] mb-8"
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl rounded-lg font-bold transition-all duration-300 hover:scale-[1.02] mb-6"
               style={{
                 background: 'linear-gradient(135deg, #7ED321 0%, #5BA60B 100%)',
                 color: '#000000',
                 boxShadow: '0 4px 20px rgba(126, 211, 33, 0.4)',
               }}
             >
-              <span>Send Me The Workbook (It's FREE)</span>
+              <span>Send Me The Book (Just Pay Shipping)</span>
               <span>→</span>
             </button>
 
-            <p className="text-sm text-neutral-500">
-              <span className="text-neutral-400 font-semibold">Still on the fence?</span> Remember: It's completely free.
-              No credit card. No shipping fees. Just instant access to the framework that works.
+            <p className="text-sm text-neutral-500 mb-8">
+              <span className="text-neutral-400 font-semibold">Still on the fence?</span> Remember: You risk nothing.
+              If you don&apos;t love the book, send it back within 30 days for a full refund. You cannot lose.
             </p>
+
+            <button
+              onClick={handleClaimClick}
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-lg rounded-lg font-bold transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: 'linear-gradient(135deg, #3498db 0%, #1a6fa3 100%)',
+                color: '#ffffff',
+                boxShadow: '0 4px 20px rgba(52, 152, 219, 0.4)',
+              }}
+            >
+              <span>Yes, Send Me The Book Now</span>
+              <span>→</span>
+            </button>
           </motion.div>
         </div>
       </section>
