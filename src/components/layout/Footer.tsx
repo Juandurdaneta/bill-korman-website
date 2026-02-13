@@ -37,7 +37,7 @@ export default function Footer() {
                 alt="The 168 Game"
                 width={2792}
                 height={394}
-                className="h-12 w-auto"
+                className="h-8 w-auto"
               />
             </Link>
             <p className="text-[#888888] text-sm leading-relaxed mb-6">

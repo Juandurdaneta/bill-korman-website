@@ -77,8 +77,8 @@ export default function GroupTraining() {
               <h3 className="text-2xl font-bold text-white mt-2 mb-2">Group Coaching</h3>
 
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-5xl font-bold text-white">$5,000</span>
-                <span className="text-[#888888]">or 3 payments of $1,750</span>
+                <span className="text-5xl font-bold text-white">$7,500</span>
+                <span className="text-[#888888]">or 3 payments of $2,500</span>
               </div>
 
               <p className="text-[#aaaaaa] mb-6 leading-relaxed">

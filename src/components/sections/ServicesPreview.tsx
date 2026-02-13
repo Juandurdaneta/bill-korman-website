@@ -19,7 +19,7 @@ const services = [
     icon: Users,
     title: 'Group Coaching',
     subtitle: '6-Month Program',
-    price: '$5,000',
+    price: '$7,500',
     description: 'Join a small group of 5 driven entrepreneurs mastering The 168 Game with Bill\'s direct guidance, at a fraction of the 1:1 price.',
     bestFor: 'Entrepreneurs who want results with shared energy and accountability',
     highlight: false,
