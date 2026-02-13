@@ -600,7 +600,7 @@ export default function FreeBookPage() {
             </h2>
 
             <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 shrink-0 overflow-hidden relative">
+              <div className="w-64 h-64 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 shrink-0 overflow-hidden relative">
                 <Image
                   src="/images/bill_korman.jpeg"
                   alt="Bill Korman"
@@ -612,7 +612,7 @@ export default function FreeBookPage() {
               <div className="text-neutral-300 space-y-4">
                 <p>
                   <span className="text-white font-semibold">Bill Korman</span> is a retired US Navy Chief Petty Officer
-                  with 20 years of service, serial entrepreneur, and founder of The 168 Game Framework.
+                  with 20 years of service, serial entrepreneur, and creator of <em className="text-white">The 168 Game: Time Ownership vs. Time Management</em>.
                 </p>
                 <p className="text-white font-semibold text-lg">He&apos;s been where you are.</p>
                 <p>
@@ -621,14 +621,17 @@ export default function FreeBookPage() {
                 </p>
                 <p className="text-white font-semibold text-lg">Then he figured out the system.</p>
                 <p>
-                  By applying military discipline to entrepreneurial chaos, Bill created The 168 Game—a complete
-                  framework for time ownership. Since then, he&apos;s become a top performer at Patrick Bet-David&apos;s PHP Agency,
-                  managing one of the company&apos;s most prominent offices with 760+ agents, and is the founder/CEO of
-                  multiple 7-figure businesses running simultaneously.
+                  By applying military time architecture to entrepreneurial chaos, Bill created The 168 Game, a complete
+                  framework for owning your 168 hours instead of being owned by them. Since then, he&apos;s built multiple
+                  7-figure businesses, coached over 1000 entrepreneurs to reclaim their time without sacrificing revenue,
+                  and proven that sustainable success doesn&apos;t require grinding yourself into the ground.
+                </p>
+                <p>
+                  Endorsed by entrepreneur Patrick Bet-David, The 168 Game has become the go-to framework for business
+                  owners hitting revenue ceilings while drowning in chaos.
                 </p>
                 <p className="text-accent-400 font-semibold text-lg">
-                  Bill doesn&apos;t teach theory. He teaches what works when you&apos;re actually building something real.
-                  And now, he&apos;s giving you the playbook—for free.
+                  Bill teaches what works when you&apos;re actually building something real.
                 </p>
               </div>
             </div>
