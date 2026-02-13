@@ -186,19 +186,6 @@ export default function PlaybookForm() {
               20+ hours per week without sacrificing revenue.
             </p>
 
-            {/* Book cover */}
-            <div className="flex justify-center lg:justify-start mb-8">
-              <div className="relative w-[200px] aspect-[3/4] rounded-lg shadow-2xl overflow-hidden">
-                <Image
-                  src="/images/Cover the time ownership .jpg"
-                  alt="The Time Ownership Playbook"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
-              </div>
-            </div>
-
             {/* Value props */}
             <div className="space-y-3">
               <h3 className="text-white font-semibold text-sm uppercase tracking-wide mb-3">
@@ -224,12 +211,25 @@ export default function PlaybookForm() {
             </div>
           </motion.div>
 
-          {/* Right Column - Form */}
+          {/* Right Column - Book Cover + Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
+            {/* Book cover */}
+            <div className="flex justify-center mb-8">
+              <div className="relative w-[200px] aspect-[3/4] rounded-lg shadow-2xl overflow-hidden">
+                <Image
+                  src="/images/Cover the time ownership .jpg"
+                  alt="The Time Ownership Playbook"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
+            </div>
+
             <div className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-[#121218] to-[#0a0a0a] border border-white/5">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-lg bg-[#7ED321]/20 flex items-center justify-center">
