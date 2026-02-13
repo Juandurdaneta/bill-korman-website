@@ -49,7 +49,7 @@ export default function BookPreview({ className = '' }: BookPreviewProps) {
           className="relative w-full h-full rounded-lg overflow-hidden shadow-[0_25px_50px_-12px_rgba(52,152,219,0.5)]"
         >
           <Image
-            src="/images/Cover the time ownership .jpg"
+            src="/images/Front Cover JPEG.jpg"
             alt="The Time Ownership Playbook"
             fill
             className="object-cover object-center"
