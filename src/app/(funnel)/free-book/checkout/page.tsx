@@ -278,7 +278,7 @@ export default function CheckoutPage() {
                 <div className="flex items-start gap-4 mb-6 pb-6 border-b border-neutral-800">
                   <div className="w-16 h-24 flex-shrink-0 rounded overflow-hidden shadow-lg relative">
                     <Image
-                      src="/images/Front Cover JPEG.jpg"
+                      src="/images/front-cover.jpg"
                       alt="The Time Ownership Playbook"
                       fill
                       className="object-cover object-center"
