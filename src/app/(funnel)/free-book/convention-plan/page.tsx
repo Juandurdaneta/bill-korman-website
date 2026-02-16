@@ -19,7 +19,13 @@ export default function ConventionPlanPage() {
   const router = useRouter();
 
   const handleAccept = () => {
-    // Go to next upsell
+    // Save convention payment plan to order
+    const order = JSON.parse(sessionStorage.getItem('funnelOrder') || '{}');
+    const items = order.items || [];
+    items.push({ name: 'Convention Ticket (3-Payment Plan)', price: 997, note: '3 × $332.33' });
+    order.items = items;
+    order.total = (order.total || 0) + 997;
+    sessionStorage.setItem('funnelOrder', JSON.stringify(order));
     router.push('/free-book/mastery');
   };
 

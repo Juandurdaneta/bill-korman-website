@@ -26,6 +26,13 @@ export default function MasteryUpsellPage() {
   const router = useRouter();
 
   const handleAccept = (plan: 'full' | 'payments') => {
+    // Save mastery to order
+    const order = JSON.parse(sessionStorage.getItem('funnelOrder') || '{}');
+    const items = order.items || [];
+    items.push({ name: 'Time Ownership Accelerator (6-Month)', price: 7500, note: plan === 'payments' ? 'Payment plan' : 'Paid in full' });
+    order.items = items;
+    order.total = (order.total || 0) + 7500;
+    sessionStorage.setItem('funnelOrder', JSON.stringify(order));
     router.push('/free-book/workshop');
   };
 

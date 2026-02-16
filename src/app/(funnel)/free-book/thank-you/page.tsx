@@ -1,10 +1,34 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Mail, Clock, Target, Route, ShieldCheck, CalendarCheck } from 'lucide-react';
+import { Check, Clock, Target, Route, ShieldCheck, CalendarCheck, Package, User, MapPin, Mail, Play } from 'lucide-react';
 import Link from 'next/link';
 import FunnelCTA from '@/components/funnel/FunnelCTA';
 import BookPreview from '@/components/funnel/BookPreview';
+
+interface OrderItem {
+  name: string;
+  price: number;
+  note: string;
+}
+
+interface OrderData {
+  items: OrderItem[];
+  shipping: number;
+  total: number;
+}
+
+interface CustomerData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+}
 
 const callBenefits = [
   { icon: Clock, text: 'Pinpoint your biggest time leaks + energy drains' },
@@ -13,6 +37,16 @@ const callBenefits = [
 ];
 
 export default function ThankYouPage() {
+  const [customer, setCustomer] = useState<CustomerData | null>(null);
+  const [order, setOrder] = useState<OrderData | null>(null);
+
+  useEffect(() => {
+    const customerData = sessionStorage.getItem('funnelCustomer');
+    const orderData = sessionStorage.getItem('funnelOrder');
+    if (customerData) setCustomer(JSON.parse(customerData));
+    if (orderData) setOrder(JSON.parse(orderData));
+  }, []);
+
   return (
     <div className="min-h-screen bg-black">
       {/* Success Header */}
@@ -64,6 +98,108 @@ export default function ThankYouPage() {
             <p className="text-accent-400 font-semibold text-xl">
               Taking real action to take back your time.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Order Summary & Customer Info */}
+      {(customer || order) && (
+        <section className="py-16 bg-neutral-950">
+          <div className="max-w-3xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold text-center text-white mb-10" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                Your Order Summary
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Customer Info */}
+                {customer && (
+                  <div className="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
+                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                      <User className="w-5 h-5 text-primary-400" />
+                      Your Information
+                    </h3>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-start gap-2 text-neutral-300">
+                        <User className="w-4 h-4 text-neutral-500 flex-shrink-0 mt-0.5" />
+                        <span>{customer.firstName} {customer.lastName}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-neutral-300">
+                        <Mail className="w-4 h-4 text-neutral-500 flex-shrink-0 mt-0.5" />
+                        <span>{customer.email}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-neutral-300">
+                        <MapPin className="w-4 h-4 text-neutral-500 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <p>{customer.address}</p>
+                          <p>{customer.city}, {customer.state} {customer.zip}</p>
+                          <p>{customer.country}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Order Items */}
+                {order && (
+                  <div className="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
+                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                      <Package className="w-5 h-5 text-accent-400" />
+                      Items Ordered
+                    </h3>
+                    <div className="space-y-3">
+                      {order.items.map((item, index) => (
+                        <div key={index} className="flex items-start justify-between text-sm pb-3 border-b border-neutral-800 last:border-0 last:pb-0">
+                          <div>
+                            <p className="text-white">{item.name}</p>
+                            {item.note && <p className="text-xs text-neutral-500">{item.note}</p>}
+                          </div>
+                          <span className={item.price === 0 ? 'text-accent-400 font-semibold' : 'text-white font-semibold'}>
+                            {item.price === 0 ? 'FREE' : `$${item.price.toFixed(2)}`}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-neutral-800 space-y-2 text-sm">
+                      <div className="flex justify-between text-neutral-400">
+                        <span>Shipping</span>
+                        <span>${order.shipping.toFixed(2)}</span>
+                      </div>
+                      <div className="flex justify-between text-white font-bold text-base">
+                        <span>Total</span>
+                        <span>${order.total.toFixed(2)}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Video Section */}
+      <section className="py-16">
+        <div className="max-w-3xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video bg-neutral-900/50 border border-neutral-800 rounded-2xl overflow-hidden flex items-center justify-center">
+              {/* Placeholder - replace src with actual video URL */}
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-primary-500/20 flex items-center justify-center mx-auto mb-4">
+                  <Play className="w-10 h-10 text-primary-400 ml-1" />
+                </div>
+                <p className="text-neutral-500 text-sm">Video coming soon</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

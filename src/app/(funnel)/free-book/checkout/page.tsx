@@ -33,6 +33,28 @@ export default function CheckoutPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Save customer info and order to sessionStorage
+    const orderItems = [
+      { name: 'The 168 Game (Book)', price: 0, note: 'Free + $5.95 shipping' },
+    ];
+    if (orderBump) {
+      orderItems.push({ name: 'Quick Start Implementation Guide', price: bumpPrice, note: '' });
+    }
+    sessionStorage.setItem('funnelCustomer', JSON.stringify({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      address: formData.address,
+      city: formData.city,
+      state: formData.state,
+      zip: formData.zip,
+      country: formData.country,
+    }));
+    sessionStorage.setItem('funnelOrder', JSON.stringify({
+      items: orderItems,
+      shipping: basePrice,
+      total: total,
+    }));
     // Mock checkout - redirect to first upsell
     router.push('/free-book/convention');
   };

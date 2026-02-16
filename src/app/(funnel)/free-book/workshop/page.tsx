@@ -19,7 +19,13 @@ export default function WorkshopUpsellPage() {
   const router = useRouter();
 
   const handleAccept = () => {
-    // Go to thank you page
+    // Save workshop to order
+    const order = JSON.parse(sessionStorage.getItem('funnelOrder') || '{}');
+    const items = order.items || [];
+    items.push({ name: 'New Year Time Audit Workshop', price: 97, note: '' });
+    order.items = items;
+    order.total = (order.total || 0) + 97;
+    sessionStorage.setItem('funnelOrder', JSON.stringify(order));
     router.push('/free-book/thank-you');
   };
 

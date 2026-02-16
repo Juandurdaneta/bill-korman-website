@@ -21,7 +21,13 @@ export default function CourseDownsellPage() {
   const router = useRouter();
 
   const handleAccept = () => {
-    // Go to workshop upsell
+    // Save course to order
+    const order = JSON.parse(sessionStorage.getItem('funnelOrder') || '{}');
+    const items = order.items || [];
+    items.push({ name: 'On-Demand Mastery Course', price: 497, note: '' });
+    order.items = items;
+    order.total = (order.total || 0) + 497;
+    sessionStorage.setItem('funnelOrder', JSON.stringify(order));
     router.push('/free-book/workshop');
   };
 
