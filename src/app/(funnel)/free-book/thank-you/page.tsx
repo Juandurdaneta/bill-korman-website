@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Clock, Target, Route, ShieldCheck, CalendarCheck, Package, User, MapPin, Mail, Play } from 'lucide-react';
+import { Check, Clock, Target, Route, ShieldCheck, CalendarCheck, Package, User, MapPin, Mail, Play, Truck } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import FunnelCTA from '@/components/funnel/FunnelCTA';
-import BookPreview from '@/components/funnel/BookPreview';
 
 interface OrderItem {
   name: string;
@@ -51,7 +51,7 @@ export default function ThankYouPage() {
     <div className="min-h-screen bg-black">
       {/* Success Header */}
       <div className="bg-accent-500 py-4">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 text-black font-bold">
             <Check className="w-6 h-6" />
             <span>Order Confirmed!</span>
@@ -59,132 +59,180 @@ export default function ThankYouPage() {
         </div>
       </div>
 
-      {/* Hero */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      {/* Hero: Confirmation + Two-Column Layout */}
+      <section className="py-12 md:py-20">
+        <div className="max-w-5xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="w-20 h-20 rounded-full bg-accent-500/20 flex items-center justify-center mx-auto mb-8">
-              <Check className="w-10 h-10 text-accent-400" />
+            {/* Centered Heading */}
+            <div className="text-center mb-10">
+              <div className="w-16 h-16 rounded-full bg-accent-500/20 flex items-center justify-center mx-auto mb-6">
+                <Check className="w-8 h-8 text-accent-400" />
+              </div>
+
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                Your Book Is On Its Way!
+              </h1>
+
+              <p className="text-xl text-accent-400 font-semibold mb-6">
+                Your Time Ownership Journey Has Officially Begun.
+              </p>
+
+              <p className="text-lg text-neutral-300 mb-3 max-w-2xl mx-auto">
+                You&apos;ll receive a confirmation email shortly with tracking info and access to any digital bonuses you added to your order.
+              </p>
+
+              <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
+                In just a few days, you&apos;ll hold the exact framework that&apos;s helped 10,000+ entrepreneurs
+                reclaim thousands of hours and scale with clarity, not chaos.
+              </p>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-              Your Book Is On Its Way!
-            </h1>
-
-            <p className="text-xl text-accent-400 font-semibold mb-6">
-              Your Time Ownership Journey Has Officially Begun.
-            </p>
-
-            <p className="text-lg text-neutral-300 mb-4 max-w-2xl mx-auto">
-              You&apos;ll receive a confirmation email shortly with tracking info and access to any digital bonuses you added to your order.
-            </p>
-
-            <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
-              In just a few days, you&apos;ll hold the exact framework that&apos;s helped 10,000+ entrepreneurs
-              reclaim thousands of hours and scale with clarity, not chaos.
-            </p>
-
-            {/* Book Preview */}
-            <div className="mb-12">
-              <BookPreview className="scale-75" />
-            </div>
-
-            <p className="text-white font-semibold text-lg mb-4">
-              You&apos;ve already done what most business owners never do:
-            </p>
-            <p className="text-accent-400 font-semibold text-xl">
-              Taking real action to take back your time.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Order Summary & Customer Info */}
-      {(customer || order) && (
-        <section className="py-16 bg-neutral-950">
-          <div className="max-w-3xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-center text-white mb-10" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
-                Your Order Summary
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Customer Info */}
-                {customer && (
-                  <div className="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
-                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+            {/* Two-Column: Summary Left / Book + Items Right */}
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              {/* Left Column: Customer Summary */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                {customer ? (
+                  <div className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 md:p-8">
+                    <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                       <User className="w-5 h-5 text-primary-400" />
-                      Your Information
+                      Shipping Details
                     </h3>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex items-start gap-2 text-neutral-300">
-                        <User className="w-4 h-4 text-neutral-500 flex-shrink-0 mt-0.5" />
-                        <span>{customer.firstName} {customer.lastName}</span>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 text-neutral-300">
+                        <User className="w-4 h-4 text-neutral-500 flex-shrink-0" />
+                        <span className="text-white font-medium">{customer.firstName} {customer.lastName}</span>
                       </div>
-                      <div className="flex items-start gap-2 text-neutral-300">
-                        <Mail className="w-4 h-4 text-neutral-500 flex-shrink-0 mt-0.5" />
+                      <div className="flex items-center gap-3 text-neutral-300">
+                        <Mail className="w-4 h-4 text-neutral-500 flex-shrink-0" />
                         <span>{customer.email}</span>
                       </div>
-                      <div className="flex items-start gap-2 text-neutral-300">
+                      <div className="flex items-start gap-3 text-neutral-300">
                         <MapPin className="w-4 h-4 text-neutral-500 flex-shrink-0 mt-0.5" />
                         <div>
                           <p>{customer.address}</p>
                           <p>{customer.city}, {customer.state} {customer.zip}</p>
-                          <p>{customer.country}</p>
+                          <p className="text-neutral-500">{customer.country}</p>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
 
-                {/* Order Items */}
-                {order && (
-                  <div className="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
-                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
-                      <Package className="w-5 h-5 text-accent-400" />
-                      Items Ordered
+                    <div className="mt-6 pt-5 border-t border-neutral-800">
+                      <div className="flex items-center gap-2 text-sm text-accent-400">
+                        <Truck className="w-4 h-4" />
+                        <span>Estimated delivery: 5-7 business days</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 md:p-8">
+                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                      <Truck className="w-5 h-5 text-primary-400" />
+                      Shipping Details
                     </h3>
-                    <div className="space-y-3">
-                      {order.items.map((item, index) => (
-                        <div key={index} className="flex items-start justify-between text-sm pb-3 border-b border-neutral-800 last:border-0 last:pb-0">
-                          <div>
-                            <p className="text-white">{item.name}</p>
-                            {item.note && <p className="text-xs text-neutral-500">{item.note}</p>}
-                          </div>
-                          <span className={item.price === 0 ? 'text-accent-400 font-semibold' : 'text-white font-semibold'}>
-                            {item.price === 0 ? 'FREE' : `$${item.price.toFixed(2)}`}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-neutral-800 space-y-2 text-sm">
-                      <div className="flex justify-between text-neutral-400">
-                        <span>Shipping</span>
-                        <span>${order.shipping.toFixed(2)}</span>
-                      </div>
-                      <div className="flex justify-between text-white font-bold text-base">
-                        <span>Total</span>
-                        <span>${order.total.toFixed(2)}</span>
-                      </div>
-                    </div>
+                    <p className="text-neutral-400 text-sm">
+                      Check your email for shipping confirmation and tracking information.
+                    </p>
                   </div>
                 )}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
+              </motion.div>
+
+              {/* Right Column: Book Image + Items */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-6 md:p-8">
+                  {/* Book Image */}
+                  <div className="flex justify-center mb-6">
+                    <div className="relative w-40 h-56 rounded-lg overflow-hidden shadow-2xl shadow-accent-500/10">
+                      <Image
+                        src="/images/front-cover.jpg"
+                        alt="The 168 Game Book"
+                        fill
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Items */}
+                  <h3 className="text-xl font-bold text-white mb-5 flex items-center gap-3" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                    <Package className="w-5 h-5 text-accent-400" />
+                    Items Ordered
+                  </h3>
+
+                  {order ? (
+                    <>
+                      <div className="space-y-3">
+                        {order.items.map((item, index) => (
+                          <div key={index} className="flex items-start justify-between text-sm pb-3 border-b border-neutral-800 last:border-0 last:pb-0">
+                            <div>
+                              <p className="text-white">{item.name}</p>
+                              {item.note && <p className="text-xs text-neutral-500 mt-0.5">{item.note}</p>}
+                            </div>
+                            <span className={`flex-shrink-0 ml-4 ${item.price === 0 ? 'text-accent-400 font-semibold' : 'text-white font-semibold'}`}>
+                              {item.price === 0 ? 'FREE' : `$${item.price.toFixed(2)}`}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 pt-4 border-t border-neutral-700 space-y-2 text-sm">
+                        <div className="flex justify-between text-neutral-400">
+                          <span>Shipping &amp; Handling</span>
+                          <span>${order.shipping.toFixed(2)}</span>
+                        </div>
+                        <div className="flex justify-between text-white font-bold text-lg pt-2">
+                          <span>Total</span>
+                          <span>${order.total.toFixed(2)}</span>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between text-sm">
+                        <p className="text-white">The 168 Game (Book)</p>
+                        <span className="text-accent-400 font-semibold ml-4">FREE</span>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-neutral-700 text-sm">
+                        <div className="flex justify-between text-neutral-400">
+                          <span>Shipping &amp; Handling</span>
+                          <span>$5.95</span>
+                        </div>
+                        <div className="flex justify-between text-white font-bold text-lg pt-2">
+                          <span>Total</span>
+                          <span>$5.95</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Motivational text below the two columns */}
+            <div className="text-center mt-12">
+              <p className="text-white font-semibold text-lg mb-4">
+                You&apos;ve already done what most business owners never do:
+              </p>
+              <p className="text-accent-400 font-semibold text-xl">
+                Taking real action to take back your time.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Video Section */}
-      <section className="py-16">
+      <section className="py-16 bg-neutral-950">
         <div className="max-w-3xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -192,7 +240,7 @@ export default function ThankYouPage() {
             viewport={{ once: true }}
           >
             <div className="relative aspect-video bg-neutral-900/50 border border-neutral-800 rounded-2xl overflow-hidden flex items-center justify-center">
-              {/* Placeholder - replace src with actual video URL */}
+              {/* Placeholder - replace with actual video */}
               <div className="text-center">
                 <div className="w-20 h-20 rounded-full bg-primary-500/20 flex items-center justify-center mx-auto mb-4">
                   <Play className="w-10 h-10 text-primary-400 ml-1" />
@@ -205,7 +253,7 @@ export default function ThankYouPage() {
       </section>
 
       {/* Strategy Call CTA */}
-      <section className="py-16 bg-neutral-950">
+      <section className="py-16">
         <div className="max-w-3xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
