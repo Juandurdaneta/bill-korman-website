@@ -76,17 +76,8 @@ export default function ThankYouPage() {
                 Your Book Is On Its Way!
               </h1>
 
-              <p className="text-xl text-accent-400 font-semibold mb-6">
+              <p className="text-xl text-accent-400 font-semibold">
                 Your Time Ownership Journey Has Officially Begun.
-              </p>
-
-              <p className="text-lg text-neutral-300 mb-3 max-w-2xl mx-auto">
-                You&apos;ll receive a confirmation email shortly with tracking info and access to any digital bonuses you added to your order.
-              </p>
-
-              <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
-                In just a few days, you&apos;ll hold the exact framework that&apos;s helped 10,000+ entrepreneurs
-                reclaim thousands of hours and scale with clarity, not chaos.
               </p>
             </div>
 
@@ -218,8 +209,19 @@ export default function ThankYouPage() {
               </motion.div>
             </div>
 
-            {/* Motivational text below the two columns */}
-            <div className="text-center mt-12">
+            {/* Confirmation text below the order summary */}
+            <div className="text-center mt-12 max-w-2xl mx-auto">
+              <p className="text-lg text-neutral-300 mb-3">
+                You&apos;ll receive a confirmation email shortly with tracking info and access to any digital bonuses you added to your order.
+              </p>
+              <p className="text-lg text-neutral-300">
+                In just a few days, you&apos;ll hold the exact framework that&apos;s helped 10,000+ entrepreneurs
+                reclaim thousands of hours and scale with clarity, not chaos.
+              </p>
+            </div>
+
+            {/* Motivational text */}
+            <div className="text-center mt-10">
               <p className="text-white font-semibold text-lg mb-4">
                 You&apos;ve already done what most business owners never do:
               </p>
