@@ -1,39 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Video } from 'lucide-react';
 import SectionTitle from '@/components/ui/SectionTitle';
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: {
-        url: string;
-        parentElement: Element;
-      }) => void;
-    };
-  }
-}
+const BOOKING_URL = 'https://link.builderspro.io/widget/booking/PsfkK0MwvfbnVjz7SbgF';
 
 export default function CalendlySection() {
-  useEffect(() => {
-    // Load Calendly widget script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector(
-        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
-      );
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
-  }, []);
 
   return (
     <section id="calendly" className="relative py-24 bg-[#121218] overflow-hidden">
@@ -84,15 +57,11 @@ export default function CalendlySection() {
           className="max-w-4xl mx-auto"
         >
           <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a]">
-            {/*
-              Calendly inline widget
-              Replace the URL with Bill Korman's actual Calendly link
-              The URL parameters customize the widget to match the site's dark theme
-            */}
-            <div
-              className="calendly-inline-widget"
-              data-url="https://calendly.com/your-calendly-link/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=3498db"
-              style={{ minWidth: '320px', height: '700px' }}
+            <iframe
+              src={BOOKING_URL}
+              title="Book a Call with Bill Korman"
+              style={{ width: '100%', height: '700px', border: 'none' }}
+              allow="payment"
             />
           </div>
         </motion.div>
