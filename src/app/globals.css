@@ -334,13 +334,32 @@ h1, h2, h3, .display-font {
   animation: gradient-x 3s ease infinite;
 }
 
+/* Infinite scroll carousel */
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-x {
+  animation: scroll-x 30s linear infinite;
+}
+
+.animate-scroll-x:hover {
+  animation-play-state: paused;
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   .animate-aurora-1,
   .animate-aurora-2,
   .animate-aurora-3,
-  .animate-gradient-x {
+  .animate-gradient-x,
+  .animate-scroll-x {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
