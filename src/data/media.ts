@@ -45,14 +45,14 @@ export const articles: MediaItem[] = [
   {
     title: "The Most Effective Executives Don't Manage Time, They Command It",
     source: 'Chief Executive',
-    logoUrl: 'https://i.ibb.co/5HGJ0Stv/image.png',
+    logoUrl: 'https://i.ibb.co/5HGJ0St/image.png',
     articleUrl: 'https://chiefexecutive.net/the-most-effective-executives-dont-manage-time-they-command-it/',
     type: 'article',
   },
   {
     title: "Poor time management isn't just an inconvenience",
     source: 'The Week',
-    logoUrl: 'https://i.ibb.co/5HGJ0Stv/image.png',
+    logoUrl: 'https://i.ibb.co/5HGJ0St/image.png',
     articleUrl: 'https://theweek.com/politics/instant-opinion-time-analog-crime-elections-voting',
     type: 'article',
   },
