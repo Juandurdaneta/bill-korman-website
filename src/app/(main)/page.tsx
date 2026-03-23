@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/Hero';
 import ProvenResults from '@/components/sections/ProvenResults';
+import LogoCarousel from '@/components/sections/LogoCarousel';
 import Problem from '@/components/sections/Problem';
 import Solution from '@/components/sections/Solution';
 import Warning from '@/components/sections/Warning';
@@ -15,6 +16,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ProvenResults />
+      <LogoCarousel />
       <Problem />
       <Solution />
       <Warning />
