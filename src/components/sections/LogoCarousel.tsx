@@ -24,8 +24,7 @@ export default function LogoCarousel() {
           transition={{ duration: 0.6 }}
         >
           <SectionTitle
-            eyebrow="As Seen In"
-            title="Featured In Major Media"
+            title="As Seen In"
           />
         </motion.div>
       </div>
