@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { articles } from '@/data/media';
 import SectionTitle from '../ui/SectionTitle';
 
-// Deduplicate logos by source name
+// Deduplicate logos by image URL so identical logos don't appear side by side
 const uniqueLogos = articles.filter(
-  (item, index, self) => self.findIndex((t) => t.source === item.source) === index
+  (item, index, self) => self.findIndex((t) => t.logoUrl === item.logoUrl) === index
 );
 
 // Double the array for seamless infinite scroll
