@@ -15,8 +15,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ProvenResults />
       <LogoCarousel />
+      <ProvenResults />
       <Problem />
       <Solution />
       <Warning />
