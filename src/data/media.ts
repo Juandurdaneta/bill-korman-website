@@ -77,6 +77,13 @@ export const articles: MediaItem[] = [
     articleUrl: 'https://economictimes.indiatimes.com/news/international/us/rising-oil-prices-may-lead-to-bigger-social-security-checks-heres-why/articleshow/129506766.cms',
     type: 'article',
   },
+  {
+    title: 'Stop telling people to skip the latte this Financial Literacy Month',
+    source: 'PennLive',
+    logoUrl: 'https://i.ibb.co/tM4HnKg1/image.png',
+    articleUrl: 'https://www.pennlive.com/opinion/2026/04/stop-telling-people-to-skip-the-latte-this-financial-literacy-month-opinion.html',
+    type: 'article',
+  },
 ];
 
 export const podcasts: MediaItem[] = [
