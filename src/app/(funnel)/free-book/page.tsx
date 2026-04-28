@@ -356,6 +356,41 @@ export default function FreeBookPage() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
+        <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-primary-500/10 blur-3xl rounded-full" />
+        <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10 blur-3xl rounded-full" />
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+              <span className="text-white">Watch Bill Explain </span>
+              <span style={{ color: '#7ED321' }}>The 168 Game</span>
+            </h2>
+            <p className="text-center text-neutral-400 mb-10">
+              See the framework in action — straight from the author.
+            </p>
+
+            <div className="relative rounded-2xl overflow-hidden border border-primary-500/30 shadow-2xl shadow-primary-500/10 bg-neutral-900">
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/gsJQUJonUKY"
+                  title="The 168 Game — Bill Korman"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Problem Section */}
       <section className="relative py-20 bg-neutral-950 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
