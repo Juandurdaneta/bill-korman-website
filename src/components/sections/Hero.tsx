@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Clock, Play } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import Button from '../ui/Button';
 import AuroraBackground from '../ui/AuroraBackground';
 import BlurText from '../ui/BlurText';
@@ -87,18 +87,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#0d0d14] border border-white/10 aspect-video">
-              {/* Video placeholder - replace src with actual video */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                <motion.button
-                  className="w-20 h-20 rounded-full bg-gradient-to-br from-[#7ED321] to-[#27ae60] flex items-center justify-center shadow-[0_0_40px_rgba(126,211,33,0.4)] cursor-pointer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Play className="w-8 h-8 text-black ml-1" fill="currentColor" />
-                </motion.button>
-              </div>
-              {/* Placeholder image/thumbnail */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#3498db]/20 to-[#7ED321]/10" />
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/8owXaRIEgsE"
+                title="Bill Korman - The 168 Game"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
 
             {/* Floating badge */}
