@@ -191,7 +191,7 @@ export default function WorkshopUpsellPage() {
               </p>
               <p className="text-lg text-neutral-300 mb-4">
                 You can want $2 million in revenue. You can want to be at every one of your kid&apos;s games.
-                You can want to train five times a week.
+                You{'\u00A0'}can want to train five times a week.
               </p>
               <p className="text-lg text-neutral-300 mb-4">
                 But if you don&apos;t know where the hours are coming from, none of it happens.
@@ -484,7 +484,7 @@ export default function WorkshopUpsellPage() {
 
             <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto">
               That&apos;s enough time to break through your revenue ceiling, reclaim your health,
-              show up for your family, and prove you can build wealth without sacrifice.
+              show{'\u00A0'}up for your family, and prove you can build wealth without sacrifice.
             </p>
 
             <p className="text-xl text-white font-semibold mb-10">
