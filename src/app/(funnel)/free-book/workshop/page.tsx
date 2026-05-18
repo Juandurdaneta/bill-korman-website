@@ -86,6 +86,9 @@ const includedItems = [
   },
 ];
 
+const EVENTBRITE_URL =
+  'https://www.eventbrite.com/e/the-second-quarter-comeback-build-your-plan-to-get-back-on-track-tickets-1989181998906?aff=oddtdtcreator';
+
 const lostItems = [
   'At your earning rate, that\u2019s thousands of dollars in lost opportunity.',
   'Your kids got 4 months older and you still weren\u2019t there for the moments.',
@@ -133,13 +136,7 @@ export default function WorkshopUpsellPage() {
   const router = useRouter();
 
   const handleAccept = () => {
-    const order = JSON.parse(sessionStorage.getItem('funnelOrder') || '{}');
-    const items = order.items || [];
-    items.push({ name: 'The Second Quarter Comeback Workshop', price: 97, note: '' });
-    order.items = items;
-    order.total = (order.total || 0) + 97;
-    sessionStorage.setItem('funnelOrder', JSON.stringify(order));
-    router.push('/free-book/thank-you');
+    window.location.href = EVENTBRITE_URL;
   };
 
   const handleDecline = () => {
